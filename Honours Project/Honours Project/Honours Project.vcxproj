@@ -131,6 +131,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="loadTexture.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="md2model.cpp" />
@@ -145,6 +146,7 @@
     <ClInclude Include="anorms.h" />
     <ClInclude Include="bass.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="loadTexture.h" />
     <ClInclude Include="md2model.h" />
     <ClInclude Include="Move.h" />

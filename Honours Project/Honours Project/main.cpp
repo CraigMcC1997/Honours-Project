@@ -1,28 +1,29 @@
 #pragma once
-#include "Window.h"
+#include "Game.h"
 
 #if _DEBUG
 #pragma comment(linker, "/subsystem:\"console\" /entry:\"WinMainCRTStartup\"")
 #endif
 
-Window* hWindow;
+Game* game;
 
 void init(void)
 {
-
+	game = new Game();
+	game->init();
 }
 
 void update(void)
 {
-
+	game->update();
 }
 
 void draw(SDL_Window* window)
 {
-
+	game->draw(window);
 }
 
-void clean(SDL_GLContext glContext)
+void clean(SDL_GLContext glContext, Window* hWindow)
 {
 	//BASS_Free();
 	SDL_GL_DeleteContext(glContext);
@@ -36,6 +37,7 @@ int main(int argc, char* argv[])
 	SDL_GLContext glContext; // OpenGL context handle
 	SDL_Event sdlEvent;  // variable to detect SDL events
 
+	Window* hWindow;
 	hWindow = new Window(800, 600, "Introduction Screen");
 
 	hWindow->setupRC(glContext);
@@ -54,6 +56,6 @@ int main(int argc, char* argv[])
 		draw(hWindow->getWindow());
 	}
 
-	clean(glContext);
+	clean(glContext, hWindow);
 	return 0;
 }
