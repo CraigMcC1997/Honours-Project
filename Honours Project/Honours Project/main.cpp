@@ -44,7 +44,6 @@ int main(int argc, char* argv[])
 
 	init();
 
-	cout << glGetString(GL_VERSION) << endl;
 	bool running = true;
 	while (running) {	// the event loop
 		while (SDL_PollEvent(&sdlEvent)) {
