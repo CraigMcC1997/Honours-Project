@@ -20,6 +20,9 @@
 class Game
 {
 private:
+	//Position
+	glm::vec3 position = glm::vec3(0, 0, 0);
+
 	//shader variables
 	GLuint shaderProgram;
 	GLuint textures[1];
@@ -30,7 +33,7 @@ private:
 	{1.0f, 1.0f, 1.0f, 1.0f}, // specular
 	{-5.0f, 2.0f, 2.0f, 1.0f}  // position
 	};
-	glm::vec4 lightPos = glm::vec4(-5.0f, 2.0f, 2.0f, 1.0f); //light position
+	glm::vec4 lightPos = glm::vec4(1.0f, 2.0f, 2.0f, 1.0f); //light position
 
 	rt3d::materialStruct material0 = {
 		{0.2f, 0.4f, 0.2f, 1.0f}, // ambient
@@ -52,6 +55,7 @@ private:
 
 public:
 	void init();
-	void update();
+	void update(SDL_Event sdlEvent);
 	void draw(SDL_Window* window);
+	void setPosition(glm::vec3);
 };

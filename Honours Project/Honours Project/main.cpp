@@ -13,9 +13,9 @@ void init(void)
 	game->init();
 }
 
-void update(void)
+void update(SDL_Event sdlEvent)
 {
-	game->update();
+	game->update(sdlEvent);
 }
 
 void draw(SDL_Window* window)
@@ -61,7 +61,7 @@ int main(int argc, char* argv[])
 			if (sdlEvent.type == SDL_QUIT)
 				running = false;
 		}
-		update();
+		update(sdlEvent);
 		draw(hWindow->getWindow());
 	}
 

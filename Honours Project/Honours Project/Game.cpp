@@ -2,7 +2,7 @@
 
 void Game::init()
 {
-	shaderProgram = rt3d::initShaders("../Resources/Shaders/phong.vert", "../Resources/Shaders/phong.frag");	//initialising the chosen shaders
+	shaderProgram = rt3d::initShaders("../Resources/Shaders/textured.vert", "../Resources/Shaders/textured.frag");	//initialising the chosen shaders
 
 	textures[0] = loadTexture::loadTextures("../Resources/Textures/fabric.bmp");
 
@@ -18,9 +18,32 @@ void Game::init()
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
-void Game::update()
+void Game::setPosition(glm::vec3 newPos)
 {
+	position = newPos;
+}
 
+void Game::update(SDL_Event sdlEvent)
+{
+	const Uint8* keys = SDL_GetKeyboardState(NULL);
+
+	if (keys[SDL_SCANCODE_A]) {
+		setPosition(Move::moveZ(position, Move::getRotation(), -0.2));
+	}
+
+	if (keys[SDL_SCANCODE_D]) {
+		setPosition(Move::moveZ(position, Move::getRotation(), 0.2));
+	}
+
+	if (keys[SDL_SCANCODE_W]) {
+		setPosition(Move::moveX(position, Move::getRotation(), 0.2));
+	}
+
+	if (keys[SDL_SCANCODE_S]) {
+		setPosition(Move::moveX(position, Move::getRotation(), -0.2));
+	}
+
+	camera::setEye(position);
 }
 
 void Game::draw(SDL_Window* window)
@@ -36,11 +59,11 @@ void Game::draw(SDL_Window* window)
 	stack<glm::mat4> mvStack;
 	mvStack.push(modelview);
 
-	glm::mat4 tmp = mvStack.top();
+	glm::vec4 tmp = mvStack.top() *lightPos;
 	rt3d::setLightPos(shaderProgram, glm::value_ptr(tmp));
 
 	//camera set up
-	camera::setAt(Move::moveForward(camera::getEye(), Move::getRotation(), 1.0f));
+	camera::setAt(Move::moveX(camera::getEye(), Move::getRotation(), 1.0f));
 	mvStack.top() = glm::lookAt(camera::getEye(), camera::getAt(), camera::getUp());
 
 	//draw here
@@ -50,7 +73,7 @@ void Game::draw(SDL_Window* window)
 	mvStack.push(mvStack.top());
 	mvStack.top() = glm::translate(mvStack.top(), glm::vec3(0,0,0));
 	//mvStack.top() = glm::rotate(mvStack.top(), float(90.0f * DEG_TO_RADIAN), glm::vec3(0.0f, 1.0f, 0.0f));
-	mvStack.top() = glm::scale(mvStack.top(), glm::vec3(0, 0, 0));
+	mvStack.top() = glm::scale(mvStack.top(), glm::vec3(1.5f, 1.5f, 1.5f));
 	rt3d::setUniformMatrix4fv(shaderProgram, "projection", glm::value_ptr(projection));
 	rt3d::setUniformMatrix4fv(shaderProgram, "modelview", glm::value_ptr(mvStack.top()));
 	rt3d::setMaterial(shaderProgram, material0);
@@ -58,7 +81,8 @@ void Game::draw(SDL_Window* window)
 	mvStack.pop();
 
 	mvStack.pop();
-	glDepthMask(GL_TRUE);
 
 	SDL_GL_SwapWindow(window); // swap buffers
 }
+
+

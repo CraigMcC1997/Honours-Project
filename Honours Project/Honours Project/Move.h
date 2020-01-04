@@ -13,12 +13,8 @@ using namespace std;
 
 namespace Move
 {
-	glm::vec3 moveForward(glm::vec3 pos, GLfloat angle, GLfloat d);
 	glm::vec3 moveZ(glm::vec3 pos, GLfloat angle, GLfloat d);
-	glm::vec3 grav(glm::vec3 pos);
-	void setGrav(float);
+	glm::vec3 moveX(glm::vec3 pos, GLfloat angle, GLfloat d);
 	const GLfloat getRotation();
-	glm::vec3 jump(glm::vec3);
-	void resetV();
 };
 #endif
