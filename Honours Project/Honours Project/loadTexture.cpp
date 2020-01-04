@@ -42,40 +42,40 @@ namespace loadTexture {
 		return texID;	// return value of texture ID
 	}
 
-	// textToTexture
-	GLuint textToTexture(const char * str, GLuint textID, SDL_Color colour, TTF_Font* textFont) {
-		GLuint texture = textID;
-		TTF_Font * font = textFont;
+	//// textToTexture
+	//GLuint textToTexture(const char * str, GLuint textID, SDL_Color colour, TTF_Font* textFont) {
+	//	GLuint texture = textID;
+	//	TTF_Font * font = textFont;
 
-		SDL_Surface * stringImage = TTF_RenderText_Blended(font, str, colour);
+	//	SDL_Surface * stringImage = TTF_RenderText_Blended(font, str, colour);
 
-		if (stringImage == NULL) {
-			std::cout << "String surface not created." << std::endl;
-		}
+	//	if (stringImage == NULL) {
+	//		std::cout << "String surface not created." << std::endl;
+	//	}
 
-		if (texture == 0) {
-			glGenTextures(1, &texture);
-		}
+	//	if (texture == 0) {
+	//		glGenTextures(1, &texture);
+	//	}
 
-		glBindTexture(GL_TEXTURE_2D, texture);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, stringImage->w, stringImage->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, stringImage->pixels);
-		glBindTexture(GL_TEXTURE_2D, NULL);
+	//	glBindTexture(GL_TEXTURE_2D, texture);
+	//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	//	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, stringImage->w, stringImage->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, stringImage->pixels);
+	//	glBindTexture(GL_TEXTURE_2D, NULL);
 
-		SDL_FreeSurface(stringImage);
-		return texture;
-	}
+	//	SDL_FreeSurface(stringImage);
+	//	return texture;
+	//}
 
-	//clearing the labels text to texture
-	void clearTextTexture(GLuint textID) 
-	{
-		if (textID != NULL) {
-			glDeleteTextures(1, &textID);
-		}
-	}
+	////clearing the labels text to texture
+	//void clearTextTexture(GLuint textID) 
+	//{
+	//	if (textID != NULL) {
+	//		glDeleteTextures(1, &textID);
+	//	}
+	//}
 
 	GLuint loadCubeMap(const char *fname[6], GLuint *texID)
 	{
