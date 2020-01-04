@@ -76,12 +76,12 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Dev\SDL2-2.0.10\include;C:\Dev\SDL2_ttf-2.0.14;C:\Dev\SDL2_image-2.0.5\include;C:\Dev\glm;C:\Dev\glew-2.1.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Dev\SDL2-2.0.10\include;C:\Dev\glm;C:\Dev\glew-2.1.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>C:\Dev\SDL2-2.0.10\lib\x86;C:\Dev\SDL2_ttf-2.0.14\VisualC\Win32\Debug;C:\Dev\SDL2_image-2.0.5\lib\x86;C:\Dev\glew-2.1.0\src\lib\Debug\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32d.lib;opengl32.lib;SDL2_image.lib;SDL2_ttf.lib;bass.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Dev\SDL2-2.0.10\lib\x86;C:\Dev\glew-2.1.0\src\lib\Debug\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32d.lib;opengl32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -132,11 +132,9 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="loadTexture.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="md2model.cpp" />
     <ClCompile Include="Move.cpp" />
-    <ClCompile Include="PlaySound.cpp" />
     <ClCompile Include="rt3d.cpp" />
     <ClCompile Include="rt3dObjLoader.cpp" />
     <ClCompile Include="Window.cpp" />
@@ -144,13 +142,10 @@
   <ItemGroup>
     <ClInclude Include="AbstractWindow.h" />
     <ClInclude Include="anorms.h" />
-    <ClInclude Include="bass.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="loadTexture.h" />
     <ClInclude Include="md2model.h" />
     <ClInclude Include="Move.h" />
-    <ClInclude Include="PlaySound.h" />
     <ClInclude Include="rt3d.h" />
     <ClInclude Include="rt3dObjLoader.h" />
     <ClInclude Include="Window.h" />

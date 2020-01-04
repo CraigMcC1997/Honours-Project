@@ -38,16 +38,24 @@ int main(int argc, char* argv[])
 	SDL_Event sdlEvent;  // variable to detect SDL events
 
 	Window* hWindow;
-	hWindow = new Window(800, 600, "Introduction Screen");
+	hWindow = new Window(800, 600, "Honours Project");
 
 	hWindow->setupRC(glContext);
 	renderTarget = nullptr;
 	renderTarget = SDL_CreateRenderer(hWindow->getWindow(), -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
+	// Required on Windows *only* init GLEW to access OpenGL beyond 1.1
+	glewExperimental = GL_TRUE;
+	GLenum err = glewInit();
+	if (GLEW_OK != err) { // glewInit failed, something is seriously wrong
+		std::cout << "glewInit failed, aborting." << endl;
+		exit(1);
+	}
+	cout << glGetString(GL_VERSION) << endl;
+
 	init();
 
 	bool running = true;
-	cout << glGetString(GL_VERSION) << endl;
 	while (running) {	// the event loop
 		while (SDL_PollEvent(&sdlEvent)) {
 			if (sdlEvent.type == SDL_QUIT)
