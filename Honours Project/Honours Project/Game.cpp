@@ -43,6 +43,62 @@ void Game::update(SDL_Event sdlEvent)
 		setPosition(Move::moveX(position, Move::getRotation(), -0.2));
 	}
 
+	if (keys[SDL_SCANCODE_Q]) {
+		setPosition(Move::moveY(position, Move::getRotation(), 0.2));
+	}
+
+	if (keys[SDL_SCANCODE_E]) {
+		setPosition(Move::moveY(position, Move::getRotation(), -0.2));
+	}
+
+	if (keys[SDL_SCANCODE_LEFT]) {
+		rotateValueZ += 0.1;
+		cout << rotateValueZ << endl;
+	}
+
+	if (keys[SDL_SCANCODE_RIGHT]) {
+		rotateValueZ -= 0.1;
+		cout << rotateValueZ << endl;
+	}
+	if (keys[SDL_SCANCODE_UP]) {
+		rotateValueY += 0.1;
+		cout << rotateValueY << endl;
+	}
+
+	if (keys[SDL_SCANCODE_DOWN]) {
+		rotateValueY -= 0.1;
+		cout << rotateValueY << endl;
+	}
+
+
+	//for rotations
+	if (sdlEvent.type == SDL_MOUSEBUTTONUP)
+	{
+		b_button_released = true;
+	}
+
+	//checking if the left button has been pressed
+	if (sdlEvent.button.button == SDL_BUTTON_LEFT)
+	{
+		//local variables for mouse pos
+		int x = 0.0f, y = 0.0f;
+
+		//checks current mouse state
+		if (SDL_GetMouseState(&x, &y))
+		{
+			float f_curr_x = x;
+
+			float f_dx = f_curr_x - x_prev;
+
+			if (b_button_released)
+			{
+				b_button_released = false;
+				f_dx = 0.0f;
+			}
+			x_prev = f_curr_x;
+			rotateValueZ += glm::radians(f_dx) * 10;
+		}
+	}
 	camera::setEye(position);
 }
 
@@ -51,6 +107,10 @@ void Game::draw(SDL_Window* window)
 	// clear the screen
 	glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	glBegin(GL_POINTS);                      // Select points as the primitive
+	glVertex3f(0.0f, 0.0f, 0.0f);    // Specify a point
+	glEnd();                                 // Done drawing points
 
 	glm::mat4 modelview(1.0); // set base position for scene
 	glm::mat4 projection(1.0);
@@ -64,7 +124,7 @@ void Game::draw(SDL_Window* window)
 
 	//camera set up
 	camera::setAt(Move::moveX(camera::getEye(), Move::getRotation(), 1.0f));
-	mvStack.top() = glm::lookAt(camera::getEye(), camera::getAt(), camera::getUp());
+	mvStack.top() = glm::lookAt(camera::getEye(), glm::vec3(camera::getAt().x, rotateValueY, rotateValueZ), camera::getUp());
 
 	//draw here
 	glUseProgram(shaderProgram);

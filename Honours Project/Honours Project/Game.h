@@ -51,7 +51,14 @@ private:
 	GLuint meshIndexCount[1];
 	GLuint meshObjects[1];
 
-	//camera
+	//rotation
+	GLfloat rotateValueZ = 0.0f;
+	GLfloat rotateValueY = 0.0f;
+	float x_prev = 0.0f;
+	int x = 0.0f, y = 0.0f;
+	float f_curr_x;
+	float f_dx;
+	bool b_button_released = false;
 
 public:
 	void init();
