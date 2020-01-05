@@ -70,35 +70,13 @@ void Game::update(SDL_Event sdlEvent)
 		cout << rotateValueY << endl;
 	}
 
-
-	//for rotations
-	if (sdlEvent.type == SDL_MOUSEBUTTONUP)
+	if (SDL_GetMouseState(&x, &y))
 	{
-		b_button_released = true;
+		cout << x << endl;
+		cout << y << endl;
 	}
 
-	//checking if the left button has been pressed
-	if (sdlEvent.button.button == SDL_BUTTON_LEFT)
-	{
-		//local variables for mouse pos
-		int x = 0.0f, y = 0.0f;
-
-		//checks current mouse state
-		if (SDL_GetMouseState(&x, &y))
-		{
-			float f_curr_x = x;
-
-			float f_dx = f_curr_x - x_prev;
-
-			if (b_button_released)
-			{
-				b_button_released = false;
-				f_dx = 0.0f;
-			}
-			x_prev = f_curr_x;
-			rotateValueZ += glm::radians(f_dx) * 10;
-		}
-	}
+	//camera::setAt(glm::vec3());
 	camera::setEye(position);
 }
 
@@ -108,17 +86,15 @@ void Game::draw(SDL_Window* window)
 	glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	glBegin(GL_POINTS);                      // Select points as the primitive
-	glVertex3f(0.0f, 0.0f, 0.0f);    // Specify a point
-	glEnd();                                 // Done drawing points
-
-	glm::mat4 modelview(1.0); // set base position for scene
+	// set base position for scene
+	glm::mat4 modelview(1.0); 
 	glm::mat4 projection(1.0);
 	projection = glm::perspective(float(60.0f * DEG_TO_RADIAN), 800.0f / 600.0f, 1.0f, 150.0f);
 	rt3d::setUniformMatrix4fv(shaderProgram, "projection", glm::value_ptr(projection));
 	stack<glm::mat4> mvStack;
 	mvStack.push(modelview);
 
+	//global lighting
 	glm::vec4 tmp = mvStack.top() *lightPos;
 	rt3d::setLightPos(shaderProgram, glm::value_ptr(tmp));
 
@@ -141,7 +117,6 @@ void Game::draw(SDL_Window* window)
 	mvStack.pop();
 
 	mvStack.pop();
-
 	SDL_GL_SwapWindow(window); // swap buffers
 }
 
