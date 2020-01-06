@@ -2,16 +2,14 @@
 
 void Game::init()
 {
-	shaderProgram = rt3d::initShaders("../Resources/Shaders/textured.vert", "../Resources/Shaders/textured.frag");	//initialising the chosen shaders
+	//shaders
+	shaderProgram = rt3d::initShaders("../Resources/Shaders/textured.vert", "../Resources/Shaders/textured.frag");
 
+	//textures
 	textures[0] = loadTexture::loadTextures("../Resources/Textures/fabric.bmp");
 
-	//model loading
-	rt3d::loadObj("../Resources/3D_Objects/cube.obj", verts, norms, tex_coords, indices);
-	meshIndexCount[0] = indices.size();
-	meshObjects[0] = rt3d::createMesh(verts.size() / 3, verts.data(), nullptr, norms.data(), tex_coords.data(),
-		meshIndexCount[0], indices.data());
-	verts.clear(), norms.clear(), tex_coords.clear(), indices.clear();
+	box->init();
+	box2->init();
 
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
@@ -27,6 +25,7 @@ void Game::update(SDL_Event sdlEvent)
 {
 	const Uint8* keys = SDL_GetKeyboardState(NULL);
 
+	//using WASD to control the players movement around the 3D world
 	if (keys[SDL_SCANCODE_A]) {
 		setPosition(Move::moveZ(position, Move::getRotation(), -0.2));
 	}
@@ -43,6 +42,7 @@ void Game::update(SDL_Event sdlEvent)
 		setPosition(Move::moveX(position, Move::getRotation(), -0.2));
 	}
 
+	//using QE for moving the player up and down
 	if (keys[SDL_SCANCODE_Q]) {
 		setPosition(Move::moveY(position, Move::getRotation(), 0.2));
 	}
@@ -51,6 +51,7 @@ void Game::update(SDL_Event sdlEvent)
 		setPosition(Move::moveY(position, Move::getRotation(), -0.2));
 	}
 
+	//using LEFT, RIGHT, UP and DOWN to control the players camera movement
 	if (keys[SDL_SCANCODE_LEFT]) {
 		rotateValueZ += 0.1;
 		cout << rotateValueZ << endl;
@@ -70,14 +71,19 @@ void Game::update(SDL_Event sdlEvent)
 		cout << rotateValueY << endl;
 	}
 
+	//beginning attempt at finding the mouse position and using this to control
+	//the camera
 	if (SDL_GetMouseState(&x, &y))
 	{
 		cout << x << endl;
 		cout << y << endl;
 	}
 
-	//camera::setAt(glm::vec3());
+	//camera follows players position
 	camera::setEye(position);
+	
+	box->update();
+	box2->update();
 }
 
 void Game::draw(SDL_Window* window)
@@ -100,21 +106,12 @@ void Game::draw(SDL_Window* window)
 
 	//camera set up
 	camera::setAt(Move::moveX(camera::getEye(), Move::getRotation(), 1.0f));
-	mvStack.top() = glm::lookAt(camera::getEye(), glm::vec3(camera::getAt().x, rotateValueY, rotateValueZ), camera::getUp());
+	mvStack.top() = glm::lookAt(camera::getEye(), glm::vec3(camera::getAt().x, rotateValueY, camera::getAt().z), camera::getUp());
 
 	//draw here
 	glUseProgram(shaderProgram);
-
-	glBindTexture(GL_TEXTURE_2D, textures[0]);
-	mvStack.push(mvStack.top());
-	mvStack.top() = glm::translate(mvStack.top(), glm::vec3(0,0,0));
-	//mvStack.top() = glm::rotate(mvStack.top(), float(90.0f * DEG_TO_RADIAN), glm::vec3(0.0f, 1.0f, 0.0f));
-	mvStack.top() = glm::scale(mvStack.top(), glm::vec3(1.5f, 1.5f, 1.5f));
-	rt3d::setUniformMatrix4fv(shaderProgram, "projection", glm::value_ptr(projection));
-	rt3d::setUniformMatrix4fv(shaderProgram, "modelview", glm::value_ptr(mvStack.top()));
-	rt3d::setMaterial(shaderProgram, material0);
-	rt3d::drawIndexedMesh(meshObjects[0], meshIndexCount[0], GL_TRIANGLES);
-	mvStack.pop();
+	box->draw(shaderProgram, &mvStack, projection, textures[0], glm::vec3(0,0,0));
+	box2->draw(shaderProgram, &mvStack, projection, textures[0], glm::vec3(0, 10, 0));
 
 	mvStack.pop();
 	SDL_GL_SwapWindow(window); // swap buffers

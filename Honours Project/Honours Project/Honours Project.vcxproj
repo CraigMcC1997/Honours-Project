@@ -130,6 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Box.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="loadTexture.cpp" />
@@ -143,7 +144,9 @@
   <ItemGroup>
     <ClInclude Include="AbstractWindow.h" />
     <ClInclude Include="anorms.h" />
+    <ClInclude Include="Box.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="loadTexture.h" />
     <ClInclude Include="md2model.h" />
