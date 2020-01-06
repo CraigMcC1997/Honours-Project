@@ -4,6 +4,7 @@
 #include "Move.h"
 #include "loadTexture.h"
 #include "Box.h"
+#include "circle.h"
 
 class Game
 {
@@ -11,6 +12,7 @@ private:
 	//box
 	Box* box = new Box();
 	Box* box2 = new Box();
+	Circle* circle = new Circle();
 
 	glm::vec3 position = glm::vec3(0, 0, 0); //Player position
 	glm::vec4 lightPos = glm::vec4(1.0f, 2.0f, 2.0f, 1.0f); //global light position

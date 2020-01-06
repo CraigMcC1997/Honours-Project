@@ -10,6 +10,7 @@ void Game::init()
 
 	box->init();
 	box2->init();
+	circle->init();
 
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
@@ -84,6 +85,7 @@ void Game::update(SDL_Event sdlEvent)
 	
 	box->update();
 	box2->update();
+	circle->update();
 }
 
 void Game::draw(SDL_Window* window)
@@ -111,7 +113,8 @@ void Game::draw(SDL_Window* window)
 	//draw here
 	glUseProgram(shaderProgram);
 	box->draw(shaderProgram, &mvStack, projection, textures[0], glm::vec3(0,0,0));
-	box2->draw(shaderProgram, &mvStack, projection, textures[0], glm::vec3(0, 10, 0));
+	box2->draw(shaderProgram, &mvStack, projection, textures[0], glm::vec3(0, 0, 10));
+	circle->draw(shaderProgram, &mvStack, projection, textures[0], glm::vec3(0, 0, 20));
 
 	mvStack.pop();
 	SDL_GL_SwapWindow(window); // swap buffers
