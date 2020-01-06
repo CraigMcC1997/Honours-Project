@@ -2,7 +2,6 @@
 *.exe
 *.dll
 *.lib
-*.obj
 *.pch
 *.pdb
 *.sdf
