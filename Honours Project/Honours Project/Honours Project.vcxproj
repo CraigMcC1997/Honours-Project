@@ -159,6 +159,7 @@
     <ClInclude Include="Move.h" />
     <ClInclude Include="rt3d.h" />
     <ClInclude Include="rt3dObjLoader.h" />
+    <ClInclude Include="Shape.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

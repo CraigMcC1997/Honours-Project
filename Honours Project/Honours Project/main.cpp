@@ -64,7 +64,6 @@ int main(int argc, char* argv[])
 		update(sdlEvent);
 		draw(hWindow->getWindow());
 	}
-
 	clean(glContext, hWindow);
 	return 0;
 }

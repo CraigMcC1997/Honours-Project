@@ -122,7 +122,7 @@ void Game::draw(SDL_Window* window)
 	box->draw(shaderProgram, &mvStack, projection, textures[0], glm::vec3(0,0,0));
 	box2->draw(shaderProgram, &mvStack, projection, textures[1], glm::vec3(0, 0, 10));
 	circle->draw(shaderProgram, &mvStack, projection, textures[2], glm::vec3(0, 0, 20));
-	cone->draw(shaderProgram, &mvStack, projection, textures[0], glm::vec3(0, 0, 30));
+	cone->draw(shaderProgram, &mvStack, projection, textures[2], glm::vec3(0, 0, 30));
 	cylinder->draw(shaderProgram, &mvStack, projection, textures[1], glm::vec3(0, 0, 40));
 
 	mvStack.pop();

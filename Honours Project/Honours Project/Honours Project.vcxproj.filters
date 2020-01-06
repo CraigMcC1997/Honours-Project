@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Shapes">
+      <UniqueIdentifier>{3ea1e7b9-3ca9-4aac-abae-7bec114b8dc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shapes">
+      <UniqueIdentifier>{ef780308-b2a0-4dd8-a8d2-1b2217fabd6b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -43,16 +49,16 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Box.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Shapes</Filter>
     </ClCompile>
     <ClCompile Include="circle.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Shapes</Filter>
     </ClCompile>
     <ClCompile Include="cone.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Shapes</Filter>
     </ClCompile>
     <ClCompile Include="cylinder.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Shapes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -86,20 +92,23 @@
     <ClInclude Include="loadTexture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Box.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="circle.h">
+    <ClInclude Include="Shape.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>Header Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="circle.h">
+      <Filter>Header Files\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="cone.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="cylinder.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Shapes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
