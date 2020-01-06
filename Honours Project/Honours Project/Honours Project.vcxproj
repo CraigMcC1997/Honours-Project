@@ -133,6 +133,8 @@
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="circle.cpp" />
+    <ClCompile Include="cone.cpp" />
+    <ClCompile Include="cylinder.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="loadTexture.cpp" />
     <ClCompile Include="main.cpp" />
@@ -148,6 +150,8 @@
     <ClInclude Include="Box.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="circle.h" />
+    <ClInclude Include="cone.h" />
+    <ClInclude Include="cylinder.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="loadTexture.h" />

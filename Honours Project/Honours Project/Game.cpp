@@ -7,10 +7,14 @@ void Game::init()
 
 	//textures
 	textures[0] = loadTexture::loadTextures("../Resources/Textures/fabric.bmp");
+	textures[1] = loadTexture::loadTextures("../Resources/Textures/dirt.bmp");
+	textures[2] = loadTexture::loadTextures("../Resources/Textures/studdedmetal.bmp");
 
 	box->init();
 	box2->init();
 	circle->init();
+	cone->init();
+	cylinder->init();
 
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
@@ -86,6 +90,8 @@ void Game::update(SDL_Event sdlEvent)
 	box->update();
 	box2->update();
 	circle->update();
+	cone->update();
+	cylinder->update();
 }
 
 void Game::draw(SDL_Window* window)
@@ -108,13 +114,16 @@ void Game::draw(SDL_Window* window)
 
 	//camera set up
 	camera::setAt(Move::moveX(camera::getEye(), Move::getRotation(), 1.0f));
-	mvStack.top() = glm::lookAt(camera::getEye(), glm::vec3(camera::getAt().x, rotateValueY, camera::getAt().z), camera::getUp());
+	mvStack.top() = glm::lookAt(camera::getEye(), 
+		glm::vec3(camera::getAt().x, camera::getAt().y, camera::getAt().z), camera::getUp());
 
 	//draw here
 	glUseProgram(shaderProgram);
 	box->draw(shaderProgram, &mvStack, projection, textures[0], glm::vec3(0,0,0));
-	box2->draw(shaderProgram, &mvStack, projection, textures[0], glm::vec3(0, 0, 10));
-	circle->draw(shaderProgram, &mvStack, projection, textures[0], glm::vec3(0, 0, 20));
+	box2->draw(shaderProgram, &mvStack, projection, textures[1], glm::vec3(0, 0, 10));
+	circle->draw(shaderProgram, &mvStack, projection, textures[2], glm::vec3(0, 0, 20));
+	cone->draw(shaderProgram, &mvStack, projection, textures[0], glm::vec3(0, 0, 30));
+	cylinder->draw(shaderProgram, &mvStack, projection, textures[1], glm::vec3(0, 0, 40));
 
 	mvStack.pop();
 	SDL_GL_SwapWindow(window); // swap buffers

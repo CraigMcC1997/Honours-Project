@@ -5,6 +5,8 @@
 #include "loadTexture.h"
 #include "Box.h"
 #include "circle.h"
+#include "cone.h"
+#include "cylinder.h"
 
 class Game
 {
@@ -13,13 +15,15 @@ private:
 	Box* box = new Box();
 	Box* box2 = new Box();
 	Circle* circle = new Circle();
+	Cone* cone = new Cone();
+	Cylinder* cylinder = new Cylinder();
 
 	glm::vec3 position = glm::vec3(0, 0, 0); //Player position
 	glm::vec4 lightPos = glm::vec4(1.0f, 2.0f, 2.0f, 1.0f); //global light position
 
 	//shader variables
 	GLuint shaderProgram;
-	GLuint textures[1];
+	GLuint textures[12];
 
 	//stack of models
 	std::stack<glm::mat4> mvStack;
