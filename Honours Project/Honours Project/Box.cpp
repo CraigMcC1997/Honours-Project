@@ -3,7 +3,7 @@
 void Box::init()
 {
 	//model loading
-	rt3d::loadObj("../Resources/3D_Objects/cube.obj", verts, norms, tex_coords, indices);
+	rt3d::loadObj("../Resources/Models/cube.obj", verts, norms, tex_coords, indices);
 	meshIndexCount[0] = indices.size();
 	meshObjects[0] = rt3d::createMesh(verts.size() / 3, verts.data(), nullptr, norms.data(), tex_coords.data(),
 		meshIndexCount[0], indices.data());

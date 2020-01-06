@@ -18,7 +18,7 @@ private:
 	Cone* cone = new Cone();
 	Cylinder* cylinder = new Cylinder();
 
-	glm::vec3 position = glm::vec3(0, 0, 0); //Player position
+	glm::vec3 position = glm::vec3(-10, 0, 0); //Player position
 	glm::vec4 lightPos = glm::vec4(1.0f, 2.0f, 2.0f, 1.0f); //global light position
 
 	//shader variables
