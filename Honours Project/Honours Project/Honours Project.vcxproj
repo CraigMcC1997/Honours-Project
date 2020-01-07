@@ -140,6 +140,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="md2model.cpp" />
     <ClCompile Include="Move.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="rt3d.cpp" />
     <ClCompile Include="rt3dObjLoader.cpp" />
     <ClCompile Include="Window.cpp" />
@@ -157,6 +158,7 @@
     <ClInclude Include="loadTexture.h" />
     <ClInclude Include="md2model.h" />
     <ClInclude Include="Move.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="rt3d.h" />
     <ClInclude Include="rt3dObjLoader.h" />
     <ClInclude Include="Shape.h" />

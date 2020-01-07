@@ -1,7 +1,6 @@
 #pragma once
 #include "Window.h"
-#include "Camera.h"
-#include "Move.h"
+#include "Player.h"
 #include "loadTexture.h"
 #include "Box.h"
 #include "circle.h"
@@ -12,13 +11,13 @@ class Game
 {
 private:
 	//shapes
+	Player* player = new Player();
 	Box* box = new Box();
 	Box* box2 = new Box();
 	Circle* circle = new Circle();
 	Cone* cone = new Cone();
 	Cylinder* cylinder = new Cylinder();
 
-	glm::vec3 position = glm::vec3(-10, 0, 0); //Player position
 	glm::vec4 lightPos = glm::vec4(1.0f, 2.0f, 2.0f, 1.0f); //global light position
 
 	//shader variables
@@ -28,17 +27,8 @@ private:
 	//stack of models
 	std::stack<glm::mat4> mvStack;
 
-	//rotation
-	GLfloat rotateValueZ = 0.0f;
-	GLfloat rotateValueY = 0.0f;
-	float x_prev = 0.0f;
-	int x = 0.0f, y = 0.0f;
-	//float f_curr_x;
-	//float f_dx;
-
 public:
 	void init();
 	void update(SDL_Event sdlEvent);
 	void draw(SDL_Window* window);
-	void setPosition(glm::vec3);
 };
