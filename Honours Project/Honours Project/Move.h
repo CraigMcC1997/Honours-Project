@@ -16,6 +16,7 @@ namespace Move
 	glm::vec3 moveZ(glm::vec3 pos, GLfloat angle, GLfloat d);
 	glm::vec3 moveX(glm::vec3 pos, GLfloat angle, GLfloat d);
 	glm::vec3 moveY(glm::vec3 pos, GLfloat angle, GLfloat d);
-	const GLfloat getRotation();
+	const glm::vec3 getRotation();
+	void setRotation(glm::vec3 newRot);
 };
 #endif

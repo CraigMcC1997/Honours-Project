@@ -20,47 +20,49 @@ void Player::update()
 
 	//using WASD to control the players movement around the 3D world
 	if (keys[SDL_SCANCODE_A]) {
-		setPosition(Move::moveZ(position, Move::getRotation(), -0.2));
+		setPosition(Move::moveZ(position, Move::getRotation().z, -0.2));
 	}
 
 	if (keys[SDL_SCANCODE_D]) {
-		setPosition(Move::moveZ(position, Move::getRotation(), 0.2));
+		setPosition(Move::moveZ(position, Move::getRotation().z, 0.2));
 	}
 
 	if (keys[SDL_SCANCODE_W]) {
-		setPosition(Move::moveX(position, Move::getRotation(), 0.2));
+		setPosition(Move::moveX(position, Move::getRotation().x, 0.2));
 	}
 
 	if (keys[SDL_SCANCODE_S]) {
-		setPosition(Move::moveX(position, Move::getRotation(), -0.2));
+		setPosition(Move::moveX(position, Move::getRotation().x, -0.2));
 	}
 
 	//using QE for moving the player up and down
 	if (keys[SDL_SCANCODE_Q]) {
-		setPosition(Move::moveY(position, Move::getRotation(), 0.2));
+		setPosition(Move::moveY(position, Move::getRotation().y, 0.2));
 	}
 
 	if (keys[SDL_SCANCODE_E]) {
-		setPosition(Move::moveY(position, Move::getRotation(), -0.2));
+		setPosition(Move::moveY(position, Move::getRotation().y, -0.2));
 	}
 
 	//using LEFT, RIGHT, UP and DOWN to control the players camera movement
 	if (keys[SDL_SCANCODE_LEFT]) {
-		rotateValueZ += 0.1;
+		rotateValueZ -= 1;
+		Move::setRotation(glm::vec3(Move::getRotation().x, Move::getRotation().y, rotateValueZ));
 		cout << rotateValueZ << endl;
 	}
 
 	if (keys[SDL_SCANCODE_RIGHT]) {
-		rotateValueZ -= 0.1;
+		rotateValueZ += 1;
+		Move::setRotation(glm::vec3(Move::getRotation().x, Move::getRotation().y, rotateValueZ));
 		cout << rotateValueZ << endl;
 	}
 	if (keys[SDL_SCANCODE_UP]) {
-		rotateValueY += 0.1;
+		rotateValueY += 1;
 		cout << rotateValueY << endl;
 	}
 
 	if (keys[SDL_SCANCODE_DOWN]) {
-		rotateValueY -= 0.1;
+		rotateValueY -= 1;
 		cout << rotateValueY << endl;
 	}
 
@@ -79,7 +81,9 @@ void Player::update()
 void Player::draw(GLuint shader, std::stack<glm::mat4>* _mvStack, glm::mat4 projection, GLuint texture, glm::vec3 pos)
 {
 	//camera set up
-	camera::setAt(Move::moveX(camera::getEye(), Move::getRotation(), 1.0f));
+	camera::setAt(Move::moveX(position, Move::getRotation().z, 1.0f));
 	_mvStack->top() = glm::lookAt(camera::getEye(),
 		glm::vec3(camera::getAt().x, camera::getAt().y, camera::getAt().z), camera::getUp());
+
+	//draw players chosen object here
 }

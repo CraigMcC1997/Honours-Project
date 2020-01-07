@@ -1,14 +1,10 @@
 ﻿  Player.cpp
 E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Player.h(15,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Player.h(15,20): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Player.cpp(23,62): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Player.cpp(27,61): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Player.cpp(31,61): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Player.cpp(35,62): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Player.cpp(40,61): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Player.cpp(44,62): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Player.cpp(49,22): warning C4305: '+=': truncation from 'double' to 'GLfloat'
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Player.cpp(54,22): warning C4305: '-=': truncation from 'double' to 'GLfloat'
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Player.cpp(58,22): warning C4305: '+=': truncation from 'double' to 'GLfloat'
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Player.cpp(63,22): warning C4305: '-=': truncation from 'double' to 'GLfloat'
+E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Player.cpp(23,64): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Player.cpp(27,63): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Player.cpp(31,63): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Player.cpp(35,64): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Player.cpp(40,63): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Player.cpp(44,64): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
   Honours Project.vcxproj -> E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Debug\Honours Project.exe

@@ -50,7 +50,7 @@ void Game::draw(SDL_Window* window)
 	glm::vec4 tmp = mvStack.top() *lightPos;
 	rt3d::setLightPos(shaderProgram, glm::value_ptr(tmp));
 
-	player->draw(shaderProgram, &mvStack, projection, textures[0], player->getPosition());
+	player->draw(shaderProgram, &mvStack, projection, NULL, player->getPosition());
 
 	//draw here
 	glUseProgram(shaderProgram);
