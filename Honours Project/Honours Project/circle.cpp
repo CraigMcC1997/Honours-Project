@@ -4,9 +4,9 @@ void Circle::init()
 {
 	//model loading
 	rt3d::loadObj("../Resources/Models/sphere.obj", verts, norms, tex_coords, indices);
-	meshIndexCount[0] = indices.size();
-	meshObjects[0] = rt3d::createMesh(verts.size() / 3, verts.data(), nullptr, norms.data(), tex_coords.data(),
-		meshIndexCount[0], indices.data());
+	meshIndexCount = indices.size();
+	meshObjects = rt3d::createMesh(verts.size() / 3, verts.data(), nullptr, norms.data(), tex_coords.data(),
+		meshIndexCount, indices.data());
 	verts.clear(), norms.clear(), tex_coords.clear(), indices.clear();
 }
 
@@ -25,6 +25,6 @@ void Circle::draw(GLuint shader, std::stack<glm::mat4>* _mvStack, glm::mat4 proj
 	rt3d::setUniformMatrix4fv(shader, "projection", glm::value_ptr(projection));
 	rt3d::setUniformMatrix4fv(shader, "modelview", glm::value_ptr(_mvStack->top()));
 	rt3d::setMaterial(shader, material0);
-	rt3d::drawIndexedMesh(meshObjects[0], meshIndexCount[0], GL_TRIANGLES);
+	rt3d::drawIndexedMesh(meshObjects, meshIndexCount, GL_TRIANGLES);
 	_mvStack->pop();
 }

@@ -1,38 +1,14 @@
-﻿  Box.cpp
-  Camera.cpp
-  circle.cpp
-  cone.cpp
-  cylinder.cpp
-  Game.cpp
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.h(35,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.h(35,20): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(35,62): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(39,61): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(43,61): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(47,62): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(52,61): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(56,62): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(61,22): warning C4305: '+=': truncation from 'double' to 'GLfloat'
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(66,22): warning C4305: '-=': truncation from 'double' to 'GLfloat'
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(70,22): warning C4305: '+=': truncation from 'double' to 'GLfloat'
-  loadTexture.cpp
-  main.cpp
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(75,22): warning C4305: '-=': truncation from 'double' to 'GLfloat'
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.h(35,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  md2model.cpp
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.h(35,20): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\md2model.cpp(176,10): warning C4101: 'v': unreferenced local variable
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\md2model.cpp(175,10): warning C4101: 's': unreferenced local variable
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\md2model.cpp(176,14): warning C4101: 'norm': unreferenced local variable
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\md2model.cpp(175,13): warning C4101: 't': unreferenced local variable
-  Move.cpp
-  rt3d.cpp
-  rt3dObjLoader.cpp
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\md2model.cpp(338,17): warning C4018: '<': signed/unsigned mismatch
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\rt3dObjLoader.cpp(196,22): warning C4018: '<': signed/unsigned mismatch
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\rt3dObjLoader.cpp(134,17): warning C4101: 'z': unreferenced local variable
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\rt3dObjLoader.cpp(134,14): warning C4101: 'y': unreferenced local variable
-  Window.cpp
-  Generating Code...
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\rt3dObjLoader.cpp(134,11): warning C4101: 'x': unreferenced local variable
-  Honours Project.vcxproj -> E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Debug\Honours Project.exe
+﻿  Game.cpp
+D:\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.h(35,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.h(35,20): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(35,62): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(39,61): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(43,61): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(47,62): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(52,61): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(56,62): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(61,22): warning C4305: '+=': truncation from 'double' to 'GLfloat'
+D:\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(66,22): warning C4305: '-=': truncation from 'double' to 'GLfloat'
+D:\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(70,22): warning C4305: '+=': truncation from 'double' to 'GLfloat'
+D:\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(75,22): warning C4305: '-=': truncation from 'double' to 'GLfloat'
+  Honours Project.vcxproj -> D:\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Debug\Honours Project.exe

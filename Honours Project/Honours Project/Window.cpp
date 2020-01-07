@@ -1,6 +1,6 @@
 #include "Window.h"
 
-SDL_Window*  Window::setupRC(SDL_GLContext &context)
+SDL_Window* Window::setupRC(SDL_GLContext &context)
 {
 	if (SDL_Init(SDL_INIT_VIDEO) < 0) // Initialize video
 		cout << "Unable to initialize SDL" << endl;

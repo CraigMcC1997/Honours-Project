@@ -11,7 +11,7 @@
 class Game
 {
 private:
-	//box
+	//shapes
 	Box* box = new Box();
 	Box* box2 = new Box();
 	Circle* circle = new Circle();
