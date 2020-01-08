@@ -2,7 +2,6 @@
 
 #ifndef MOVE
 #define MOVE
-#define DEG_TO_RADIAN 0.017453293
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>

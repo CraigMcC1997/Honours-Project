@@ -2,32 +2,34 @@
 
 namespace camera
 {
-	glm::vec3 eye = glm::vec3(0.0f, 0.0f, 0.0f);
-	glm::vec3 at = glm::vec3(0.0f, 0.0f, 0.0f);
-	glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f);
+	glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 10.0f);
+	glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+	glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
 	glm::vec3 getEye()
 	{
-		return eye;
+		return cameraPos;
 	}
-	glm::vec3 getAt()
+	glm::vec3 getFront()
 	{
-		return at;
+		return cameraFront;
 	}
 	glm::vec3 getUp()
 	{
-		return up;
+		return cameraUp;
 	}
+
+
 	void setEye(glm::vec3 newEye)
 	{
-		eye = newEye;
+		cameraPos = newEye;
 	}
-	void setAt(glm::vec3 newAt)
+	void setFront(glm::vec3 newAt)
 	{
-		at = newAt;
+		cameraFront = newAt;
 	}
 	void setUp(glm::vec3 newUp)
 	{
-		up = newUp;
+		cameraUp = newUp;
 	}
 }

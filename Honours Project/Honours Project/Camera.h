@@ -10,10 +10,10 @@
 namespace camera
 {
 	glm::vec3 getEye();
-	glm::vec3 getAt();
+	glm::vec3 getFront();
 	glm::vec3 getUp();
 	void setEye(glm::vec3 newEye);
-	void setAt(glm::vec3 newAt);
+	void setFront(glm::vec3 newAt);
 	void setUp(glm::vec3 newUp);
 };
 
