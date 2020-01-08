@@ -32,20 +32,3 @@ namespace Move
 		r = newRot;
 	}
 }
-
-
-
-
-//used for moving forward and backwards
-//glm::vec3 moveForward(glm::vec3 cam, GLfloat angle, GLfloat d)
-//{
-//	return glm::vec3(cam.x + d * std::sin(glm::radians(angle)),
-//		cam.y, cam.z - d * std::cos(glm::radians(angle)));
-//}
-//
-////used for moving left and right
-//glm::vec3 moveRight(glm::vec3 pos, GLfloat angle, GLfloat d)
-//{
-//	return glm::vec3(pos.x + d * std::cos(glm::radians(angle)),
-//		pos.y, pos.z + d * std::sin(glm::radians(angle)));
-//}
