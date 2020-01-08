@@ -24,19 +24,12 @@ void Game::init()
 
 void Game::mouse_callback(double xpos, double ypos)
 {
-	if (firstMouse)
-	{
-		lastX = xpos;
-		lastY = ypos;
-		firstMouse = false;
-	}
-
 	float xoffset = xpos - lastX;
-	float yoffset = lastY - ypos; // reversed since y-coordinates go from bottom to top
+	float yoffset = lastY - ypos;
 	lastX = xpos;
 	lastY = ypos;
 
-	float sensitivity = 0.1f; // change this value to your liking
+	float sensitivity = 0.2f; // change this value to your liking
 	xoffset *= sensitivity;
 	yoffset *= sensitivity;
 
@@ -58,7 +51,8 @@ void Game::mouse_callback(double xpos, double ypos)
 
 void Game::update(SDL_Event sdlEvent)
 {
-	if (SDL_GetMouseState(&x, &y))
+		
+	if (!SDL_GetGlobalMouseState(&x, &y))
 	{
 		mouse_callback(x, y);
 	}

@@ -61,6 +61,7 @@ int main(int argc, char* argv[])
 			if (sdlEvent.type == SDL_QUIT)
 				running = false;
 		}
+		
 		update(sdlEvent);
 		draw(hWindow->getWindow());
 	}
