@@ -3,13 +3,13 @@ A Repository For My 4th Years Honours Project
 
 Current State
 ------------------------------------------------------
-3D environment
-Multiple different 3D shapes
-Mouse controlled camera
-Keyboard controlled player
-Windower
-Texture Handler
-3D model loader
+3D environment,
+Multiple different 3D shapes,
+Mouse controlled camera,
+Keyboard controlled player,
+Windower,
+Texture Handler,
+3D model loader,
 
 Convex Hulls can be created from a set of points in 3D space
 
