@@ -1,6 +1,6 @@
 ﻿  Game.cpp
-E:\Testing Camera hons\Honours Project\Honours Project\Game.cpp(32,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\Testing Camera hons\Honours Project\Honours Project\Game.cpp(33,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\Testing Camera hons\Honours Project\Honours Project\Game.cpp(34,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-E:\Testing Camera hons\Honours Project\Honours Project\Game.cpp(35,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  Honours Project.vcxproj -> E:\Testing Camera hons\Honours Project\Debug\Honours Project.exe
+E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(52,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(53,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(54,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(55,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Honours Project.vcxproj -> E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Debug\Honours Project.exe

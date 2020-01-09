@@ -16,13 +16,13 @@ int Convex_Hull::orientation(glm::vec3 p, glm::vec3 q, glm::vec3 r)
 }
 
 
-void Convex_Hull::convexHull(glm::vec3 points[], int n)
+vector<glm::vec3> Convex_Hull::convexHull(vector<glm::vec3> points, int n)
 {
-	// There must be at least 3 points 
-	if (n < 3) return;
-
 	// Initialize Result 
 	vector<glm::vec3> hull;
+
+	// There must be at least 3 points 
+	if (n < 3) return hull;
 
 	// Find the leftmost point 
 	int l = 0;
@@ -61,7 +61,10 @@ void Convex_Hull::convexHull(glm::vec3 points[], int n)
 	} while (p != l);  // While we don't come to first point 
 
 	// Print Result 
-	for (int i = 0; i < hull.size(); i++)
+	for (int i = 0; i < hull.size() - 1; i++)
+		//display points
 		cout << "(" << hull[i].x << ", "
-		<< hull[i].y << ", " << hull[i].z << ")\n";
+			<< hull[i].y << ", " << hull[i].z << ")\n";
+
+	return hull;
 }

@@ -17,10 +17,30 @@ void Game::init()
 	cone->init();
 	cylinder->init();
 
-	glm::vec3 points[] = { {0, 3, 1}, {2, 2, 5}, {1, 1, 1}, {2, 1, 1},
-						   {3, 0, 5}, {0, 0, 1}, {3, 3, 5} };
-	int n = sizeof(points) / sizeof(points[0]);
-	cHull->convexHull(points, n);
+
+
+	//!!! TEST CODE !!!
+	// create a set of points in 3D space
+	// pass them into the convex hull class which calculates the hull of the points
+	// convex hull is passed back the game as a set of points stored in a vector
+	// points are written to console window for testing purposes
+	vector<glm::vec3> points = {
+		{0, 3, 1}, {2, 2, 5}, {1, 1, 1}, {2, 1, 1},
+		{3, 0, 5}, {0, 0, 1}, {3, 3, 5} 
+	};
+	
+	int size = sizeof(points) / sizeof(points[0]);
+	vector<glm::vec3> hull = cHull->convexHull(points, size);
+
+	cout << "\n\n" << endl;
+
+	for (int i = 0; i < size - 1; i++)
+		cout << "(" << hull[i].x << ", "
+		<< hull[i].y << ", " << hull[i].z << ")\n";
+
+
+
+
 
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);

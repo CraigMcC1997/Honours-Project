@@ -63,9 +63,6 @@
     <ClCompile Include="Convex_Hull.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Points.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -117,9 +114,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Convex_Hull.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Points.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
