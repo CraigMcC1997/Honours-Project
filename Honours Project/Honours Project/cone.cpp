@@ -10,6 +10,14 @@ void Cone::init()
 	verts.clear(), norms.clear(), tex_coords.clear(), indices.clear();
 }
 
+glm::vec3 Cone::getPosition()
+{
+	cout << position.x << endl;
+	cout << position.y << endl;
+	cout << position.z << endl;
+	return position;
+}
+
 void Cone::update()
 {
 	rotator += 0.01f;

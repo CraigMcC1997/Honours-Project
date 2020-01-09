@@ -1,5 +1,6 @@
 //################################################################
 // convex hull class based on https://www.geeksforgeeks.org/convex-hull-set-1-jarviss-algorithm-or-wrapping/
+// Jarvis algorithm for convex hulls
 //################################################################
 #pragma once
 #include <vector>

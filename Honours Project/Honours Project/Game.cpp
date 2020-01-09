@@ -24,19 +24,16 @@ void Game::init()
 	// pass them into the convex hull class which calculates the hull of the points
 	// convex hull is passed back the game as a set of points stored in a vector
 	// points are written to console window for testing purposes
-	vector<glm::vec3> points = {
-		{0, 3, 1}, {2, 2, 5}, {1, 1, 1}, {2, 1, 1},
-		{3, 0, 5}, {0, 0, 1}, {3, 3, 5} 
-	};
+
+	vector<glm::vec3> points = 
+	{ {1, 1, 1}, {1, 6, 1}, {7, 1, 1}, {7, 6, 1}, {3, 3, 1}, {2, 5, 1}, {4, 8, 1}, {4, 2, 1}, {4, 5, 1} };
 	
-	int size = sizeof(points) / sizeof(points[0]);
+	int size = points.size();
 	vector<glm::vec3> hull = cHull->convexHull(points, size);
 
-	cout << "\n\n" << endl;
-
-	for (int i = 0; i < size - 1; i++)
-		cout << "(" << hull[i].x << ", "
-		<< hull[i].y << ", " << hull[i].z << ")\n";
+	for (int i = 0; i <= hull.size() -1; i++)
+		cout << "(" << hull[i].x << ", " << hull[i].y /*<< ", " << hull[i].z*/ << ")\n";
+		
 
 
 
@@ -113,14 +110,13 @@ void Game::draw(SDL_Window* window)
 
 	//draw here
 	glUseProgram(shaderProgram);
-	box->draw(shaderProgram, &mvStack, projection, textures[0], glm::vec3(0,0,0));
+	box->draw(shaderProgram, &mvStack, projection, textures[0], glm::vec3(0, 0, 0));
 	box2->draw(shaderProgram, &mvStack, projection, textures[1], glm::vec3(10, 0, 0));
 	circle->draw(shaderProgram, &mvStack, projection, textures[2], glm::vec3(20, 0, 0));
 	cone->draw(shaderProgram, &mvStack, projection, textures[2], glm::vec3(30, 0, 0));
 	cylinder->draw(shaderProgram, &mvStack, projection, textures[1], glm::vec3(40, 0, 0));
 
+
 	mvStack.pop();
 	SDL_GL_SwapWindow(window); // swap buffers
 }
-
-

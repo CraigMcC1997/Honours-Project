@@ -4,6 +4,7 @@
 class Shape : Entity
 {
 protected:
+	glm::vec3 position = glm::vec3(1,1,1);
 	GLuint texture;
 	vector<GLfloat> verts;
 	vector<GLfloat> norms;
@@ -19,4 +20,6 @@ protected:
 	{0.0f, 0.1f, 0.0f, 1.0f}, // specular
 					   2.0f  // shininess
 	};
+public:
+	virtual glm::vec3 getPosition() = 0;
 };

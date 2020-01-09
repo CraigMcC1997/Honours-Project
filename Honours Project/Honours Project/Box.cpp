@@ -10,13 +10,24 @@ void Box::init()
 	verts.clear(), norms.clear(), tex_coords.clear(), indices.clear();
 }
 
+glm::vec3 Box::getPosition()
+{
+	cout << position.x << endl;
+	cout << position.y << endl;
+	cout << position.z << endl;
+	return position;
+}
+
 void Box::update()
 {
-	rotator += 0.01f;
+	//rotator += 0.01f;
 }
 
 void Box::draw(GLuint shader, std::stack<glm::mat4>* _mvStack, glm::mat4 projection, GLuint texture, glm::vec3 pos)
 {
+	//setting objects position
+	position = pos;
+
 	glBindTexture(GL_TEXTURE_2D, texture);
 	_mvStack->push(_mvStack->top());
 	_mvStack->top() = glm::translate(_mvStack->top(), pos);
