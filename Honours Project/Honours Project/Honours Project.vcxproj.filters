@@ -19,27 +19,24 @@
     <Filter Include="Source Files\Shapes">
       <UniqueIdentifier>{ef780308-b2a0-4dd8-a8d2-1b2217fabd6b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GJK">
+      <UniqueIdentifier>{eac52dbe-335f-4b50-b039-98c95a63a9b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GJK">
+      <UniqueIdentifier>{3112c2ea-1ec5-467b-a3d0-ba3574f5bd18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine">
+      <UniqueIdentifier>{0677fb5d-5f90-44f4-899b-713787b2febd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine">
+      <UniqueIdentifier>{7bd29d04-c87a-4aad-ab55-42e56f396ff7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="md2model.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="rt3d.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="rt3dObjLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Box.cpp">
@@ -58,38 +55,38 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Convex_Hull.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\GJK</Filter>
     </ClCompile>
     <ClCompile Include="MinkowskiSum.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\GJK</Filter>
+    </ClCompile>
+    <ClCompile Include="Simplex.cpp">
+      <Filter>Source Files\GJK</Filter>
+    </ClCompile>
+    <ClCompile Include="SupportFunction.cpp">
+      <Filter>Source Files\GJK</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="rt3dObjLoader.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="rt3d.cpp">
+      <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="loadTextures.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="md2model.cpp">
+      <Filter>Source Files\Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Camera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="md2model.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Window.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AbstractWindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="anorms.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="rt3d.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="rt3dObjLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Entity.h">
@@ -114,13 +111,40 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Convex_Hull.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\GJK</Filter>
     </ClInclude>
     <ClInclude Include="MinkowskiSum.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\GJK</Filter>
+    </ClInclude>
+    <ClInclude Include="Simplex.h">
+      <Filter>Header Files\GJK</Filter>
+    </ClInclude>
+    <ClInclude Include="SupportFunction.h">
+      <Filter>Header Files\GJK</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="loadTextures.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="md2model.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="rt3d.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="rt3dObjLoader.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractWindow.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="anorms.h">
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -19,32 +19,36 @@ void Game::init()
 
 
 
+
+
 	//!!! TEST CODE !!!
 	// create a set of points in 3D space
 	// pass them into the convex hull class which calculates the hull of the points
 	// convex hull is passed back the game as a set of points stored in a vector
 	// points are written to console window for testing purposes
-
-	/*vector<glm::vec3> points = 
-	{ {1, 1, 1}, {1, 6, 1}, {7, 1, 1}, {7, 6, 1}, {3, 3, 1}, {2, 5, 1}, {4, 8, 1}, {4, 2, 1}, {4, 5, 1} };*/
-
 	vector<glm::vec3> points =
-	{ {1, 1, 1}, {3, 2, 1} };
+	{ {1, 1, 1}, {1, 6, 1}, {7, 1, 1}, {7, 6, 1},
+	{3, 3, 1}, {2, 5, 1}, {4, 8, 1}, {4, 2, 1}, {4, 5, 1} };
 
 	vector<glm::vec3> points2 =
-	{ {2, 2, 2}, {0, 1, 2} };
-	
-	//int size = points.size();
-	//vector<glm::vec3> hull = cHull->convexHull(points, size);
+	{ {1, 1, 1}, {1, 6, 1}, {7, 1, 1}, {7, 6, 1},
+	{3, 3, 1}, {2, 5, 1}, {4, 8, 1}, {4, 2, 1}, {4, 5, 1} };
 
-	//for (int i = 0; i <= hull.size() -1; i++)
-	//	cout << "(" << hull[i].x << ", " << hull[i].y /*<< ", " << hull[i].z*/ << ")\n";
+	//CONVEX HULL CALCULATOR
+	int size = points.size();
+	vector<glm::vec3> hull = cHull->convexHull(points, size);
 
+	for (int i = 0; i <= hull.size() -1; i++)
+		cout << "(" << hull[i].x << ", " << hull[i].y /*<< ", " << hull[i].z*/ << ")\n";
+
+	//MINKOWSKI DIFFERENCE CALCULATOR
 	vector<glm::vec3> minSum = sum->sum(points, points2);
-	cout << minSum.size() - 1 << endl;
+	cout << minSum.size() << endl;
 
 	for (int i = 0; i <= minSum.size() - 1; i++)
-		cout << "(" << minSum[i].x << ", " << minSum[i].y << ", " << minSum[i].z << ")\n";
+		cout << i << ": "<< "(" << minSum[i].x << ", " << minSum[i].y << ", " << minSum[i].z << ")\n";
+
+
 
 
 
@@ -83,8 +87,7 @@ void Game::mouse_callback(double xpos, double ypos)
 }
 
 void Game::update(SDL_Event sdlEvent)
-{
-		
+{	
 	if (!SDL_GetGlobalMouseState(&x, &y))
 	{
 		mouse_callback(x, y);
