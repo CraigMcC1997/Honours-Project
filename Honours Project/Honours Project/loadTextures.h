@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef LOADTEXTURE
-#define LOADTEXTURE
+#ifndef LOADTEXTURES
+#define LOADTEXTURES
 
 #include <GL/glew.h>
 #include <glm/glm.hpp>
@@ -13,8 +13,8 @@
 //#include <SDL_ttf.h>
 
 
-namespace loadTexture {
-	GLuint loadTextures(const char *fname);
+namespace loadTextures {
+	GLuint loadTexture(const char *fname);
 	//GLuint textToTexture(const char * str, GLuint textID, SDL_Color, TTF_Font*);
 	//void clearTextTexture(GLuint textID);
 	GLuint loadCubeMap(const char *fname[6], GLuint *texID);

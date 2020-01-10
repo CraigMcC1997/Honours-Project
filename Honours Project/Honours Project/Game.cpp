@@ -6,9 +6,9 @@ void Game::init()
 	shaderProgram = rt3d::initShaders("../Resources/Shaders/textured.vert", "../Resources/Shaders/textured.frag");
 
 	//textures
-	textures[0] = loadTexture::loadTextures("../Resources/Textures/fabric.bmp");
-	textures[1] = loadTexture::loadTextures("../Resources/Textures/dirt.bmp");
-	textures[2] = loadTexture::loadTextures("../Resources/Textures/studdedmetal.bmp");
+	textures[0] = loadTextures::loadTexture("../Resources/Textures/fabric.bmp");
+	textures[1] = loadTextures::loadTexture("../Resources/Textures/dirt.bmp");
+	textures[2] = loadTextures::loadTexture("../Resources/Textures/studdedmetal.bmp");
 
 	player->init();
 	box->init();
@@ -25,15 +25,26 @@ void Game::init()
 	// convex hull is passed back the game as a set of points stored in a vector
 	// points are written to console window for testing purposes
 
-	vector<glm::vec3> points = 
-	{ {1, 1, 1}, {1, 6, 1}, {7, 1, 1}, {7, 6, 1}, {3, 3, 1}, {2, 5, 1}, {4, 8, 1}, {4, 2, 1}, {4, 5, 1} };
-	
-	int size = points.size();
-	vector<glm::vec3> hull = cHull->convexHull(points, size);
+	/*vector<glm::vec3> points = 
+	{ {1, 1, 1}, {1, 6, 1}, {7, 1, 1}, {7, 6, 1}, {3, 3, 1}, {2, 5, 1}, {4, 8, 1}, {4, 2, 1}, {4, 5, 1} };*/
 
-	for (int i = 0; i <= hull.size() -1; i++)
-		cout << "(" << hull[i].x << ", " << hull[i].y /*<< ", " << hull[i].z*/ << ")\n";
-		
+	vector<glm::vec3> points =
+	{ {1, 1, 1}, {3, 2, 1} };
+
+	vector<glm::vec3> points2 =
+	{ {2, 2, 2}, {0, 1, 2} };
+	
+	//int size = points.size();
+	//vector<glm::vec3> hull = cHull->convexHull(points, size);
+
+	//for (int i = 0; i <= hull.size() -1; i++)
+	//	cout << "(" << hull[i].x << ", " << hull[i].y /*<< ", " << hull[i].z*/ << ")\n";
+
+	vector<glm::vec3> minSum = sum->sum(points, points2);
+	cout << minSum.size() - 1 << endl;
+
+	for (int i = 0; i <= minSum.size() - 1; i++)
+		cout << "(" << minSum[i].x << ", " << minSum[i].y << ", " << minSum[i].z << ")\n";
 
 
 

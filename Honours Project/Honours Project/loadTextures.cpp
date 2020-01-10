@@ -1,9 +1,9 @@
-#include "loadTexture.h"
+#include "loadTextures.h"
 
 using namespace std;
 
-namespace loadTexture {
-	GLuint loadTextures(const char *fname) {
+namespace loadTextures {
+	GLuint loadTexture(const char *fname) {
 
 		GLuint texID;
 		glGenTextures(1, &texID); // generate texture ID

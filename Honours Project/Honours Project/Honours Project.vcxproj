@@ -137,9 +137,10 @@
     <ClCompile Include="Convex_Hull.cpp" />
     <ClCompile Include="cylinder.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="loadTexture.cpp" />
+    <ClCompile Include="loadTextures.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="md2model.cpp" />
+    <ClCompile Include="MinkowskiSum.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="rt3d.cpp" />
     <ClCompile Include="rt3dObjLoader.cpp" />
@@ -156,8 +157,9 @@
     <ClInclude Include="cylinder.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="loadTexture.h" />
+    <ClInclude Include="loadTextures.h" />
     <ClInclude Include="md2model.h" />
+    <ClInclude Include="MinkowskiSum.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="rt3d.h" />
     <ClInclude Include="rt3dObjLoader.h" />

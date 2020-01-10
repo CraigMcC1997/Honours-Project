@@ -1,7 +1,7 @@
 ﻿  Game.cpp
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(38,20): warning C4018: '<=': signed/unsigned mismatch
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(53,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(54,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(55,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(56,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(46,20): warning C4018: '<=': signed/unsigned mismatch
+E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(60,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(61,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(62,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(63,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   Honours Project.vcxproj -> E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Debug\Honours Project.exe

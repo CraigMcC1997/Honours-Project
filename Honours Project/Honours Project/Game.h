@@ -1,12 +1,14 @@
 #pragma once
 #include "Window.h"
 #include "Player.h"
-#include "loadTexture.h"
+#include "loadTextures.h"
 #include "Box.h"
 #include "circle.h"
 #include "cone.h"
 #include "cylinder.h"
 #include "Convex_Hull.h"
+
+#include "MinkowskiSum.h"
 
 class Game
 {
@@ -19,6 +21,7 @@ private:
 	Cone* cone = new Cone();
 	Cylinder* cylinder = new Cylinder();
 	Convex_Hull* cHull = new Convex_Hull();
+	MinkowskiSum* sum = new MinkowskiSum();
 
 	glm::vec4 lightPos = glm::vec4(1.0f, 2.0f, 2.0f, 1.0f); //global light position
 
