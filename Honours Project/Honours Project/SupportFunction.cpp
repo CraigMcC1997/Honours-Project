@@ -1,10 +1,17 @@
 #include "SupportFunction.h"
 
-vector<glm::vec3> SupportFunction::support(vector<glm::vec3> direction)
+unsigned int SupportFunction::support(glm::vec3 direction, vector<glm::vec3> points)
 {
-	vector<glm::vec3> temp;
+    float maximum = dot(direction, points[0]);
 
-	//perform support function
-
-	return temp;
+    unsigned int index = 0;
+    
+    for (int i = 1; i < points.size(); i++) {
+        float product = dot(direction, points[i]);
+        if (product > maximum) {
+            maximum = product;
+            index = i;
+        }
+    }
+    return index;
 }

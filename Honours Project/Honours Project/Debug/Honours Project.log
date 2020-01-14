@@ -1,11 +1,11 @@
 ﻿  Game.cpp
 E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(41,20): warning C4018: '<=': signed/unsigned mismatch
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(48,20): warning C4018: '<=': signed/unsigned mismatch
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(64,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(65,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(66,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  Simplex.cpp
+E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(51,20): warning C4018: '<=': signed/unsigned mismatch
+E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(78,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(79,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(80,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(81,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   SupportFunction.cpp
+  main.cpp
   Generating Code...
-E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(67,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   Honours Project.vcxproj -> E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Debug\Honours Project.exe

@@ -26,9 +26,9 @@ void Game::init()
 	// pass them into the convex hull class which calculates the hull of the points
 	// convex hull is passed back the game as a set of points stored in a vector
 	// points are written to console window for testing purposes
-	vector<glm::vec3> points =
-	{ {1, 1, 1}, {1, 6, 1}, {7, 1, 1}, {7, 6, 1},
-	{3, 3, 1}, {2, 5, 1}, {4, 8, 1}, {4, 2, 1}, {4, 5, 1} };
+	vector<glm::vec3> points = {
+		{1, 1, 1}, {1, 6, 1}, {7, 1, 1}, {7, 6, 1},
+		{3, 3, 1}, {2, 5, 1}, {4, 8, 1}, {4, 2, 1}, {4, 5, 1} };
 
 	vector<glm::vec3> points2 =
 	{ {1, 1, 1}, {1, 6, 1}, {7, 1, 1}, {7, 6, 1},
@@ -41,6 +41,9 @@ void Game::init()
 	for (int i = 0; i <= hull.size() -1; i++)
 		cout << "(" << hull[i].x << ", " << hull[i].y /*<< ", " << hull[i].z*/ << ")\n";
 
+
+
+
 	//MINKOWSKI DIFFERENCE CALCULATOR
 	vector<glm::vec3> minSum = sum->sum(points, points2);
 	cout << minSum.size() << endl;
@@ -50,9 +53,20 @@ void Game::init()
 
 
 
+	//testing support function
+	vector<glm::vec3> points3 = {
+	{3, 2, 1}, {1, 6, 1}, {7, 1, 1} };
+												//direction      point cloud    size
+	unsigned int furthestIndex = support->support(glm::vec3(0, 1, 0), points3);
 
+	cout << "\n\n" << endl;
+	cout << "furthest point: " << furthestIndex << endl;
 
+	glm::vec3 furthestVertice = points3[furthestIndex];
 
+	cout << "x: " << furthestVertice.x << endl;
+	cout << "y: " << furthestVertice.y << endl;
+	cout << "z: " << furthestVertice.z << endl;
 
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
