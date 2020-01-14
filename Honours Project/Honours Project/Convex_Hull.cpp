@@ -5,35 +5,31 @@
 // The function returns following values 
 // 0 --> p, q and r are colinear 
 // 1 --> Clockwise 
-// 2 --> Counterclockwise 
+// 2 --> Counterclockwise
 int Convex_Hull::orientation(glm::vec3 p, glm::vec3 q, glm::vec3 r)
 {
-	int val = (q.y - p.y) * (r.x - q.x) -
-		(q.x - p.x) * (r.y - q.y);
+	int val = (q.y - p.y) * (r.x - q.x) - (q.x - p.x) * (r.y - q.y);
 
-	if (val == 0) return 0;  // colinear 
+	if (val == 0) return 0;   // colinear 
 	return (val > 0) ? 1 : 2; // clock or counterclock wise 
 }
 
 
-vector<glm::vec3> Convex_Hull::convexHull(vector<glm::vec3> points, int n)
+vector<glm::vec3> Convex_Hull::convexHull(vector<glm::vec3> points)
 {
 	// Initialize Result 
 	vector<glm::vec3> hull;
 
-	// There must be at least 3 points 
-	if (n < 3) return hull;
+	// Find the furthest left point on the X axis
+	int leftMost = 0;
+	for (int i = 1; i < points.size(); i++)
+		if (points[i].x < points[leftMost].x)
+			leftMost = i;
 
-	// Find the leftmost point 
-	int l = 0;
-	for (int i = 1; i < n; i++)
-		if (points[i].x < points[l].x)
-			l = i;
-
-	// Start from leftmost point, keep moving counterclockwise 
-	// until reach the start point again.  This loop runs O(h) 
-	// times where h is number of points in result or output. 
-	int p = l, q;
+	//start at the furthest left point and move along
+	//until the furthest left point is reached a second time
+	int p = leftMost;
+	int q;
 	do
 	{
 		// Add current point to result 
@@ -44,8 +40,8 @@ vector<glm::vec3> Convex_Hull::convexHull(vector<glm::vec3> points, int n)
 		// is to keep track of last visited most counterclock- 
 		// wise point in q. If any point 'i' is more counterclock- 
 		// wise than q, then update q. 
-		q = (p + 1) % n;
-		for (int i = 0; i < n; i++)
+		q = (p + 1) % points.size();
+		for (int i = 0; i < points.size(); i++)
 		{
 			// If i is more counterclockwise than current q, then 
 			// update q 
@@ -58,7 +54,7 @@ vector<glm::vec3> Convex_Hull::convexHull(vector<glm::vec3> points, int n)
 		// result 'hull' 
 		p = q;
 
-	} while (p != l);  // While we don't come to first point 
+	} while (p != leftMost);  // While we don't come to first point 
 
 	return hull;
 }
