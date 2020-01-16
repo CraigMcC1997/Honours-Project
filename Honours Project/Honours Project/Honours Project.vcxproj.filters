@@ -84,6 +84,9 @@
     <ClCompile Include="md2model.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="GJK.cpp">
+      <Filter>Source Files\GJK</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -145,6 +148,12 @@
     </ClInclude>
     <ClInclude Include="anorms.h">
       <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="GJK.h">
+      <Filter>Header Files\GJK</Filter>
+    </ClInclude>
+    <ClInclude Include="collisionDetector.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

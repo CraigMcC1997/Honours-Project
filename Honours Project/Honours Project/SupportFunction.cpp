@@ -5,11 +5,12 @@ unsigned int SupportFunction::furthestPoint(glm::vec3 direction, vector<glm::vec
     float maximum = dot(direction, points[0]);
 
     unsigned int index = 0;
-    
+    float current;
+
     for (int i = 1; i < points.size(); i++) {
-        float product = dot(direction, points[i]);
-        if (product > maximum) {
-            maximum = product;
+        current = dot(direction, points[i]);
+        if (current > maximum) {
+            maximum = current;
             index = i;
         }
     }
@@ -19,14 +20,14 @@ unsigned int SupportFunction::furthestPoint(glm::vec3 direction, vector<glm::vec
 glm::vec3 SupportFunction::support(glm::vec3 direction, vector<glm::vec3> points, vector<glm::vec3> points2)
 {
     // get furthest point of first body along an arbitrary direction
-    int i = furthestPoint(direction, points);
+    int a = furthestPoint(direction, points);
 
     // get furthest point of second body along the opposite direction
-    int j = furthestPoint(-direction, points2);
+    int b = furthestPoint(-direction, points2);
 
-    // subtract (Minkowski sum) the two points to see if bodies 'overlap'
+    //returns a point on the edge of the minkowski difference
     glm::vec3 returnContainer;
-    returnContainer = points[i] - points2[j];
+    returnContainer = points[a] - points2[b];
 
     return returnContainer;
 }

@@ -16,5 +16,5 @@ class Convex_Hull
 {
 public:
 	int orientation(glm::vec3 p, glm::vec3 q, glm::vec3 r);
-	vector<glm::vec3> convexHull(vector<glm::vec3> points);
+	vector<glm::vec3> createHull(vector<glm::vec3> points);
 };

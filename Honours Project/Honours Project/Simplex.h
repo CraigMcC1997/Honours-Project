@@ -10,6 +10,11 @@ using namespace std;
 
 class Simplex
 {
+private:
+	vector<glm::vec3> simplex;
+	glm::vec3 lastPoint;
+	
 public:
-	void performSimplex(vector<glm::vec3> convexHull, vector<glm::vec3> direction);
+	void addPoint(glm::vec3 convexHull);
+	glm::vec3 getLastPoint();
 };

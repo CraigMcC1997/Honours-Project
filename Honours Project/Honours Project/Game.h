@@ -6,11 +6,7 @@
 #include "circle.h"
 #include "cone.h"
 #include "cylinder.h"
-#include "Convex_Hull.h"
-
-
-#include "SupportFunction.h"
-#include "MinkowskiSum.h"
+#include "GJK.h"
 
 class Game
 {
@@ -22,9 +18,9 @@ private:
 	Circle* circle = new Circle();
 	Cone* cone = new Cone();
 	Cylinder* cylinder = new Cylinder();
-	Convex_Hull* cHull = new Convex_Hull();
-	MinkowskiSum* sum = new MinkowskiSum();
-	SupportFunction* support = new SupportFunction();
+
+	GJK* gjk = new GJK();
+	
 
 	glm::vec4 lightPos = glm::vec4(1.0f, 2.0f, 2.0f, 1.0f); //global light position
 

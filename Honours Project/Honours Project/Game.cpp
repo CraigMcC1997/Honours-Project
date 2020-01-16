@@ -17,69 +17,7 @@ void Game::init()
 	cone->init();
 	cylinder->init();
 
-
-
-
-
-	//!!! TEST CODE !!!
-	// create a set of points in 3D space
-	// pass them into the convex hull class which calculates the hull of the points
-	// convex hull is passed back the game as a set of points stored in a vector
-	// points are written to console window for testing purposes
-	vector<glm::vec3> points = 
-	{ {1, 1, 1}, {1, 6, 4}, {7, 1, 1}, {7, 6, 4}, {3, 3, 5} };
-
-	vector<glm::vec3> points2 =
-	{ {1, 1, 1}, {1, 6, 1}, {7, 1, 1}, {7, 6, 1},
-	{3, 3, 1}, {2, 5, 1}, {4, 8, 1}, {4, 2, 1}, {4, 5, 1} };
-
-	//CONVEX HULL CALCULATOR
-	int size = points.size();
-	vector<glm::vec3> hull;
-
-	if (size >= 4)	//make sure there are enough points for a 3D shape
-		hull = cHull->convexHull(points);
-	else
-		cout << "not enought vertices for 3D shape, minimum required: 4.\nCurrent vertex count"
-		<< size << endl;
-
-	for (int i = 0; i <= hull.size() -1; i++)
-		cout << "(" << hull[i].x << ", " << hull[i].y << ", " << hull[i].z << ")\n";
-
-
-
-
-	//MINKOWSKI DIFFERENCE CALCULATOR
-	vector<glm::vec3> minSum = sum->sum(points, points2);
-	cout << minSum.size() << endl;
-
-	for (int i = 0; i <= minSum.size() - 1; i++)
-		cout << i << ": "<< "(" << minSum[i].x << ", " << minSum[i].y << ", " << minSum[i].z << ")\n";
-
-
-
-	//testing support function
-	vector<glm::vec3> points3 = {
-	{3, 2, 1}, {1, 6, 1}, {7, 1, 1} };
-
-	vector<glm::vec3> points4 = {
-	{3, 2, 1}, {1, 6, 1}, {7, 1, 1} };
-
-	unsigned int furthestIndex = support->furthestPoint(glm::vec3(0, 1, 0), points3);
-	cout << "\n\n" << endl;
-	cout << "furthest point: " << furthestIndex << endl;
-
-	glm::vec3 furthestVertice = points3[furthestIndex];
-	cout << "x: " << furthestVertice.x << endl;
-	cout << "y: " << furthestVertice.y << endl;
-	cout << "z: " << furthestVertice.z << endl;
-
-												//direction        two point clouds  
-	glm::vec3 furthestPoint = support->support(glm::vec3(0, 1, 0), points3, points4);
-	cout << "\n\n" << endl;
-	cout << "x: " << furthestPoint.x << endl;
-	cout << "y: " << furthestPoint.y << endl;
-	cout << "z: " << furthestPoint.z << endl;
+	gjk->performGJK();
 
 
 	glEnable(GL_DEPTH_TEST);

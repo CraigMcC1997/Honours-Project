@@ -4,4 +4,7 @@
     <LocalDebuggerEnvironment>E:\1. University\Year 4 (Honours Year)\Honours Project\REPO\Honours Project\Debug;%PATH%</LocalDebuggerEnvironment>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
 </Project>
