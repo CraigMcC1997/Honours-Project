@@ -4,8 +4,6 @@
 
 class Player : public Entity
 {
-private:
-
 public:
 	void init();
 	void update();

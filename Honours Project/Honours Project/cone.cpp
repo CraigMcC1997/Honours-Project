@@ -29,7 +29,7 @@ void Cone::draw(GLuint shader, std::stack<glm::mat4>* _mvStack, glm::mat4 projec
 	_mvStack->push(_mvStack->top());
 	_mvStack->top() = glm::translate(_mvStack->top(), pos);
 	_mvStack->top() = glm::rotate(_mvStack->top(), float(rotator), glm::vec3(0.0f, 1.0f, 0.0f));
-	_mvStack->top() = glm::scale(_mvStack->top(), glm::vec3(1.5f, 1.5f, 1.5f));
+	_mvStack->top() = glm::scale(_mvStack->top(), scale);
 	rt3d::setUniformMatrix4fv(shader, "projection", glm::value_ptr(projection));
 	rt3d::setUniformMatrix4fv(shader, "modelview", glm::value_ptr(_mvStack->top()));
 	rt3d::setMaterial(shader, material0);

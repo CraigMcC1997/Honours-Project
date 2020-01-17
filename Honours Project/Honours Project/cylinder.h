@@ -8,6 +8,7 @@
 class Cylinder : public Shape
 {
 public:
+	Cylinder(glm::vec3 cylinderScale) { scale = cylinderScale; }
 	void init();
 	void update();
 	void draw(GLuint shader, std::stack<glm::mat4>* _mvStack, glm::mat4 projection, GLuint texture, glm::vec3 pos);

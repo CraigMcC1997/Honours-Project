@@ -2,8 +2,8 @@
 #include "Window.h"
 #include "Player.h"
 #include "loadTextures.h"
-#include "Box.h"
-#include "circle.h"
+#include "Cube.h"
+#include "Sphere.h"
 #include "cone.h"
 #include "cylinder.h"
 #include "GJK.h"
@@ -13,11 +13,11 @@ class Game
 private:
 	//shapes
 	Player* player = new Player();
-	Box* box = new Box();
-	Box* box2 = new Box();
-	Circle* circle = new Circle();
-	Cone* cone = new Cone();
-	Cylinder* cylinder = new Cylinder();
+	Cube* box = new Cube(glm::vec3(1.5f, 1.5f, 1.5f));
+	Cube* box2 = new Cube(glm::vec3(3.5f, 3.5f, 3.5f));
+	Sphere* circle = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f));
+	Cone* cone = new Cone(glm::vec3(3.0f, 3.0f, 3.0f));
+	Cylinder* cylinder = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f));
 
 	GJK* gjk = new GJK();
 	

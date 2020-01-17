@@ -20,6 +20,9 @@ protected:
 	{0.0f, 0.1f, 0.0f, 1.0f}, // specular
 					   2.0f  // shininess
 	};
+
+	glm::vec3 scale = glm::vec3(1.5f, 1.5f, 1.5f);
+
 public:
 	virtual glm::vec3 getPosition() = 0;
 };
