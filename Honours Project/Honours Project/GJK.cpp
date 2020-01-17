@@ -1,6 +1,20 @@
 #include "GJK.h"
 
-void GJK::performGJK()
+glm::vec3 GJK::tripleProduct(glm::vec3 a, glm::vec3 b, glm::vec3 c) {
+
+    glm::vec3 r;
+
+    float ac = a.x * c.x + a.y * c.y + a.z * c.z; // perform a.dot(c)
+    float bc = b.x * c.x + b.y * c.y + b.z * c.z; // perform b.dot(c)
+
+    // perform b * a.dot(c) - a * b.dot(c)
+    r.x = b.x * ac - a.x * bc;
+    r.y = b.y * ac - a.y * bc;
+    r.z = b.z * ac - a.z * bc;
+    return r;
+}
+
+int GJK::performGJK(/*vector<glm::vec3> hull1, vector<glm::vec3> hull2*/)
 {
 
 	//!! FOR TEST PURPOSES !!
@@ -56,5 +70,78 @@ void GJK::performGJK()
 	cout << "x: " << furthestPoint.x << endl;
 	cout << "y: " << furthestPoint.y << endl;
 	cout << "z: " << furthestPoint.z << endl;
+
+
+
+
+
+
+	//TESTING THE GJK
+	cout << "TESTING THE GJK" << endl;
+
+    size_t index = 0; // index of current vertex of simplex
+    glm::vec3 a, b, c, ao, ab, ac, abperp, acperp, simplex[3];
+
+    // if initial direction is zero – set it to any arbitrary axis (we choose X)
+    if ((direction.x == 0) && (direction.y == 0))
+        direction.x = 1.f;
+
+    // set the first support as initial point of the new simplex
+    a = simplex[0] = support->support(direction, hull1, hull2);
+
+    if (dot(a, direction) <= 0)
+        return 0; // no collision
+
+    direction = -a; // The next search direction is always towards the origin, so the next search direction is negate(a)
+
+    while (1) {
+        iter_count++;
+
+        a = simplex[0] = support->support(direction, hull1, hull2);
+
+        if (dot(a, direction) <= 0)
+            return 0; // no collision
+
+        ao = -a; // from point A to Origin is just negative A
+
+        // simplex has 2 points (a line segment, not a triangle yet)
+        if (index < 3) {
+            b = simplex[0];
+            ab = b - a; // from point A to B
+            direction = tripleProduct(ab, ao, ab); // normal to AB towards Origin
+            if ((direction.x * direction.x + direction.y * direction.y + direction.z * direction.z) == 0)
+                direction.x = -direction.x;
+            continue; // skip to next iteration
+        }
+
+        b = simplex[1];
+        c = simplex[0];
+        ab = b - a; // from point A to B
+        ac = c - a; // from point A to C
+
+        acperp = tripleProduct(ab, ac, ac);
+
+        if (dot(acperp, ao) >= 0) {
+
+            direction = acperp; // new direction is normal to AC towards Origin
+
+        }
+        else {
+
+            abperp = tripleProduct(ac, ab, ab);
+
+            if (dot(abperp, ao) < 0)
+                return 1; // collision
+
+            simplex[0] = simplex[1]; // swap first element (point C)
+
+            direction = abperp; // new direction is normal to AB towards Origin
+        }
+
+        simplex[1] = simplex[2]; // swap element in the middle (point B)
+        --index;
+    }
+
+    return 0;
 
 }

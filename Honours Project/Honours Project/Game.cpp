@@ -17,8 +17,8 @@ void Game::init()
 	cone->init();
 	cylinder->init();
 
-	gjk->performGJK();
-
+	int test = gjk->performGJK();
+	cout << test << endl;
 
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
