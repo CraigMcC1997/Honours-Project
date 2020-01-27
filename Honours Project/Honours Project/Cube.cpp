@@ -18,9 +18,19 @@ glm::vec3 Cube::getPosition()
 	return position;
 }
 
+vector<glm::vec3> Cube::getHull()
+{
+	return cHull;
+}
+
+void Cube::setHull(vector<glm::vec3> hull)
+{
+	cHull = hull;
+}
+
 void Cube::update()
 {
-	rotator += 0.01f;
+	//rotator += 0.001f;
 }
 
 void Cube::draw(GLuint shader, std::stack<glm::mat4>* _mvStack, glm::mat4 projection, GLuint texture, glm::vec3 pos)

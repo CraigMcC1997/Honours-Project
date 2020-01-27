@@ -18,6 +18,16 @@ glm::vec3 Sphere::getPosition()
 	return position;
 }
 
+vector<glm::vec3> Sphere::getHull()
+{
+	return cHull;
+}
+
+void Sphere::setHull(vector<glm::vec3> hull)
+{
+	cHull = hull;
+}
+
 void Sphere::update()
 {
 	rotator += 0.01f;

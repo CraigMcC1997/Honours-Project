@@ -18,9 +18,19 @@ glm::vec3 Cylinder::getPosition()
 	return position;
 }
 
+vector<glm::vec3> Cylinder::getHull()
+{
+	return cHull;
+}
+
+void Cylinder::setHull(vector<glm::vec3> hull)
+{
+	cHull = hull;
+}
+
 void Cylinder::update()
 {
-	rotator += 0.01f;
+	rotator -= 0.01f;
 }
 
 void Cylinder::draw(GLuint shader, std::stack<glm::mat4>* _mvStack, glm::mat4 projection, GLuint texture, glm::vec3 pos)
@@ -28,7 +38,7 @@ void Cylinder::draw(GLuint shader, std::stack<glm::mat4>* _mvStack, glm::mat4 pr
 	glBindTexture(GL_TEXTURE_2D, texture);
 	_mvStack->push(_mvStack->top());
 	_mvStack->top() = glm::translate(_mvStack->top(), pos);
-	_mvStack->top() = glm::rotate(_mvStack->top(), float(rotator), glm::vec3(0.0f, 1.0f, 0.0f));
+	_mvStack->top() = glm::rotate(_mvStack->top(), float(rotator), glm::vec3(0.0f, 0.0f, 1.0f));
 	_mvStack->top() = glm::scale(_mvStack->top(), scale);
 	rt3d::setUniformMatrix4fv(shader, "projection", glm::value_ptr(projection));
 	rt3d::setUniformMatrix4fv(shader, "modelview", glm::value_ptr(_mvStack->top()));

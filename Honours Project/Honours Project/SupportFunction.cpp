@@ -1,7 +1,6 @@
 #include "SupportFunction.h"
 
-unsigned int SupportFunction::furthestPoint(glm::vec3 direction, vector<glm::vec3> points)
-{
+unsigned int SupportFunction::furthestPoint(glm::vec3 direction, vector<glm::vec3> points) {
     float maximum = dot(direction, points[0]);
 
     unsigned int index = 0;
@@ -17,12 +16,10 @@ unsigned int SupportFunction::furthestPoint(glm::vec3 direction, vector<glm::vec
     return index;
 }
 
-glm::vec3 SupportFunction::support(glm::vec3 direction, vector<glm::vec3> points, vector<glm::vec3> points2)
-{
-    // get furthest point of first body along an arbitrary direction
+glm::vec3 SupportFunction::support(glm::vec3 direction, 
+	vector<glm::vec3> points, vector<glm::vec3> points2) {
+    // furthest point in one direction and furthest in the opposite
     int a = furthestPoint(direction, points);
-
-    // get furthest point of second body along the opposite direction
     int b = furthestPoint(-direction, points2);
 
     //returns a point on the edge of the minkowski difference
@@ -31,3 +28,6 @@ glm::vec3 SupportFunction::support(glm::vec3 direction, vector<glm::vec3> points
 
     return returnContainer;
 }
+
+
+

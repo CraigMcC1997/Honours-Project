@@ -1,9 +1,1 @@
-﻿  Game.cpp
-E:\Testing my own GJK code\Honours Project\Honours Project\Game.cpp(30,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\Testing my own GJK code\Honours Project\Honours Project\Game.cpp(31,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\Testing my own GJK code\Honours Project\Honours Project\Game.cpp(32,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-E:\Testing my own GJK code\Honours Project\Honours Project\Game.cpp(33,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  Player.cpp
-  main.cpp
-  Generating Code...
-  Honours Project.vcxproj -> E:\Testing my own GJK code\Honours Project\Debug\Honours Project.exe
+﻿

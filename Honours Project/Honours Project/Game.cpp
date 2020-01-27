@@ -11,13 +11,13 @@ void Game::init()
 	textures[2] = loadTextures::loadTexture("../Resources/Textures/studdedmetal.bmp");
 
 	player->init();
-	box->init();
+	box1->init();
 	box2->init();
 	circle->init();
 	cone->init();
 	cylinder->init();
 
-	int test = gjk->performGJK();
+	bool test = gjk->performGJK(/*box1->getHull(), box2->getHull()*/);
 	cout << test << endl;
 
 	glEnable(GL_DEPTH_TEST);
@@ -55,12 +55,10 @@ void Game::mouse_callback(double xpos, double ypos)
 void Game::update(SDL_Event sdlEvent)
 {	
 	if (!SDL_GetGlobalMouseState(&x, &y))
-	{
 		mouse_callback(x, y);
-	}
 		
 	player->update();
-	box->update();
+	box1->update();
 	box2->update();
 	circle->update();
 	cone->update();
@@ -90,7 +88,7 @@ void Game::draw(SDL_Window* window)
 
 	//draw here
 	glUseProgram(shaderProgram);
-	box->draw(shaderProgram, &mvStack, projection, textures[0], glm::vec3(0, 0, 0));
+	box1->draw(shaderProgram, &mvStack, projection, textures[0], glm::vec3(0, 0, 0));
 	box2->draw(shaderProgram, &mvStack, projection, textures[1], glm::vec3(10, 0, 0));
 	circle->draw(shaderProgram, &mvStack, projection, textures[2], glm::vec3(20, 0, 0));
 	cone->draw(shaderProgram, &mvStack, projection, textures[2], glm::vec3(30, 0, 0));

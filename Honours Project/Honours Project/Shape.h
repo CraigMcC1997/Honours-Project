@@ -23,6 +23,10 @@ protected:
 
 	glm::vec3 scale = glm::vec3(1.5f, 1.5f, 1.5f);
 
+	vector<glm::vec3> cHull;
+
 public:
 	virtual glm::vec3 getPosition() = 0;
+	virtual vector<glm::vec3> getHull() = 0;
+	virtual void setHull(vector<glm::vec3>) = 0;
 };

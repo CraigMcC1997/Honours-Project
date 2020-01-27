@@ -13,7 +13,7 @@ class Game
 private:
 	//shapes
 	Player* player = new Player();
-	Cube* box = new Cube(glm::vec3(1.5f, 1.5f, 1.5f));
+	Cube* box1 = new Cube(glm::vec3(1.5f, 1.5f, 1.5f));
 	Cube* box2 = new Cube(glm::vec3(3.5f, 3.5f, 3.5f));
 	Sphere* circle = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f));
 	Cone* cone = new Cone(glm::vec3(3.0f, 3.0f, 3.0f));

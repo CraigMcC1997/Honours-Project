@@ -38,7 +38,7 @@ int main(int argc, char* argv[])
 	SDL_Event sdlEvent;  // variable to detect SDL events
 
 	Window* hWindow;
-	hWindow = new Window(800, 600, "Honours Project");
+	hWindow = new Window(1200, 800, "Honours Project");
 
 	hWindow->setupRC(glContext);
 	renderTarget = nullptr;
