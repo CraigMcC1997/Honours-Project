@@ -38,7 +38,20 @@ private:
 
 	int iter_count = 0;
 
+
+	//TEST CODE
+	glm::vec3 a, b, c, d;
+	int nrPointsSimplex = 0;
+
 public:
 	glm::vec3 tripleProduct(glm::vec3 a, glm::vec3 b, glm::vec3 c);	//TEST
 	bool performGJK(/*vector<glm::vec3>, vector<glm::vec3>*/);
+
+
+	// TESTING CODE ONLY!!
+	bool ContainsOrigin(glm::vec3&);
+	bool line(glm::vec3&);
+	bool triangle(glm::vec3&);
+	bool tetrahedron(glm::vec3&);
+	bool checkTetrahedron(const glm::vec3&, const glm::vec3&, const glm::vec3&, const glm::vec3&, glm::vec3& dir);
 };
