@@ -9,7 +9,7 @@ private:
 	//subsections of the algorithm
 	Convex_Hull* cHull = new Convex_Hull();
 	SupportFunction* support = new SupportFunction();
-	Simplex* simplex = new Simplex();
+	//Simplex* simplex = new Simplex();
 
 	//!!TEST CODE!!
 
@@ -17,13 +17,16 @@ private:
 
 	//arbitrary point clouds for convex hull
 	vector<glm::vec3> points =
-	{ {1, 1, 1}, {1, 6, 4}, {7, 1, 1}, {7, 6, 4}, {3, 3, 5} };
-
-	/*vector<glm::vec3> points2 =
-	{ {1, 3, 1}, {1, 6, 1}, {5, 3, 1}, {7, 6, 1}, {2, 3, 1} };*/
+	{ {1, 1, 1}, {1, 6, 1}, {7, 1, 1}, {7, 6, 1}, {3, 3, 1} };
 
 	vector<glm::vec3> points2 =
-	{ {1, 1, 1}, {1, 6, 4}, {7, 1, 1}, {7, 6, 4}, {3, 3, 5} };
+	{ {-1, -1, -1}, {-1, -6, -1}, {-7, -1, -1}, {-7, -6, -1}, {-3, -3, -1} };
+
+	/*vector<glm::vec3> points2 =
+	{ {1, 3, 1}, {1, 8, 1}, {5, 3, 1}, {7, 6, 1}, {2, 3, 1} };*/
+
+	/*vector<glm::vec3> points2 =
+	{ {1, 1, 1}, {1, 6, 4}, {7, 1, 1}, {7, 6, 4}, {3, 3, 5} };*/
 
 
 
@@ -40,8 +43,10 @@ private:
 
 
 	//TEST CODE
-	glm::vec3 a, b, c, d;
+	//glm::vec3 a, b, c, d;
 	int nrPointsSimplex = 0;
+	glm::vec3 simplex[4];
+
 
 public:
 	glm::vec3 tripleProduct(glm::vec3 a, glm::vec3 b, glm::vec3 c);	//TEST
