@@ -13,14 +13,14 @@ private:
 
 	//!!TEST CODE!!
 
-	glm::vec3 direction;
+	glm::vec3 direction = glm::vec3(1, 1, 1);
 
 	//arbitrary point clouds for convex hull
 	vector<glm::vec3> points =
 	{ {1, 1, 1}, {1, 6, 1}, {7, 1, 1}, {7, 6, 1}, {3, 3, 1} };
 
 	vector<glm::vec3> points2 =
-	{ {-1, -1, -1}, {-1, -6, -1}, {-7, -1, -1}, {-7, -6, -1}, {-3, -3, -1} };
+	{ {1, 1, 1}, {-1, -6, -1}, {-7, -1, -1}, {-7, -6, -1}, {-3, -3, -1} };
 
 	/*vector<glm::vec3> points2 =
 	{ {1, 3, 1}, {1, 8, 1}, {5, 3, 1}, {7, 6, 1}, {2, 3, 1} };*/
@@ -44,7 +44,7 @@ private:
 
 	//TEST CODE
 	//glm::vec3 a, b, c, d;
-	int nrPointsSimplex = 0;
+	int simplexSize = 0;
 	glm::vec3 simplex[4];
 
 
