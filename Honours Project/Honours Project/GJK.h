@@ -1,5 +1,4 @@
 #pragma once
-#include "Convex_Hull.h"
 #include "SupportFunction.h"
 #include "Simplex.h"
 
@@ -7,7 +6,6 @@ class GJK
 {
 private:
 	//subsections of the algorithm
-	Convex_Hull* cHull = new Convex_Hull();
 	SupportFunction* support = new SupportFunction();
 	//Simplex* simplex = new Simplex();
 

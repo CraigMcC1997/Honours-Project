@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="SAT.cpp" />
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="cone.cpp" />
     <ClCompile Include="Convex_Hull.cpp" />
@@ -154,6 +155,7 @@
     <ClInclude Include="anorms.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="SAT.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="collisionDetector.h" />
     <ClInclude Include="cone.h" />

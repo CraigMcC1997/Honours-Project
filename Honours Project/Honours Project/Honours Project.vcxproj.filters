@@ -19,17 +19,17 @@
     <Filter Include="Source Files\Shapes">
       <UniqueIdentifier>{ef780308-b2a0-4dd8-a8d2-1b2217fabd6b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\GJK">
-      <UniqueIdentifier>{eac52dbe-335f-4b50-b039-98c95a63a9b5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\GJK">
-      <UniqueIdentifier>{3112c2ea-1ec5-467b-a3d0-ba3574f5bd18}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Engine">
       <UniqueIdentifier>{0677fb5d-5f90-44f4-899b-713787b2febd}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine">
       <UniqueIdentifier>{7bd29d04-c87a-4aad-ab55-42e56f396ff7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CollisionDetection">
+      <UniqueIdentifier>{3112c2ea-1ec5-467b-a3d0-ba3574f5bd18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\CollisionDetection">
+      <UniqueIdentifier>{eac52dbe-335f-4b50-b039-98c95a63a9b5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -49,16 +49,16 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Convex_Hull.cpp">
-      <Filter>Source Files\GJK</Filter>
+      <Filter>Source Files\CollisionDetection</Filter>
     </ClCompile>
     <ClCompile Include="MinkowskiSum.cpp">
-      <Filter>Source Files\GJK</Filter>
+      <Filter>Source Files\CollisionDetection</Filter>
     </ClCompile>
     <ClCompile Include="Simplex.cpp">
-      <Filter>Source Files\GJK</Filter>
+      <Filter>Source Files\CollisionDetection</Filter>
     </ClCompile>
     <ClCompile Include="SupportFunction.cpp">
-      <Filter>Source Files\GJK</Filter>
+      <Filter>Source Files\CollisionDetection</Filter>
     </ClCompile>
     <ClCompile Include="Window.cpp">
       <Filter>Source Files\Engine</Filter>
@@ -79,13 +79,16 @@
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="GJK.cpp">
-      <Filter>Source Files\GJK</Filter>
+      <Filter>Source Files\CollisionDetection</Filter>
     </ClCompile>
     <ClCompile Include="Cube.cpp">
       <Filter>Source Files\Shapes</Filter>
     </ClCompile>
     <ClCompile Include="Sphere.cpp">
       <Filter>Source Files\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="SAT.cpp">
+      <Filter>Source Files\CollisionDetection</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -108,16 +111,16 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Convex_Hull.h">
-      <Filter>Header Files\GJK</Filter>
+      <Filter>Header Files\CollisionDetection</Filter>
     </ClInclude>
     <ClInclude Include="MinkowskiSum.h">
-      <Filter>Header Files\GJK</Filter>
+      <Filter>Header Files\CollisionDetection</Filter>
     </ClInclude>
     <ClInclude Include="Simplex.h">
-      <Filter>Header Files\GJK</Filter>
+      <Filter>Header Files\CollisionDetection</Filter>
     </ClInclude>
     <ClInclude Include="SupportFunction.h">
-      <Filter>Header Files\GJK</Filter>
+      <Filter>Header Files\CollisionDetection</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Header Files\Engine</Filter>
@@ -144,7 +147,7 @@
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="GJK.h">
-      <Filter>Header Files\GJK</Filter>
+      <Filter>Header Files\CollisionDetection</Filter>
     </ClInclude>
     <ClInclude Include="collisionDetector.h">
       <Filter>Header Files</Filter>
@@ -154,6 +157,9 @@
     </ClInclude>
     <ClInclude Include="Sphere.h">
       <Filter>Header Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="SAT.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

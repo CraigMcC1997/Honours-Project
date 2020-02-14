@@ -1,19 +1,5 @@
  #include "GJK.h"
 
-glm::vec3 GJK::tripleProduct(glm::vec3 a, glm::vec3 b, glm::vec3 c) {
-
-    glm::vec3 r;
-
-    float ac = a.x * c.x + a.y * c.y + a.z * c.z; // perform a.dot(c)
-    float bc = b.x * c.x + b.y * c.y + b.z * c.z; // perform b.dot(c)
-
-    // perform b * a.dot(c) - a * b.dot(c)
-    r.x = b.x * ac - a.x * bc;
-    r.y = b.y * ac - a.y * bc;
-    r.z = b.z * ac - a.z * bc;
-    return r;
-}
-
 //CODE BASED ON ->>> http://in2gpu.com/2014/05/18/gjk-algorithm-3d/
 glm::vec3 cross(const glm::vec3& v1, const glm::vec3& v2)
 {
