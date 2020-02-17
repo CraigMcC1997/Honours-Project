@@ -107,7 +107,7 @@ bool GJK::performGJK(/*vector<glm::vec3> hull1, vector<glm::vec3> hull2*/)
 
 	simplexSize = 2; //begin with 2 points in simplex
 
-	int steps = 0;//avoid infinite loop
+	int steps = 0; //avoid infinite loop
 	while (steps < 50) {
 		simplex[0] = support->support(direction, points, points2);
 		if (dot(simplex[0], direction) < 0)
@@ -129,13 +129,8 @@ bool GJK::performGJK(/*vector<glm::vec3> hull1, vector<glm::vec3> hull2*/)
 // PERSONALISED CHANGES AND EDITIONS
 
 
-
-
-bool GJK::ContainsOrigin(glm::vec3& direction)
+bool GJK::ContainsOrigin(glm::vec3 direction)
 {
-	if (simplexSize == 1)
-		return line(direction);
-
 	if (simplexSize == 2)
 		return triangle(direction);
 
@@ -145,33 +140,17 @@ bool GJK::ContainsOrigin(glm::vec3& direction)
 	return false;
 }
 
-bool GJK::line(glm::vec3& direction)
-{
-	glm::vec3 ab = simplex[1] - simplex[0];
-	glm::vec3 ao = -simplex[0];
-
-	//can't be behind simplex[1] so no need to check 
-
-	//new direction towards a0
-	direction = doubleCross(ab, ao);
-
-	simplex[2] = simplex[1];
-	simplex[1] = simplex[0];
-	simplexSize = 2;
-
-	return false;
-}
-
-bool GJK::triangle(glm::vec3& direction)
+bool GJK::triangle(glm::vec3 direction)
 {
 	glm::vec3 ao = glm::vec3(-simplex[0].x, -simplex[0].y, -simplex[0].z);
 	glm::vec3 ab = simplex[1] - simplex[0];
 	glm::vec3 ac = simplex[2] - simplex[0];
 	glm::vec3 abc = cross(ab, ac);
 
-	//point is can't be behind/in the direction of B,C or BC
+	//point can't be behind points B,C or line BC
 
 	glm::vec3 ab_abc = cross(ab, abc);
+	
 	//is the origin away from ab edge? in the same plane
 	//if a0 is in that direction than
 	if (dot(ab_abc, ao) > 0) {
@@ -222,18 +201,15 @@ bool GJK::triangle(glm::vec3& direction)
 	return false;
 }
 
-bool GJK::tetrahedron(glm::vec3& direction) {
+bool GJK::tetrahedron(glm::vec3 direction) {
 	glm::vec3 ao = -simplex[0]; //0-a
 	glm::vec3 ab = simplex[1] - simplex[0];
 	glm::vec3 ac = simplex[2] - simplex[0];
-
-	//build abc triangle
 	glm::vec3 abc = cross(ab, ac);
 
 	//CASE 1
 	if (dot(abc, ao) > 0) {
 		//in front of triangle ABC
-		//we don't have to change the ao,ab,ac,abc meanings
 		checkTetrahedron(ao, ab, ac, abc, direction);
 	}
 
@@ -276,12 +252,12 @@ bool GJK::tetrahedron(glm::vec3& direction) {
 	return true;
 }
 
-bool GJK::checkTetrahedron(const glm::vec3& ao,
-	const glm::vec3& ab,
-	const glm::vec3& ac,
-	const glm::vec3& abc,
-	glm::vec3& direction) {
-	//almost the same like triangle checks
+bool GJK::checkTetrahedron(const glm::vec3 ao,
+	const glm::vec3 ab,
+	const glm::vec3 ac,
+	const glm::vec3 abc,
+	glm::vec3 direction) 
+{
 	glm::vec3 ab_abc = cross(ab, abc);
 
 	if (dot(ab_abc,ao) > 0)
@@ -289,12 +265,11 @@ bool GJK::checkTetrahedron(const glm::vec3& ao,
 		simplex[2] = simplex[1];
 		simplex[1] = simplex[0];
 
-		//direction is not ab_abc because it's not point towards the origin;
+		//direction is not ab_abc because it does not point towards the origin;
 		//ABxA0xAB direction we are looking for
 		direction = doubleCross(ab, ao);
 
-		//build new triangle
-		// d will be lost
+		//drop d, start again from triangle checks
 		simplexSize = 2;
 		return false;
 	}
@@ -308,8 +283,7 @@ bool GJK::checkTetrahedron(const glm::vec3& ao,
 		//ACxA0xAC direction we are looking for
 		direction = doubleCross(ac, ao);
 
-		//build new triangle
-		// d will be lost
+		//drop d, start again from triangle checks
 		simplexSize = 2;
 		return false;
 	}

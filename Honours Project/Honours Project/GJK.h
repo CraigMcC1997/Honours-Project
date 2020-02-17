@@ -47,14 +47,13 @@ private:
 
 
 public:
-	glm::vec3 tripleProduct(glm::vec3 a, glm::vec3 b, glm::vec3 c);	//TEST
 	bool performGJK(/*vector<glm::vec3>, vector<glm::vec3>*/);
 
 
 	// TESTING CODE ONLY!!
-	bool ContainsOrigin(glm::vec3&);
-	bool line(glm::vec3&);
-	bool triangle(glm::vec3&);
-	bool tetrahedron(glm::vec3&);
-	bool checkTetrahedron(const glm::vec3&, const glm::vec3&, const glm::vec3&, const glm::vec3&, glm::vec3& dir);
+	bool ContainsOrigin(glm::vec3);
+	bool triangle(glm::vec3);
+	bool tetrahedron(glm::vec3);
+	bool checkTetrahedron(const glm::vec3, const glm::vec3, 
+		const glm::vec3, const glm::vec3, glm::vec3 dir);
 };
