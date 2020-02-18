@@ -1,9 +1,10 @@
 #pragma once
+#include "collisionDetector.h"
 
-class SAT
+class SAT : public collisionDetector
 {
 private:
 
 public:
-	bool performSAT(/*vector<glm::vec3>, vector<glm::vec3>*/);
+	bool performDetection(/*vector<glm::vec3>, vector<glm::vec3>*/);
 };

@@ -1,6 +1,6 @@
 //#include "SAT.h"
 //
-//bool SAT::performSAT(/*vector<glm::vec3> hull1, vector<glm::vec3> hull2*/)
+//bool SAT::performDetection(/*vector<glm::vec3> hull1, vector<glm::vec3> hull2*/)
 //{
 //    // CODE FROM http://www.dyn4j.org/2010/01/sat/
 //    // !!ONLY HERE FOR UNDERSTANDING PURPOSES!!

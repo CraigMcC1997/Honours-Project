@@ -1,44 +1,8 @@
-﻿  Camera.cpp
-  Convex_Hull.cpp
-E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\Convex_Hull.cpp(8,10): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\Convex_Hull.cpp(20,20): warning C4018: '<': signed/unsigned mismatch
-E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\Convex_Hull.cpp(38,21): warning C4018: '<': signed/unsigned mismatch
-  Cube.cpp
-  GJK.cpp
-  Game.cpp
+﻿  Game.cpp
 E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\Game.cpp(30,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\Game.cpp(31,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\Game.cpp(32,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\Game.cpp(33,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  MinkowskiSum.cpp
-E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\MinkowskiSum.cpp(7,20): warning C4018: '<=': signed/unsigned mismatch
-E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\MinkowskiSum.cpp(8,21): warning C4018: '<=': signed/unsigned mismatch
-  Player.cpp
-  SAT.cpp
-  Simplex.cpp
-  Sphere.cpp
-  SupportFunction.cpp
-E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\SupportFunction.cpp(9,23): warning C4018: '<': signed/unsigned mismatch
-  Window.cpp
-  cone.cpp
-  cylinder.cpp
-  loadTextures.cpp
   main.cpp
-  md2model.cpp
-E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\md2model.cpp(176,10): warning C4101: 'v': unreferenced local variable
-E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\md2model.cpp(175,10): warning C4101: 's': unreferenced local variable
-E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\md2model.cpp(176,14): warning C4101: 'norm': unreferenced local variable
-E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\md2model.cpp(175,13): warning C4101: 't': unreferenced local variable
-E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\md2model.cpp(338,17): warning C4018: '<': signed/unsigned mismatch
-  rt3d.cpp
-  rt3dObjLoader.cpp
-E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\rt3dObjLoader.cpp(196,22): warning C4018: '<': signed/unsigned mismatch
-E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\rt3dObjLoader.cpp(134,17): warning C4101: 'z': unreferenced local variable
-E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\rt3dObjLoader.cpp(134,14): warning C4101: 'y': unreferenced local variable
-E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\rt3dObjLoader.cpp(134,11): warning C4101: 'x': unreferenced local variable
   Generating Code...
   Honours Project.vcxproj -> E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Debug\Honours Project.exe

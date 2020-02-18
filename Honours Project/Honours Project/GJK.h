@@ -1,8 +1,9 @@
 #pragma once
+#include "collisionDetector.h"
 #include "SupportFunction.h"
 #include "Simplex.h"
 
-class GJK
+class GJK : public collisionDetector
 {
 private:
 	//subsections of the algorithm
@@ -47,7 +48,7 @@ private:
 
 
 public:
-	bool performGJK(/*vector<glm::vec3>, vector<glm::vec3>*/);
+	bool performDetection(/*vector<glm::vec3>, vector<glm::vec3>*/);
 
 
 	// TESTING CODE ONLY!!

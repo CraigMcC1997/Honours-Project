@@ -17,7 +17,7 @@ void Game::init()
 	cone->init();
 	cylinder->init();
 
-	bool test = gjk->performGJK(/*box1->getHull(), box2->getHull()*/);
+	bool test = gjk->performDetection(/*box1->getHull(), box2->getHull()*/);
 	cout << test << endl;
 
 	glEnable(GL_DEPTH_TEST);

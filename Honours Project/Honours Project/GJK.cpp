@@ -13,7 +13,7 @@ glm::vec3 doubleCross(const glm::vec3& v1, const glm::vec3& v2)
     return cross(cross(v1, v2), v1);
 }
 
-bool GJK::performGJK(/*vector<glm::vec3> hull1, vector<glm::vec3> hull2*/)
+bool GJK::performDetection(/*vector<glm::vec3> hull1, vector<glm::vec3> hull2*/)
 {
 
     //!! FOR TEST PURPOSES !!
