@@ -17,6 +17,9 @@ void Game::init()
 	cone->init();
 	cylinder->init();
 
+	for (int i = 0; i < box1->getVerts().size(); i++)
+		cout << box1->getVerts()[i] << endl;
+
 	bool test = gjk->performDetection(/*box1->getHull(), box2->getHull()*/);
 	cout << test << endl;
 
@@ -32,14 +35,13 @@ void Game::mouse_callback(double xpos, double ypos)
 	lastX = xpos;
 	lastY = ypos;
 
-	float sensitivity = 0.2f; // change this value to your liking
+	float sensitivity = 0.2f;
 	xoffset *= sensitivity;
 	yoffset *= sensitivity;
 
 	yaw += xoffset;
 	pitch += yoffset;
 
-	// make sure that when pitch is out of bounds, screen doesn't get flipped
 	if (pitch > 89.0f)
 		pitch = 89.0f;
 	if (pitch < -89.0f)

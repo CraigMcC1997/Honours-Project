@@ -1,8 +1,11 @@
-﻿  Game.cpp
-E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\Game.cpp(30,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\Game.cpp(31,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\Game.cpp(32,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\Game.cpp(33,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+﻿  GJK.cpp
+  Game.cpp
+E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\Game.cpp(20,20): warning C4018: '<': signed/unsigned mismatch
+E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\Game.cpp(33,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\Game.cpp(34,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\Game.cpp(35,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Honours Project\Game.cpp(36,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Maths.cpp
   main.cpp
   Generating Code...
   Honours Project.vcxproj -> E:\1.University\Year4\Honours Project\Testing3D GJK\Honours Project\Debug\Honours Project.exe

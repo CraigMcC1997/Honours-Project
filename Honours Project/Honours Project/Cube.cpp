@@ -7,7 +7,7 @@ void Cube::init()
 	meshIndexCount = indices.size();
 	meshObjects = rt3d::createMesh(verts.size() / 3, verts.data(), nullptr, norms.data(), tex_coords.data(),
 		meshIndexCount, indices.data());
-	verts.clear(), norms.clear(), tex_coords.clear(), indices.clear();
+	norms.clear(), tex_coords.clear(), indices.clear();
 }
 
 glm::vec3 Cube::getPosition()
@@ -16,6 +16,11 @@ glm::vec3 Cube::getPosition()
 	cout << position.y << endl;
 	cout << position.z << endl;
 	return position;
+}
+
+vector<GLfloat> Cube::getVerts()
+{
+	return verts;
 }
 
 vector<glm::vec3> Cube::getHull()
