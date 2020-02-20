@@ -1,3 +1,6 @@
+// CODE FROM http://www.dyn4j.org/2010/01/sat/
+
+
 #pragma once
 #include "collisionDetector.h"
 

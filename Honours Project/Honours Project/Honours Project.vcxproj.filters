@@ -161,11 +161,11 @@
     <ClInclude Include="Sphere.h">
       <Filter>Header Files\Shapes</Filter>
     </ClInclude>
-    <ClInclude Include="SAT.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Maths.h">
       <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="SAT.h">
+      <Filter>Header Files\CollisionDetection</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

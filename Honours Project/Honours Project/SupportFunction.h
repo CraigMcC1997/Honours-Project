@@ -13,7 +13,8 @@ using namespace std;
 class SupportFunction
 {
 public:
-	unsigned int furthestPoint(glm::vec3 direction, vector<glm::vec3> points);
-	glm::vec3 support(glm::vec3 direction, vector<glm::vec3> points, vector<glm::vec3> points2);
+	unsigned int furthestPoint(const glm::vec3 direction, const vector<glm::vec3> points);
+	glm::vec3 support(const glm::vec3 direction, 
+		const vector<glm::vec3> points, const vector<glm::vec3> points2);
 };
 

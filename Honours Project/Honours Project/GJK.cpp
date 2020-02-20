@@ -1,11 +1,7 @@
  #include "GJK.h"
 
-//CODE BASED ON ->>> http://in2gpu.com/2014/05/18/gjk-algorithm-3d/
-
-
 bool GJK::performDetection(/*vector<glm::vec3> hull1, vector<glm::vec3> hull2*/)
 {
-
     //!! FOR TEST PURPOSES !!
     // Final edition = shapes will create their own convex hulls for their data
     // Shapes hulls will be passed in from the game class
@@ -94,13 +90,6 @@ bool GJK::performDetection(/*vector<glm::vec3> hull1, vector<glm::vec3> hull2*/)
 	return false;
 }
 
-
-// EVERYTHING BELOW HERE IS FOR TESTING PURPOSES ONLY!!! 
-// CODE TAKEN FROM ->>> http://in2gpu.com/2014/05/18/gjk-algorithm-3d/
-// THE BELOW IS NOT ALL MY WORK AND SHOULD NOT APPEAR IN FINAL CODE WITHOUT 
-// PERSONALISED CHANGES AND EDITIONS
-
-
 bool GJK::ContainsOrigin(glm::vec3 direction)
 {
 	if (simplexSize == 2)
@@ -131,7 +120,7 @@ bool GJK::triangle(glm::vec3 direction)
 		//not facing origin, find new direction
 		direction = Maths::doubleCross(ab, ao);
 
-		//can't build tetrahedron, early exit
+		//can't build tetrahedron
 		return false;
 	}
 

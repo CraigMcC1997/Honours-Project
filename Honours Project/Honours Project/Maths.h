@@ -1,3 +1,8 @@
+//#############################################################
+// Backup maths namespace for anything outside the scope of GLM
+//#############################################################
+
+
 #pragma once
 
 #ifndef MATHS

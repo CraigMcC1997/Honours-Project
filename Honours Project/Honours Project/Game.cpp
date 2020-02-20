@@ -23,6 +23,9 @@ void Game::init()
 	bool test = gjk->performDetection(/*box1->getHull(), box2->getHull()*/);
 	cout << test << endl;
 
+	//bool test = gjk->performDetection(box1->getVerts(), box2->getVerts());
+	//cout << test << endl;
+
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

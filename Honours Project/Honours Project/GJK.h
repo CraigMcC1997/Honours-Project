@@ -1,3 +1,10 @@
+// EVERYTHING BELOW HERE IS FOR TESTING PURPOSES ONLY!!! 
+// CODE TAKEN FROM ->>> http://in2gpu.com/2014/05/18/gjk-algorithm-3d/
+// THE BELOW IS NOT ALL MY WORK AND SHOULD NOT APPEAR IN FINAL CODE WITHOUT 
+// PERSONALISED CHANGES AND EDITIONS
+
+
+
 #pragma once
 #include "collisionDetector.h"
 #include "SupportFunction.h"
@@ -29,11 +36,9 @@ private:
 
 
 	//TEST CODE
-	int steps = 0; //avoid infinite loop
-	//glm::vec3 a, b, c, d;
+	int steps = 0;
 	int simplexSize = 0;
 	glm::vec3 simplex[4];
-
 
 public:
 	bool performDetection(/*vector<glm::vec3>, vector<glm::vec3>*/);

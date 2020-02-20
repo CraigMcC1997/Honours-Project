@@ -1,6 +1,6 @@
 #include "SupportFunction.h"
 
-unsigned int SupportFunction::furthestPoint(glm::vec3 direction, vector<glm::vec3> points) {
+unsigned int SupportFunction::furthestPoint(const glm::vec3 direction, const vector<glm::vec3> points) {
     float maximum = dot(direction, points[0]);
 
     unsigned int index = 0;
@@ -16,8 +16,8 @@ unsigned int SupportFunction::furthestPoint(glm::vec3 direction, vector<glm::vec
     return index;
 }
 
-glm::vec3 SupportFunction::support(glm::vec3 direction, 
-	vector<glm::vec3> points, vector<glm::vec3> points2) {
+glm::vec3 SupportFunction::support(const glm::vec3 direction,
+    const vector<glm::vec3> points, const vector<glm::vec3> points2) {
     // furthest point in one direction and furthest in the opposite
     int a = furthestPoint(direction, points);
     int b = furthestPoint(-direction, points2);
