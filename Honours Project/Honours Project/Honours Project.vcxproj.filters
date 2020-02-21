@@ -152,9 +152,6 @@
     <ClInclude Include="GJK.h">
       <Filter>Header Files\CollisionDetection</Filter>
     </ClInclude>
-    <ClInclude Include="collisionDetector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Cube.h">
       <Filter>Header Files\Shapes</Filter>
     </ClInclude>
@@ -165,6 +162,9 @@
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="SAT.h">
+      <Filter>Header Files\CollisionDetection</Filter>
+    </ClInclude>
+    <ClInclude Include="collisionDetector.h">
       <Filter>Header Files\CollisionDetection</Filter>
     </ClInclude>
   </ItemGroup>

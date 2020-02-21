@@ -12,19 +12,15 @@ void Game::init()
 
 	player->init();
 	box1->init();
+	box1->setPosition(glm::vec3(0, 0, 0));
 	box2->init();
+	box2->setPosition(glm::vec3(10, 0, 0));
 	circle->init();
 	cone->init();
 	cylinder->init();
 
-	for (int i = 0; i < box1->getVerts().size(); i++)
-		cout << box1->getVerts()[i] << endl;
-
-	bool test = gjk->performDetection(/*box1->getHull(), box2->getHull()*/);
+	bool test = gjk->performDetection(points, points2);
 	cout << test << endl;
-
-	//bool test = gjk->performDetection(box1->getVerts(), box2->getVerts());
-	//cout << test << endl;
 
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);

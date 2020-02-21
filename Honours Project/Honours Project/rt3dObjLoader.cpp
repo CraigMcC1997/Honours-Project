@@ -34,6 +34,8 @@ namespace rt3d {
 		int n;
 	};
 
+	
+
 	int determineFaceFormat(std::string fString) {
 		unsigned int delim1 = fString.find('/');
 		if (delim1 == std::string::npos)
@@ -205,5 +207,13 @@ namespace rt3d {
 
 	}
 
-
+	//std::vector<glm::vec3> getVerts() {
+	//	std::vector<glm::vec3> vertices;
+	//	for (int i = 0; i < inVerts.size(); i++) {
+	//		vertices[i].x = inVerts[i].x;
+	//		vertices[i].y = inVerts[i].y;
+	//		vertices[i].z = inVerts[i].z;
+	//	}
+	//	return vertices;
+	//}
 }

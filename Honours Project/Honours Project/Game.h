@@ -14,7 +14,7 @@ private:
 	//shapes
 	Player* player = new Player();
 	Cube* box1 = new Cube(glm::vec3(1.5f, 1.5f, 1.5f));
-	Cube* box2 = new Cube(glm::vec3(3.5f, 3.5f, 3.5f));
+	Cube* box2 = new Cube(glm::vec3(1.5f, 1.5f, 1.5f));
 	Sphere* circle = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f));
 	Cone* cone = new Cone(glm::vec3(3.0f, 3.0f, 3.0f));
 	Cylinder* cylinder = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f));
@@ -39,6 +39,13 @@ private:
 	float fov = 45.0f;
 
 	int x, y;
+
+	//arbitrary point clouds for convex hull
+	vector<glm::vec3> points =
+	{ {1, 1, 1}, {1, 6, 1}, {7, 1, 1}, {7, 6, 1}, {3, 3, 1} };
+
+	vector<glm::vec3> points2 =
+	{ {1, 1, 1}, {-1, -6, -1}, {-7, -1, -1}, {-7, -6, -1}, {-3, -3, -1} };
 
 public:
 	void init();

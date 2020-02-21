@@ -1,92 +1,37 @@
  #include "GJK.h"
 
-bool GJK::performDetection(/*vector<glm::vec3> hull1, vector<glm::vec3> hull2*/)
+bool GJK::performDetection(vector<glm::vec3> hull1, vector<glm::vec3> hull2)
 {
-    //!! FOR TEST PURPOSES !!
-    // Final edition = shapes will create their own convex hulls for their data
-    // Shapes hulls will be passed in from the game class
+	cout << "Starting GJK..." << endl;
 
-    // create a set of points in 3D space
-    // pass them into the convex hull class which calculates the hull of the points
-    // convex hull is passed back the game as a set of points stored in a vector
-    // points are written to console window for testing purposes
+	simplex[2] = support->support(direction, hull1, hull2);	//Adding first point to the simplex
+	direction = -simplex[2];								//opposite direction
+	simplex[1] = support->support(direction, hull1, hull2);	//Adding second point to the simplex
 
-    ////CONVEX HULL CALCULATOR
-    //int size = points.size();
-    //vector<glm::vec3> hull1;
-    //vector<glm::vec3> hull2;
-
-    //if (size >= 4) {	//make sure there are enough points for a 3D shape
-    //    hull1 = cHull->createHull(points);
-    //    hull2 = cHull->createHull(points2);
-    //}
-    //else
-    //    cout << "not enought vertices for 3D shape, minimum required: 4.\nCurrent vertex count"
-    //    << size << endl;
-
-    //cout << "Points on first hull: " << endl;
-    //for (int i = 0; i <= hull1.size() - 1; i++)
-    //    cout << "(" << hull1[i].x << ", " << hull1[i].y << ", " << hull1[i].z << ")\n";
-
-    //cout << "Points on second hull: " << endl;
-    //for (int i = 0; i <= hull2.size() - 1; i++)
-    //    cout << "(" << hull2[i].x << ", " << hull2[i].y << ", " << hull2[i].z << ")\n";
-
-
-
-
-
-
-
-    //direction = glm::vec3(0, 1, 0);
-
-    //unsigned int furthestIndex = support->furthestPoint(direction, hull1);
-    //cout << "\n\n" << endl;
-    //cout << "furthest point: " << furthestIndex << endl;
-
-    //glm::vec3 furthestVertice = points[furthestIndex];
-    //cout << "x: " << furthestVertice.x << endl;
-    //cout << "y: " << furthestVertice.y << endl;
-    //cout << "z: " << furthestVertice.z << endl;
-
-    ////direction  two point clouds  
-    //glm::vec3 furthestPoint = support->support(direction, hull1, hull2);
-    //cout << "\n\n" << endl;
-    //cout << "x: " << furthestPoint.x << endl;
-    //cout << "y: " << furthestPoint.y << endl;
-    //cout << "z: " << furthestPoint.z << endl;
-
-
-
-
-
-
-    ////TESTING THE GJK
-    cout << "TESTING THE GJK" << endl;
-
-	// TEST CODE ONLY!!
-	simplex[2] = support->support(direction, points, points2);
-	direction = -simplex[2];	//opposite direction
-	simplex[1] = support->support(direction, points, points2);
-
-	if (dot(simplex[1], direction) < 0)
+	//is this new point further than the origin?
+	if (dot(simplex[1], direction) < 0) {
+		cout << "Collision Not Found" << endl;
 		return false;
-
+	}
+	
+	//updating search direction
 	direction = Maths::doubleCross(simplex[2] - simplex[1], -simplex[1]);
 
 	simplexSize = 2; //begin with a line
 
 	while (steps < 50) {
-		simplex[0] = support->support(direction, points, points2);
-		if (dot(simplex[0], direction) < 0)
+		simplex[0] = support->support(direction, hull1, hull2);	//Adding third point to the simplex
+		if (dot(simplex[0], direction) < 0) //is this new point further than the origin?
 			return false;
 		else {
 			if (ContainsOrigin(direction)) {
+				cout << "Collision Found" << endl;
 				return true;
 			}
 		}
 		steps++;
 	}
+	cout << "Collision Not Found" << endl;
 	return false;
 }
 
@@ -101,6 +46,7 @@ bool GJK::ContainsOrigin(glm::vec3 direction)
 	return false;
 }
 
+//check which edge/face of this triangle is closest to the origin
 bool GJK::triangle(glm::vec3 direction)
 {
 	glm::vec3 ao = -simplex[0];					//Line AO
@@ -157,6 +103,8 @@ bool GJK::triangle(glm::vec3 direction)
 	return false;
 }
 
+//does the current tetrahedron contain the origin
+//or do we have to keep checking?
 bool GJK::tetrahedron(glm::vec3 direction) {
 	glm::vec3 ao = -simplex[0];					//Line AO
 	glm::vec3 ab = simplex[1] - simplex[0];		//Line AB
@@ -200,6 +148,9 @@ bool GJK::tetrahedron(glm::vec3 direction) {
 	return true;
 }
 
+//tetrahedon doesnt contain origin
+//therefor, must check which face on it is closest to the origin
+//and set the search direction to this direction
 bool GJK::checkTetrahedron(const glm::vec3 ao, const glm::vec3 ab, 
 	const glm::vec3 ac, const glm::vec3 abc, glm::vec3 direction) 
 {

@@ -5,27 +5,46 @@ void Cube::init()
 	//model loading
 	rt3d::loadObj("../Resources/Models/cube.obj", verts, norms, tex_coords, indices);
 	meshIndexCount = indices.size();
+	storedVerts = verts;
 	meshObjects = rt3d::createMesh(verts.size() / 3, verts.data(), nullptr, norms.data(), tex_coords.data(),
 		meshIndexCount, indices.data());
-	norms.clear(), tex_coords.clear(), indices.clear();
+	verts.clear(), norms.clear(), tex_coords.clear(), indices.clear();
 }
 
 glm::vec3 Cube::getPosition()
 {
-	cout << position.x << endl;
-	cout << position.y << endl;
-	cout << position.z << endl;
 	return position;
+}
+
+void Cube::setPosition(glm::vec3 newPos)
+{
+	position = newPos;
 }
 
 vector<GLfloat> Cube::getVerts()
 {
+	cout << storedVerts.size() /3 << endl;
 	return verts;
 }
 
 vector<glm::vec3> Cube::getHull()
 {
-	return cHull;
+	vector<glm::vec3> hull;
+	hull.resize(storedVerts.size() / 3);
+	int counter = 0;
+
+	for (int i = 0; i < hull.size(); i++)
+	{
+		for (int j = 0; j < 2; j++)
+		{
+			hull[i] += storedVerts[counter];
+			counter++;
+		}
+		//hull[i] += position;
+		//hull[i] *= scale;
+	}
+
+	return hull;
 }
 
 void Cube::setHull(vector<glm::vec3> hull)

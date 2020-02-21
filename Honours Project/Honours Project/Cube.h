@@ -7,7 +7,11 @@
 
 class Cube : public Shape
 {
+private:
+	
 public:
+	vector<GLfloat> storedVerts;
+
 	Cube(glm::vec3 cubeScale) { scale = cubeScale; }
 	void init();
 	void update();
@@ -15,6 +19,7 @@ public:
 	void setHull(vector<glm::vec3>);
 	void draw(GLuint shader, std::stack<glm::mat4>* _mvStack, glm::mat4 projection, GLuint texture, glm::vec3 pos);
 	glm::vec3 getPosition();
+	void setPosition(glm::vec3);
 	vector<GLfloat> getVerts();
 };
 
