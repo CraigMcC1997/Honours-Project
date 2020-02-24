@@ -4,14 +4,13 @@
 
 #pragma once
 #include "Shape.h"
+#include "Mesh.h"
 
 class Cube : public Shape
 {
 private:
-	
+	Mesh* mesh = new Mesh();
 public:
-	vector<GLfloat> storedVerts;
-
 	Cube(glm::vec3 cubeScale) { scale = cubeScale; }
 	void init();
 	void update();

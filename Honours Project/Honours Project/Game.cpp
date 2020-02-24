@@ -1,7 +1,6 @@
 #include "Game.h"
 
-void Game::init()
-{
+void Game::init() {
 	//shaders
 	shaderProgram = rt3d::initShaders("../Resources/Shaders/textured.vert", "../Resources/Shaders/textured.frag");
 
@@ -14,13 +13,14 @@ void Game::init()
 	box1->init();
 	box1->setPosition(glm::vec3(0, 0, 0));
 	box2->init();
-	box2->setPosition(glm::vec3(10, 0, 0));
+	box2->setPosition(glm::vec3(2, 0, 0));
 	circle->init();
 	cone->init();
 	cylinder->init();
 
-	bool test = gjk->performDetection(points, points2);
-	cout << test << endl;
+	//bool test = gjk->performDetection(points, points2);
+	//bool test = gjk->performDetection(box1->getHull(), box2->getHull());
+	//cout << test << endl;
 
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
@@ -57,7 +57,19 @@ void Game::update(SDL_Event sdlEvent)
 {	
 	if (!SDL_GetGlobalMouseState(&x, &y))
 		mouse_callback(x, y);
+
+	/*bool test = gjk->performDetection(box1->getHull(), box2->getHull());
+	cout << test << endl;*/
+	
+	//for (int i = 0; i < box1->getHull().size(); i++)
+	//{
+	//	cout << box1->getHull()[i].x << endl;
+	//	cout << box1->getHull()[i].y << endl;
+	//	cout << box1->getHull()[i].z << endl;
+	//	cout << " " << endl;
+	//}
 		
+
 	player->update();
 	box1->update();
 	box2->update();
@@ -90,7 +102,7 @@ void Game::draw(SDL_Window* window)
 	//draw here
 	glUseProgram(shaderProgram);
 	box1->draw(shaderProgram, &mvStack, projection, textures[0], glm::vec3(0, 0, 0));
-	box2->draw(shaderProgram, &mvStack, projection, textures[1], glm::vec3(10, 0, 0));
+	box2->draw(shaderProgram, &mvStack, projection, textures[1], glm::vec3(2, 0, 0));
 	circle->draw(shaderProgram, &mvStack, projection, textures[2], glm::vec3(20, 0, 0));
 	cone->draw(shaderProgram, &mvStack, projection, textures[2], glm::vec3(30, 0, 0));
 	cylinder->draw(shaderProgram, &mvStack, projection, textures[1], glm::vec3(40, 0, 0));

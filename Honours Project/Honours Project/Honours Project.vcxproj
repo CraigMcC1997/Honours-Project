@@ -133,6 +133,7 @@
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Maths.cpp" />
+    <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="SAT.cpp" />
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="cone.cpp" />
@@ -157,6 +158,7 @@
     <ClInclude Include="Cube.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Maths.h" />
+    <ClInclude Include="Mesh.h" />
     <ClInclude Include="SAT.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="collisionDetector.h" />

@@ -4,9 +4,12 @@
 
 #pragma once
 #include "Shape.h"
+#include "Mesh.h"
 
 class Sphere : public Shape
 {
+private:
+	Mesh* mesh = new Mesh();
 public:
 	Sphere(glm::vec3 sphereScale) { scale = sphereScale; }
 	void init();

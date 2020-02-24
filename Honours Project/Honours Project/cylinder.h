@@ -4,9 +4,12 @@
 
 #pragma once
 #include "Shape.h"
+#include "Mesh.h"
 
 class Cylinder : public Shape
 {
+private:
+	Mesh* mesh = new Mesh();
 public:
 	Cylinder(glm::vec3 cylinderScale) { scale = cylinderScale; }
 	void init();

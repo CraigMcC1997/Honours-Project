@@ -4,9 +4,12 @@
 
 #pragma once
 #include "Shape.h"
+#include "Mesh.h"
 
 class Cone : public Shape
 {
+private:
+	Mesh* mesh = new Mesh();
 public:
 	Cone(glm::vec3 coneScale) { scale = coneScale; }
 	void init();
