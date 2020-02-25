@@ -1,1 +1,18 @@
-﻿
+﻿  Collidable.cpp
+  Cube.cpp
+  Game.cpp
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(46,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(47,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(48,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(49,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Player.cpp
+  Sphere.cpp
+  Transform.cpp
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Transform.cpp(37,17): error C2039: 'RotateZ': is not a member of 'Transform'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Transform.h(9): message : see declaration of 'Transform'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Transform.cpp(45,2): error C2065: 'transformMatrix': undeclared identifier
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Transform.cpp(45,35): error C2065: 'transformMatrix': undeclared identifier
+  cone.cpp
+  cylinder.cpp
+  main.cpp
+  Generating Code...

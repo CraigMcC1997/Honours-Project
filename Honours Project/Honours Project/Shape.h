@@ -2,12 +2,14 @@
 #include "Entity.h"
 #include "Mesh.h"
 #include "Transform.h"
+#include "Collidable.h"
 
 class Shape : Entity
 {
 protected:
 	Mesh* mesh = new Mesh();
 	Transform* transform = new Transform();
+	Collidable* collidable = new Collidable();
 
 	GLuint texture;
 	vector<GLfloat> verts;

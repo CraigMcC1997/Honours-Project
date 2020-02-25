@@ -1,5 +1,5 @@
 #include "Transform.h"
-// The assumption for this class is that we are not attaching the game object to any hierachy so the coordinates are always expressed directly in world coordinates
+
 Transform::Transform()
 {
 	transformMatrix = glm::mat4(1.0f, 0.0f, 0.0f, 0.0f,
@@ -34,7 +34,7 @@ void Transform::Scale(glm::vec3& scaling)
 
 // Translate the object by creating a Rotation matrix and 
 // multiplying it to the transform matrix
-void Transform::Rotate(float angle)
+void Transform::RotateZ(float angle)
 {
 	//rotation along the Z axis
 	glm::mat4 rotateMatrix = glm::mat4(cos(angle), -sin(angle), 0.0f, 0.0f,
@@ -44,6 +44,9 @@ void Transform::Rotate(float angle)
 
 	transformMatrix = rotateMatrix * transformMatrix;
 }
+
+
+
 
 glm::vec3  Transform::getPosition()
 {

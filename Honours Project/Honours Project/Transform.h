@@ -16,7 +16,7 @@ public:
 
 	void Translate(glm::vec3& translation);
 	void Scale(glm::vec3& scaling);
-	void Rotate(float angle);
+	void RotateZ(float angle);
 
 	glm::vec3 getPosition();
 	glm::vec3 getScale();

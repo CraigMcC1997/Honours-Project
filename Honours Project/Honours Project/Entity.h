@@ -23,7 +23,4 @@ class Entity
 {
 public:
 	virtual void init() = 0;
-	//virtual void update() = 0;
-	//virtual void draw(GLuint shader, std::stack<glm::mat4>* _mvStack, 
-	//	glm::mat4 projection, GLuint texture, glm::vec3 pos) = 0;
 };

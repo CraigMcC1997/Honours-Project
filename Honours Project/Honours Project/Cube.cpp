@@ -17,27 +17,12 @@ void Cube::move(glm::vec3 translation)
 
 vector<glm::vec3> Cube::getHull()
 {
-	vector<glm::vec3> hull;
-//	hull.resize(storedVerts.size() / 3);
-//	int counter = 0;
-//
-//	for (int i = 0; i < hull.size(); i++)
-//	{
-//		for (int j = 0; j < 2; j++)
-//		{
-//			hull[i] += storedVerts[counter];
-//			counter++;
-//		}
-//		//hull[i] += position;
-//		//hull[i] *= scale;
-//	}
-//
-	return hull;
+	return collidable->getConvexHull();
 }
 
-void Cube::setHull(vector<glm::vec3> hull)
+void Cube::setHull(vector<glm::vec3> points)
 {
-	cHull = hull;
+	collidable->setConvexHull(points);
 }
 
 void Cube::update()

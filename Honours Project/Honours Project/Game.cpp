@@ -8,7 +8,7 @@ void Game::init() {
 	textures[0] = loadTextures::loadTexture("../Resources/Textures/fabric.bmp");
 	textures[1] = loadTextures::loadTexture("../Resources/Textures/dirt.bmp");
 	textures[2] = loadTextures::loadTexture("../Resources/Textures/studdedmetal.bmp");
-
+						//scale							//position			//texture
 	Cube* box1 = new Cube(glm::vec3(1.5f, 1.5f, 1.5f), glm::vec3(0, 0, 0), textures[0]);
 	Cube* box2 = new Cube(glm::vec3(1.5f, 1.5f, 1.5f), glm::vec3(2, 0, 0), textures[1]);
 	Sphere* ball = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), glm::vec3(20, 0, 0), textures[2]);
