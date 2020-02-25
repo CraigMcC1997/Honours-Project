@@ -1,1 +1,108 @@
-﻿
+﻿  Collidable.cpp
+  Cube.cpp
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(27,48): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(31,56): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(46,47): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(58,41): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(62,49): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(27,48): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(246): message : see reference to class template instantiation 'quickhull::MeshBuilder<T>' being compiled
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(31,56): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(46,47): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(58,41): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(62,49): error C2589: '(': illegal token on right side of '::'
+  Camera.cpp
+  Sphere.cpp
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(27,48): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(31,56): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(46,47): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(58,41): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(62,49): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(27,48): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(246): message : see reference to class template instantiation 'quickhull::MeshBuilder<T>' being compiled
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(31,56): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(46,47): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(58,41): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(62,49): error C2589: '(': illegal token on right side of '::'
+  cone.cpp
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(27,48): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(31,56): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(46,47): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(58,41): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(62,49): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(27,48): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(246): message : see reference to class template instantiation 'quickhull::MeshBuilder<T>' being compiled
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(31,56): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(46,47): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(58,41): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(62,49): error C2589: '(': illegal token on right side of '::'
+  Convex_Hull.cpp
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Convex_Hull.cpp(8,10): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Convex_Hull.cpp(20,20): warning C4018: '<': signed/unsigned mismatch
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Convex_Hull.cpp(38,21): warning C4018: '<': signed/unsigned mismatch
+  cylinder.cpp
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(27,48): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(31,56): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(46,47): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(58,41): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(62,49): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(27,48): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(246): message : see reference to class template instantiation 'quickhull::MeshBuilder<T>' being compiled
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(31,56): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(46,47): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(58,41): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(62,49): error C2589: '(': illegal token on right side of '::'
+  Game.cpp
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(27,48): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(31,56): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(46,47): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(58,41): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(62,49): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(27,48): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(246): message : see reference to class template instantiation 'quickhull::MeshBuilder<T>' being compiled
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(31,56): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(46,47): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(58,41): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(62,49): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(49,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(50,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(51,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(52,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  GJK.cpp
+  main.cpp
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(27,48): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(31,56): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(46,47): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(58,41): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(62,49): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(27,48): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(246): message : see reference to class template instantiation 'quickhull::MeshBuilder<T>' being compiled
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(31,56): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(46,47): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(58,41): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(62,49): error C2589: '(': illegal token on right side of '::'
+  md2model.cpp
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\md2model.cpp(176,10): warning C4101: 'v': unreferenced local variable
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\md2model.cpp(175,10): warning C4101: 's': unreferenced local variable
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\md2model.cpp(176,14): warning C4101: 'norm': unreferenced local variable
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\md2model.cpp(175,13): warning C4101: 't': unreferenced local variable
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\md2model.cpp(338,17): warning C4018: '<': signed/unsigned mismatch
+  Player.cpp
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(27,48): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(31,56): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(46,47): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(58,41): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(62,49): warning C4003: not enough arguments for function-like macro invocation 'max'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(27,48): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(246): message : see reference to class template instantiation 'quickhull::MeshBuilder<T>' being compiled
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(31,56): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(46,47): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(58,41): error C2589: '(': illegal token on right side of '::'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(62,49): error C2589: '(': illegal token on right side of '::'
+  rt3d.cpp
+  Window.cpp
+  Generating Code...

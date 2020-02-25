@@ -185,5 +185,8 @@
     <ClInclude Include="Mesh.h">
       <Filter>Header Files\Shapes</Filter>
     </ClInclude>
+    <ClInclude Include="Quickhull\QuickHull.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
