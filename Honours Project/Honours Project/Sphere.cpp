@@ -33,5 +33,6 @@ void Sphere::update()
 
 void Sphere::draw(GLuint shader, std::stack<glm::mat4>* _mvStack, glm::mat4 projection)
 {
-	mesh->drawMesh(shader, _mvStack, projection, texture, transform->getPosition());
+	mesh->drawMesh(shader, _mvStack, projection, texture, 
+		transform->getPosition(), transform->getScale());
 }

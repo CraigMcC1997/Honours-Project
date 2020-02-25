@@ -9,7 +9,7 @@ class Sphere : public Shape
 {
 public:
 	Sphere(glm::vec3 sphereScale, glm::vec3 pos, GLuint texture) {
-		scale = sphereScale;
+		transform->Scale(sphereScale);
 		move(pos);
 		this->texture = texture;
 	}

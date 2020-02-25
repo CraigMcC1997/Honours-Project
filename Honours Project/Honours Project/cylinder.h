@@ -9,7 +9,7 @@ class Cylinder : public Shape
 {
 public:
 	Cylinder(glm::vec3 cylinderScale, glm::vec3 pos, GLuint texture) {
-		scale = cylinderScale;
+		transform->Scale(cylinderScale);
 		move(pos);
 		this->texture = texture;
 	}

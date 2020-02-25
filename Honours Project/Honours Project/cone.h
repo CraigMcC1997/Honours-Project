@@ -9,7 +9,7 @@ class Cone : public Shape
 {
 public:
 	Cone(glm::vec3 coneScale, glm::vec3 pos, GLuint texture) {
-		scale = coneScale;
+		transform->Scale(coneScale);
 		move(pos);
 		this->texture = texture;
 	}

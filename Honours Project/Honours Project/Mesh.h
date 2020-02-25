@@ -19,7 +19,7 @@ private:
 	vector<GLuint> indices;
 	GLuint meshIndexCount;
 	GLuint meshObjects;
-	float rotator = 0.0f;
+	//float rotator = 0.0f;
 
 	rt3d::materialStruct material0 = {
 	{0.2f, 0.4f, 0.2f, 1.0f}, // ambient
@@ -28,12 +28,12 @@ private:
 					   2.0f  // shininess
 	};
 
-	glm::vec3 scale = glm::vec3(1.5f, 1.5f, 1.5f);
+	//glm::vec3 scale = glm::vec3(1.5f, 1.5f, 1.5f);
 
 	vector<GLfloat> storedVerts;
 
 public:
 	void loadMesh(string filename);
 	void drawMesh(GLuint shader, std::stack<glm::mat4>* _mvStack,
-		glm::mat4 projection, GLuint texture, glm::vec3 pos);
+		glm::mat4 projection, GLuint texture, glm::vec3 pos, glm::vec3 scale);
 };

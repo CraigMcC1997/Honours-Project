@@ -14,7 +14,7 @@ void Transform::Translate(glm::vec3& translation)
 {
 	glm::mat4 translationMatrix = glm::mat4(1.0f, 0.0f, 0.0f, 0.0f,
 											0.0f, 1.0f, 0.0f, 0.0f,
-											0.0f, 0.0f, 0.0f, 0.0f,
+											0.0f, 0.0f, 1.0f, 0.0f,
 											translation.x, translation.y, translation.z, 1.0f);
 
 	transformMatrix = translationMatrix * transformMatrix;
@@ -22,12 +22,12 @@ void Transform::Translate(glm::vec3& translation)
 
 // Translate the object by creating a Scaling matrix and 
 // multiplying it to the transform matrix
-void Transform::Scale(glm::vec3& scaling)
+void Transform::Scale(glm::vec3 scaling)
 {
 	glm::mat4 scalingMatrix = glm::mat4(scaling.x, 0.0f, 0.0f, 0.0f,
 										0.0f, scaling.y, 0.0f, 0.0f,
 										0.0f, 0.0f, scaling.z, 0.0f, 
-										0.0f, 0.0f, 0.0f, 0.0f); 
+										0.0f, 0.0f, 0.0f, 1.0f); 
 
 	transformMatrix = scalingMatrix * transformMatrix;
 }
@@ -69,22 +69,27 @@ void Transform::RotateZ(float angle)
 
 
 
-glm::vec3  Transform::getPosition()
+glm::vec3 Transform::getPosition()
 {
-	return glm::column(transformMatrix, 3); // The third column of the transformation matrix contains the position of the object in homogeneous coords
+	return glm::column(transformMatrix, 3); // The forth column of the transformation matrix contains the position of the object in homogeneous coords
 }
 
-glm::vec3  Transform::getScale()
+glm::vec3 Transform::getScale()
 {
-	float sx = length(glm::column(transformMatrix, 0)); // It measures the length of the local x axis
-	float sy = length(glm::column(transformMatrix, 1)); // It measures the length of the local y axis
-	float sz = length(glm::column(transformMatrix, 2)); // It measures the length of the local z axis
+	float sx = glm::length(glm::column(transformMatrix, 0)); // It measures the length of the local x axis
+	float sy = glm::length(glm::column(transformMatrix, 1)); // It measures the length of the local y axis
+	float sz = glm::length(glm::column(transformMatrix, 2)); // It measures the length of the local z axis
+
+	std::cout << "scale x: " << sx << std::endl;
+	std::cout << "scale y: " << sy << std::endl;
+	std::cout << "scale z: " << sz << std::endl;
+
 	return glm::vec3(sx, sy, sz);
 }
 
-glm::vec3  Transform::getOrientation()
+glm::vec3 Transform::getOrientation()
 {
-	glm::vec3 col0 = normalize(glm::column(transformMatrix, 0)); // By normalising the x axis whe get the cosine (in the first component of the vector)
+	glm::vec3 col0 = glm::normalize(glm::column(transformMatrix, 0)); // By normalising the x axis whe get the cosine (in the first component of the vector)
 													   // and sine (in the second component of the vector) of the angle by which the object is rotated
 	return glm::vec3(col0.x, col0.y, col0.z);
 }

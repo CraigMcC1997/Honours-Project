@@ -6,6 +6,8 @@
 #include "glm/glm.hpp"
 #include <glm\gtc\matrix_access.hpp>
 
+#include <iostream>
+
 class Transform
 {
 private:
@@ -15,7 +17,7 @@ public:
 	virtual ~Transform() {}
 
 	void Translate(glm::vec3& translation);
-	void Scale(glm::vec3& scaling);
+	void Scale(glm::vec3 scaling);
 	
 	void RotateX(float angle); 
 	void RotateY(float angle); 

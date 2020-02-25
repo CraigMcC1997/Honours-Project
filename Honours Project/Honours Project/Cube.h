@@ -9,7 +9,7 @@ class Cube : public Shape
 {
 public:
 	Cube(glm::vec3 cubeScale, glm::vec3 pos, GLuint texture) {
-		scale = cubeScale;
+		transform->Scale(cubeScale);
 		move(pos);
 		this->texture = texture;
 	}
