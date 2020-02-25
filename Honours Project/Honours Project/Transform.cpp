@@ -34,17 +34,38 @@ void Transform::Scale(glm::vec3& scaling)
 
 // Translate the object by creating a Rotation matrix and 
 // multiplying it to the transform matrix
-void Transform::RotateZ(float angle)
+void Transform::RotateX(float angle)
 {
 	//rotation along the Z axis
-	glm::mat4 rotateMatrix = glm::mat4(cos(angle), -sin(angle), 0.0f, 0.0f,
-										sin(angle), cos(angle), 0.0f, 0.0f,
-										0.0f, 0.0f, 1.0f, 0.0f, 
-										0.0f, 0.0f, 0.0f, 1.0f); 
+	glm::mat4 rotateMatrix = glm::mat4(	1.0f, 0.0f, 0.0f, 0.0f,
+										0.0f, cos(angle), -sin(angle), 0.0f,
+										0.0f, sin(angle), cos(angle), 0.0f,
+										0.0f, 0.0f, 0.0f, 1.0f);
 
 	transformMatrix = rotateMatrix * transformMatrix;
 }
 
+void Transform::RotateY(float angle)
+{
+	//rotation along the Z axis
+	glm::mat4 rotateMatrix = glm::mat4(	cos(angle), 0.0f, -sin(angle), 0.0f,
+										 0.0f, 1.0f, 0.0f, 0.0f,
+										sin(angle), 0.0f, cos(angle), 0.0f,
+										0.0f, 0.0f, 0.0f, 1.0f);
+
+	transformMatrix = rotateMatrix * transformMatrix;
+}
+
+void Transform::RotateZ(float angle)
+{
+	//rotation along the Z axis
+	glm::mat4 rotateMatrix = glm::mat4(	cos(angle), -sin(angle), 0.0f, 0.0f,
+										sin(angle), cos(angle), 0.0f, 0.0f,
+										0.0f, 0.0f, 1.0f, 0.0f,
+										0.0f, 0.0f, 0.0f, 1.0f);
+
+	transformMatrix = rotateMatrix * transformMatrix;
+}
 
 
 
