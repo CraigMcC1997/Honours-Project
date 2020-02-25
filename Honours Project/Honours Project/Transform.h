@@ -25,10 +25,4 @@ public:
 
 	glm::vec3 getPosition();
 	glm::vec3 getScale();
-	glm::vec3 getOrientation();
-	glm::vec3 getUpDir();
-	glm::vec3 getLeftDir();
-
-	glm::mat4 localToWorldMatrix();
-	glm::mat4 worldToLocalMatrix();
 };

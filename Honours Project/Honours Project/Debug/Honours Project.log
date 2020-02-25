@@ -12,6 +12,9 @@ E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quick
 E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(58,41): error C2589: '(': illegal token on right side of '::'
 E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(62,49): error C2589: '(': illegal token on right side of '::'
   Camera.cpp
+  Maths.cpp
+  Mesh.cpp
+  SAT.cpp
   Sphere.cpp
 E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(27,48): warning C4003: not enough arguments for function-like macro invocation 'max'
 E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(31,56): warning C4003: not enough arguments for function-like macro invocation 'max'
@@ -73,6 +76,7 @@ E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.
 E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(51,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(52,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   GJK.cpp
+  loadTextures.cpp
   main.cpp
 E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(27,48): warning C4003: not enough arguments for function-like macro invocation 'max'
 E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(31,56): warning C4003: not enough arguments for function-like macro invocation 'max'
@@ -91,6 +95,9 @@ E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\md2mo
 E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\md2model.cpp(176,14): warning C4101: 'norm': unreferenced local variable
 E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\md2model.cpp(175,13): warning C4101: 't': unreferenced local variable
 E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\md2model.cpp(338,17): warning C4018: '<': signed/unsigned mismatch
+  MinkowskiSum.cpp
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\MinkowskiSum.cpp(7,20): warning C4018: '<=': signed/unsigned mismatch
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\MinkowskiSum.cpp(8,21): warning C4018: '<=': signed/unsigned mismatch
   Player.cpp
 E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(27,48): warning C4003: not enough arguments for function-like macro invocation 'max'
 E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(31,56): warning C4003: not enough arguments for function-like macro invocation 'max'
@@ -104,5 +111,16 @@ E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quick
 E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(58,41): error C2589: '(': illegal token on right side of '::'
 E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Quickhull\Structs\Mesh.hpp(62,49): error C2589: '(': illegal token on right side of '::'
   rt3d.cpp
+  rt3dObjLoader.cpp
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\rt3dObjLoader.cpp(198,22): warning C4018: '<': signed/unsigned mismatch
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\rt3dObjLoader.cpp(136,17): warning C4101: 'z': unreferenced local variable
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\rt3dObjLoader.cpp(136,14): warning C4101: 'y': unreferenced local variable
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\rt3dObjLoader.cpp(136,11): warning C4101: 'x': unreferenced local variable
+  Simplex.cpp
+  Generating Code...
+  Compiling...
+  SupportFunction.cpp
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\SupportFunction.cpp(9,23): warning C4018: '<': signed/unsigned mismatch
+  Transform.cpp
   Window.cpp
   Generating Code...

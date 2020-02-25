@@ -82,34 +82,3 @@ glm::vec3 Transform::getScale()
 
 	return glm::vec3(sx, sy, sz);
 }
-
-glm::vec3 Transform::getOrientation()
-{
-	glm::vec3 col0 = glm::normalize(glm::column(transformMatrix, 0)); // By normalising the x axis whe get the cosine (in the first component of the vector)
-													   // and sine (in the second component of the vector) of the angle by which the object is rotated
-	return glm::vec3(col0.x, col0.y, col0.z);
-}
-
-// This gives the y axis of the object expressed in world coordinates
-glm::vec3 Transform::getUpDir()
-{
-	glm::vec3  col1 = column(transformMatrix, 1);
-	return glm::vec3(col1.x, col1.y, col1.z); // y Axis
-}
-
-// This gives the x axis of the object expressed in world coordinates
-glm::vec3 Transform::getLeftDir()
-{
-	glm::vec3 col0 = column(transformMatrix, 0);
-	return glm::vec3(col0.x, col0.y, col0.z); // x Axis
-}
-
-glm::mat4 Transform::localToWorldMatrix()
-{
-	return transformMatrix; //This matrix transforms local coordinates into world coordinates (if we are not using any hierarchical data structure)
-}
-
-glm::mat4 Transform::worldToLocalMatrix()
-{
-	return inverse(transformMatrix);
-}
