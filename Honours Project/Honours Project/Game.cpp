@@ -9,8 +9,8 @@ void Game::init() {
 	textures[1] = loadTextures::loadTexture("../Resources/Textures/dirt.bmp");
 	textures[2] = loadTextures::loadTexture("../Resources/Textures/studdedmetal.bmp");
 						//scale							//position			//texture
-	Cube* box1 = new Cube(glm::vec3(1.5f, 1.5f, 1.5f), glm::vec3(0, 0, 0), textures[0]);
-	Cube* box2 = new Cube(glm::vec3(1.5f, 1.5f, 1.5f), glm::vec3(2, 0, 0), textures[1]);
+	box1 = new Cube(glm::vec3(1.5f, 1.5f, 1.5f), glm::vec3(0, 0, 0), textures[0]);
+	box2 = new Cube(glm::vec3(1.5f, 1.5f, 1.5f), glm::vec3(2, 0, 0), textures[1]);
 	Sphere* ball = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), glm::vec3(20, 0, 0), textures[2]);
 	Cone* cone = new Cone(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(30, 0, 0), textures[2]);
 	Cylinder* cylinder = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f), glm::vec3(40, 0, 0), textures[2]);
@@ -32,9 +32,12 @@ void Game::init() {
 	cylinder->init();
 	gameEntities.push_back(cylinder);
 
+	box1->setHull(points);
+	box2->setHull(points2);
+
 	//bool test = gjk->performDetection(points, points2);
-	//bool test = gjk->performDetection(box1->getHull(), box2->getHull());
-	//cout << test << endl;
+	bool test = gjk->performDetection(box1->getHull(), box2->getHull());
+	cout << test << endl;
 
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
@@ -72,9 +75,6 @@ void Game::update(SDL_Event sdlEvent)
 	if (!SDL_GetGlobalMouseState(&x, &y))
 		mouse_callback(x, y);
 
-	/*bool test = gjk->performDetection(box1->getHull(), box2->getHull());
-	cout << test << endl;*/
-	
 	//for (int i = 0; i < box1->getHull().size(); i++)
 	//{
 	//	cout << box1->getHull()[i].x << endl;

@@ -18,12 +18,12 @@ void Sphere::move(glm::vec3 translation)
 
 vector<glm::vec3> Sphere::getHull()
 {
-	return cHull;
+	return collidable->getConvexHull();
 }
 
-void Sphere::setHull(vector<glm::vec3> hull)
+void Sphere::setHull(vector<glm::vec3> points)
 {
-	cHull = hull;
+	collidable->setConvexHull(points);
 }
 
 void Sphere::update()

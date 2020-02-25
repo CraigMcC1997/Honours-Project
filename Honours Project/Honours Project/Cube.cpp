@@ -27,7 +27,7 @@ void Cube::setHull(vector<glm::vec3> points)
 
 void Cube::update()
 {
-	//transform->RotateY(0.1f);
+	transform->RotateY(0.1f);
 	rotator += 0.1f;
 }
 

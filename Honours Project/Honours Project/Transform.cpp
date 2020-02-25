@@ -80,10 +80,6 @@ glm::vec3 Transform::getScale()
 	float sy = glm::length(glm::column(transformMatrix, 1)); // It measures the length of the local y axis
 	float sz = glm::length(glm::column(transformMatrix, 2)); // It measures the length of the local z axis
 
-	std::cout << "scale x: " << sx << std::endl;
-	std::cout << "scale y: " << sy << std::endl;
-	std::cout << "scale z: " << sz << std::endl;
-
 	return glm::vec3(sx, sy, sz);
 }
 

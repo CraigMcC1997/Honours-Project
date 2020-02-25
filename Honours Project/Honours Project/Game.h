@@ -14,6 +14,10 @@
 class Game
 {
 private:
+
+	Cube* box1;
+	Cube* box2;
+
 	GLuint textures[3];
 
 	vector<Shape*> gameEntities;

@@ -15,15 +15,14 @@ void Cone::move(glm::vec3 translation)
 	transform->Translate(translation);
 }
 
-
 vector<glm::vec3> Cone::getHull()
 {
-	return cHull;
+	return collidable->getConvexHull();
 }
 
-void Cone::setHull(vector<glm::vec3> hull)
+void Cone::setHull(vector<glm::vec3> points)
 {
-	cHull = hull;
+	collidable->setConvexHull(points);
 }
 
 void Cone::update()

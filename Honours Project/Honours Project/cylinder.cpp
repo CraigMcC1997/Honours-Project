@@ -17,12 +17,12 @@ void Cylinder::move(glm::vec3 translation)
 
 vector<glm::vec3> Cylinder::getHull()
 {
-	return cHull;
+	return collidable->getConvexHull();
 }
 
-void Cylinder::setHull(vector<glm::vec3> hull)
+void Cylinder::setHull(vector<glm::vec3> points)
 {
-	cHull = hull;
+	collidable->setConvexHull(points);
 }
 
 void Cylinder::update()
