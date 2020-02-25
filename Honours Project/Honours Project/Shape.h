@@ -1,10 +1,14 @@
 #pragma once
 #include "Entity.h"
+#include "Mesh.h"
+#include "Transform.h"
 
 class Shape : Entity
 {
 protected:
-	glm::vec3 position = glm::vec3(1,1,1);
+	Mesh* mesh = new Mesh();
+	Transform* transform = new Transform();
+
 	GLuint texture;
 	vector<GLfloat> verts;
 	vector<GLfloat> norms;
@@ -29,4 +33,7 @@ public:
 	virtual glm::vec3 getPosition() = 0;
 	virtual vector<glm::vec3> getHull() = 0;
 	virtual void setHull(vector<glm::vec3>) = 0;
+	virtual void update() = 0;
+	virtual void draw(GLuint shader, std::stack<glm::mat4>* _mvStack,
+		glm::mat4 projection) = 0;
 };

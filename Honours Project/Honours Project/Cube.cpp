@@ -7,20 +7,14 @@ void Cube::init()
 
 glm::vec3 Cube::getPosition()
 {
-	return position;
+	return transform->getPosition();
 }
 
-void Cube::setPosition(glm::vec3 newPos)
+void Cube::move(glm::vec3 translation)
 {
-	position = newPos;
+	transform->Translate(translation);
 }
 
-//vector<GLfloat> Cube::getVerts()
-//{
-//	cout << storedVerts.size() /3 << endl;
-//	return verts;
-//}
-//
 vector<glm::vec3> Cube::getHull()
 {
 	vector<glm::vec3> hull;
@@ -51,7 +45,9 @@ void Cube::update()
 	//rotator += 0.001f;
 }
 
-void Cube::draw(GLuint shader, std::stack<glm::mat4>* _mvStack, glm::mat4 projection, GLuint texture, glm::vec3 pos)
+void Cube::draw(GLuint shader, std::stack<glm::mat4>* _mvStack, 
+	glm::mat4 projection)
 {
-	mesh->drawMesh(shader, _mvStack, projection, texture, pos);
+	//mesh->drawMesh(shader, _mvStack, projection, texture, pos);
+	mesh->drawMesh(shader, _mvStack, projection, texture, transform->getPosition());
 }

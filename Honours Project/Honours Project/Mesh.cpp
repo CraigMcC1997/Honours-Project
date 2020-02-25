@@ -11,7 +11,8 @@ void Mesh::loadMesh(string filename)
 	verts.clear(), norms.clear(), tex_coords.clear(), indices.clear();
 }
 
-void Mesh::drawMesh(GLuint shader, std::stack<glm::mat4>* _mvStack, glm::mat4 projection, GLuint texture, glm::vec3 pos)
+void Mesh::drawMesh(GLuint shader, std::stack<glm::mat4>* _mvStack,
+ glm::mat4 projection, GLuint texture, glm::vec3 pos)
 {
 	glBindTexture(GL_TEXTURE_2D, texture);
 	_mvStack->push(_mvStack->top());

@@ -14,10 +14,10 @@ private:
 	glm::vec3 playerPosition;
 
 	glm::vec3 scale = glm::vec3(1.5f, 1.5f, 1.5f);
-	Cube* cube = new Cube(scale);
-	Cone* cone = new Cone(scale);
-	Sphere* sphere = new Sphere(scale);
-	Cylinder* cylinder = new Cylinder(scale);
+	//Cube* cube = new Cube(scale);
+	//Cone* cone = new Cone(scale);
+	//Sphere* sphere = new Sphere(scale);
+	//Cylinder* cylinder = new Cylinder(scale);
 
 
 public:

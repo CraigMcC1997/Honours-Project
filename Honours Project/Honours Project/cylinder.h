@@ -4,19 +4,23 @@
 
 #pragma once
 #include "Shape.h"
-#include "Mesh.h"
 
 class Cylinder : public Shape
 {
-private:
-	Mesh* mesh = new Mesh();
 public:
-	Cylinder(glm::vec3 cylinderScale) { scale = cylinderScale; }
+	Cylinder(glm::vec3 cylinderScale, glm::vec3 pos, GLuint texture) {
+		scale = cylinderScale;
+		move(pos);
+		this->texture = texture;
+	}
+
 	void init();
 	void update();
-	void draw(GLuint shader, std::stack<glm::mat4>* _mvStack, glm::mat4 projection, GLuint texture, glm::vec3 pos);
+	void draw(GLuint shader, std::stack<glm::mat4>* _mvStack, 
+		glm::mat4 projection);
 	glm::vec3 getPosition();
 	vector<glm::vec3> getHull();
 	void setHull(vector<glm::vec3>);
+	
+	void move(glm::vec3 translation);
 };
-

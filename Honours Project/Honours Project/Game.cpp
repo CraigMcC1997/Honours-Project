@@ -9,14 +9,28 @@ void Game::init() {
 	textures[1] = loadTextures::loadTexture("../Resources/Textures/dirt.bmp");
 	textures[2] = loadTextures::loadTexture("../Resources/Textures/studdedmetal.bmp");
 
+	Cube* box1 = new Cube(glm::vec3(1.5f, 1.5f, 1.5f), glm::vec3(0, 0, 0), textures[0]);
+	Cube* box2 = new Cube(glm::vec3(1.5f, 1.5f, 1.5f), glm::vec3(2, 0, 0), textures[1]);
+	Sphere* ball = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), glm::vec3(20, 0, 0), textures[2]);
+	Cone* cone = new Cone(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(30, 0, 0), textures[2]);
+	Cylinder* cylinder = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f), glm::vec3(40, 0, 0), textures[2]);
+
 	player->init();
+
 	box1->init();
-	box1->setPosition(glm::vec3(0, 0, 0));
+	gameEntities.push_back(box1);
+
 	box2->init();
-	box2->setPosition(glm::vec3(2, 0, 0));
-	circle->init();
+	gameEntities.push_back(box2);
+
+	ball->init();
+	gameEntities.push_back(ball);
+
 	cone->init();
+	gameEntities.push_back(cone);
+
 	cylinder->init();
+	gameEntities.push_back(cylinder);
 
 	//bool test = gjk->performDetection(points, points2);
 	//bool test = gjk->performDetection(box1->getHull(), box2->getHull());
@@ -68,14 +82,11 @@ void Game::update(SDL_Event sdlEvent)
 	//	cout << box1->getHull()[i].z << endl;
 	//	cout << " " << endl;
 	//}
-		
 
 	player->update();
-	box1->update();
-	box2->update();
-	circle->update();
-	cone->update();
-	cylinder->update();
+
+	for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end(); it++)
+		(*it)->update();
 }
 
 void Game::draw(SDL_Window* window)
@@ -101,11 +112,9 @@ void Game::draw(SDL_Window* window)
 
 	//draw here
 	glUseProgram(shaderProgram);
-	box1->draw(shaderProgram, &mvStack, projection, textures[0], glm::vec3(0, 0, 0));
-	box2->draw(shaderProgram, &mvStack, projection, textures[1], glm::vec3(2, 0, 0));
-	circle->draw(shaderProgram, &mvStack, projection, textures[2], glm::vec3(20, 0, 0));
-	cone->draw(shaderProgram, &mvStack, projection, textures[2], glm::vec3(30, 0, 0));
-	cylinder->draw(shaderProgram, &mvStack, projection, textures[1], glm::vec3(40, 0, 0));
+
+	for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end(); it++)
+		(*it)->draw(shaderProgram, &mvStack, projection);
 
 
 	mvStack.pop();

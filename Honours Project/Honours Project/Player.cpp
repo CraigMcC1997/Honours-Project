@@ -6,27 +6,27 @@ void Player::init()
 
 void Player::choseShape(int option)
 {
-	playerShape = option;
+	//playerShape = option;
 
-	switch (option)
-	{
-	case 1:
-		//cube
-		cube->init();
-		break;
-	case 2:
-		//cone
-		cone->init();
-		break;
-	case 3:
-		//sphere
-		sphere->init();
-		break;
-	case 4:
-		//cylinder
-		cylinder->init();
-		break;
-	}
+	//switch (option)
+	//{
+	//case 1:
+	//	//cube
+	//	cube->init();
+	//	break;
+	//case 2:
+	//	//cone
+	//	cone->init();
+	//	break;
+	//case 3:
+	//	//sphere
+	//	sphere->init();
+	//	break;
+	//case 4:
+	//	//cylinder
+	//	cylinder->init();
+	//	break;
+	//}
 }
 
 void Player::update()
@@ -62,16 +62,16 @@ void Player::draw(GLuint shader, std::stack<glm::mat4>* _mvStack, glm::mat4 proj
 	//camera set up
 	_mvStack->top() = glm::lookAt(camera::getEye(), glm::vec3(camera::getEye() + camera::getFront()), camera::getUp());
 
-	//draw players chosen object here
-	switch (playerShape)
-	{
-	case 1:
-	{ cube->draw(shader, _mvStack, projection, texture, playerPosition); } break;
-	case 2:
-	{ cone->draw(shader, _mvStack, projection, texture, playerPosition); } break;
-	case 3:
-	{ sphere->draw(shader, _mvStack, projection, texture, playerPosition); } break;
-	case 4:
-	{ cylinder->draw(shader, _mvStack, projection, texture, playerPosition); } break;
-	}
+	////draw players chosen object here
+	//switch (playerShape)
+	//{
+	//case 1:
+	//{ cube->draw(shader, _mvStack, projection, texture, playerPosition); } break;
+	//case 2:
+	//{ cone->draw(shader, _mvStack, projection, texture, playerPosition); } break;
+	//case 3:
+	//{ sphere->draw(shader, _mvStack, projection, texture, playerPosition); } break;
+	//case 4:
+	//{ cylinder->draw(shader, _mvStack, projection, texture, playerPosition); } break;
+	//}
 }

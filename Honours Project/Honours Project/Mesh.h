@@ -12,7 +12,6 @@ using namespace std;
 class Mesh
 {
 private:
-	glm::vec3 position = glm::vec3(1, 1, 1);
 	GLuint texture;
 	vector<GLfloat> verts;
 	vector<GLfloat> norms;
@@ -35,5 +34,6 @@ private:
 
 public:
 	void loadMesh(string filename);
-	void drawMesh(GLuint shader, std::stack<glm::mat4>* _mvStack, glm::mat4 projection, GLuint texture, glm::vec3 pos);
+	void drawMesh(GLuint shader, std::stack<glm::mat4>* _mvStack,
+		glm::mat4 projection, GLuint texture, glm::vec3 pos);
 };

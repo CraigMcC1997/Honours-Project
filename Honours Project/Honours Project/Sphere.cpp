@@ -8,10 +8,12 @@ void Sphere::init()
 
 glm::vec3 Sphere::getPosition()
 {
-	cout << position.x << endl;
-	cout << position.y << endl;
-	cout << position.z << endl;
-	return position;
+	return transform->getPosition();
+}
+
+void Sphere::move(glm::vec3 translation)
+{
+	transform->Translate(translation);
 }
 
 vector<glm::vec3> Sphere::getHull()
@@ -29,7 +31,7 @@ void Sphere::update()
 	rotator += 0.01f;
 }
 
-void Sphere::draw(GLuint shader, std::stack<glm::mat4>* _mvStack, glm::mat4 projection, GLuint texture, glm::vec3 pos)
+void Sphere::draw(GLuint shader, std::stack<glm::mat4>* _mvStack, glm::mat4 projection)
 {
-	mesh->drawMesh(shader, _mvStack, projection, texture, pos);
+	mesh->drawMesh(shader, _mvStack, projection, texture, transform->getPosition());
 }

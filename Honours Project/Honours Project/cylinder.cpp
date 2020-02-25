@@ -7,10 +7,12 @@ void Cylinder::init()
 
 glm::vec3 Cylinder::getPosition()
 {
-	cout << position.x << endl;
-	cout << position.y << endl;
-	cout << position.z << endl;
-	return position;
+	return transform->getPosition();
+}
+
+void Cylinder::move(glm::vec3 translation)
+{
+	transform->Translate(translation);
 }
 
 vector<glm::vec3> Cylinder::getHull()
@@ -28,7 +30,7 @@ void Cylinder::update()
 	rotator -= 0.01f;
 }
 
-void Cylinder::draw(GLuint shader, std::stack<glm::mat4>* _mvStack, glm::mat4 projection, GLuint texture, glm::vec3 pos)
+void Cylinder::draw(GLuint shader, std::stack<glm::mat4>* _mvStack, glm::mat4 projection)
 {
-	mesh->drawMesh(shader, _mvStack, projection, texture, pos);
+	mesh->drawMesh(shader, _mvStack, projection, texture, transform->getPosition());
 }

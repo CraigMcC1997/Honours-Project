@@ -8,17 +8,18 @@
 #include "cylinder.h"
 #include "GJK.h"
 
+
+#include "Shape.h"
+
 class Game
 {
 private:
+	GLuint textures[3];
+
+	vector<Shape*> gameEntities;
+
 	//shapes
 	Player* player = new Player();
-	Cube* box1 = new Cube(glm::vec3(1.5f, 1.5f, 1.5f));
-	Cube* box2 = new Cube(glm::vec3(1.5f, 1.5f, 1.5f));
-	Sphere* circle = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f));
-	Cone* cone = new Cone(glm::vec3(3.0f, 3.0f, 3.0f));
-	Cylinder* cylinder = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f));
-
 	GJK* gjk = new GJK();
 	
 
@@ -26,7 +27,7 @@ private:
 
 	//shader variables
 	GLuint shaderProgram;
-	GLuint textures[12];
+	
 
 	//stack of models
 	std::stack<glm::mat4> mvStack;
