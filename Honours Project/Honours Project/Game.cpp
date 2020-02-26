@@ -9,6 +9,9 @@ void Game::init() {
 	textures[1] = loadTextures::loadTexture("../Resources/Textures/dirt.bmp");
 	textures[2] = loadTextures::loadTexture("../Resources/Textures/studdedmetal.bmp");
 	
+	//adding sound files to the array to be played later in code
+	samples[0] = Sound::loadSample("../Resources/SoundFiles/Click.wav", BASS_SAMPLE_OVER_POS);	
+
 	//Shapes		//scale							//position			//texture
 	box1 = new Cube(glm::vec3(1.5f, 1.5f, 1.5f), glm::vec3(0, 0, 0), textures[0]);
 	box2 = new Cube(glm::vec3(1.5f, 1.5f, 1.5f), glm::vec3(2, 0, 0), textures[1]);
@@ -43,7 +46,9 @@ void Game::init() {
 
 	if (test)
 	{
+		Sound::playSample(samples[0]);
 		box1->changeTexture(textures[2]);
+		box2->changeTexture(textures[2]);
 	}
 	
 

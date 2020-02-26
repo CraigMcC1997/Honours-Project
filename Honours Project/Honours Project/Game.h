@@ -1,4 +1,5 @@
 #pragma once
+#include "PlaySound.h"
 #include "Window.h"
 #include "Player.h"
 #include "loadTextures.h"
@@ -37,6 +38,9 @@ private:
 	float lastX = 800.0f / 2.0;
 	float lastY = 600.0 / 2.0;
 	float fov = 45.0f;
+
+	//Used by BASS library
+	HSAMPLE* samples = new HSAMPLE[5];
 
 	//arbitrary point clouds for convex hull
 	vector<glm::vec3> points =
