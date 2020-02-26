@@ -5,10 +5,12 @@
 //instead of just storing the points as is
 void Collidable::setConvexHull(vector<glm::vec3> points)
 {
-	auto hull = qh.getConvexHull(&points[0].x, points.size(), true, false);
-	//auto hull = qh.getConvexHull(points, true, false);
-	auto indexBuffer = hull.getIndexBuffer();
-	auto vertexBuffer = hull.getVertexBuffer();
+	//auto hull = qh.getConvexHull(&points[0].x, points.size(), true, false);
+	////auto hull = qh.getConvexHull(points, true, false);
+	//auto indexBuffer = hull.getIndexBuffer();
+	//auto vertexBuffer = hull.getVertexBuffer();
+
+	convexHull = points;
 }
 
 vector<glm::vec3> Collidable::getConvexHull()

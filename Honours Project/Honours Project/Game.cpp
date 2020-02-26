@@ -8,15 +8,17 @@ void Game::init() {
 	textures[0] = loadTextures::loadTexture("../Resources/Textures/fabric.bmp");
 	textures[1] = loadTextures::loadTexture("../Resources/Textures/dirt.bmp");
 	textures[2] = loadTextures::loadTexture("../Resources/Textures/studdedmetal.bmp");
-						//scale							//position			//texture
+	
+	//Shapes		//scale							//position			//texture
 	box1 = new Cube(glm::vec3(1.5f, 1.5f, 1.5f), glm::vec3(0, 0, 0), textures[0]);
 	box2 = new Cube(glm::vec3(1.5f, 1.5f, 1.5f), glm::vec3(2, 0, 0), textures[1]);
-	Sphere* ball = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), glm::vec3(20, 0, 0), textures[2]);
-	Cone* cone = new Cone(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(30, 0, 0), textures[2]);
-	Cylinder* cylinder = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f), glm::vec3(40, 0, 0), textures[2]);
+	ball = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), glm::vec3(20, 0, 0), textures[2]);
+	cone = new Cone(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(30, 0, 0), textures[2]);
+	cylinder = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f), glm::vec3(40, 0, 0), textures[2]);
 
 	player->init();
 
+	//adding shapes to container
 	box1->init();
 	gameEntities.push_back(box1);
 
@@ -35,7 +37,7 @@ void Game::init() {
 	box1->setHull(points);
 	box2->setHull(points2);
 
-	//bool test = gjk->performDetection(points, points2);
+	//testing GJK on arbritrary point clouds saved in boxes collidables
 	bool test = gjk->performDetection(box1->getHull(), box2->getHull());
 	cout << test << endl;
 
@@ -44,6 +46,7 @@ void Game::init() {
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
+//Get mouse data
 void Game::mouse_callback(double xpos, double ypos)
 {
 	float xoffset = xpos - lastX;
@@ -72,16 +75,9 @@ void Game::mouse_callback(double xpos, double ypos)
 
 void Game::update(SDL_Event sdlEvent)
 {	
-	if (!SDL_GetGlobalMouseState(&x, &y))
-		mouse_callback(x, y);
-
-	//for (int i = 0; i < box1->getHull().size(); i++)
-	//{
-	//	cout << box1->getHull()[i].x << endl;
-	//	cout << box1->getHull()[i].y << endl;
-	//	cout << box1->getHull()[i].z << endl;
-	//	cout << " " << endl;
-	//}
+	int mouseX, mouseY;
+	if (!SDL_GetGlobalMouseState(&mouseX, &mouseY))
+		mouse_callback(mouseX, mouseY);
 
 	player->update();
 
@@ -108,14 +104,12 @@ void Game::draw(SDL_Window* window)
 	glm::vec4 tmp = mvStack.top() *lightPos;
 	rt3d::setLightPos(shaderProgram, glm::value_ptr(tmp));
 
-	player->draw(shaderProgram, &mvStack, projection, NULL, camera::getEye());
-
 	//draw here
 	glUseProgram(shaderProgram);
+	player->draw(shaderProgram, &mvStack, projection, NULL, camera::getEye());
 
 	for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end(); it++)
 		(*it)->draw(shaderProgram, &mvStack, projection);
-
 
 	mvStack.pop();
 	SDL_GL_SwapWindow(window); // swap buffers
