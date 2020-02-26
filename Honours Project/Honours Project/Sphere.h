@@ -22,5 +22,6 @@ public:
 	void setHull(vector<glm::vec3>);
 
 	void move(glm::vec3 translation);
+	void changeTexture(GLuint);
 };
 

@@ -34,12 +34,18 @@ void Game::init() {
 	cylinder->init();
 	gameEntities.push_back(cylinder);
 
-	box1->setHull(points);
-	box2->setHull(points2);
+	box1->setHull(boxVerts);
+	box2->setHull(boxVerts);
 
 	//testing GJK on arbritrary point clouds saved in boxes collidables
 	bool test = gjk->performDetection(box1->getHull(), box2->getHull());
 	cout << test << endl;
+
+	if (test)
+	{
+		box1->changeTexture(textures[2]);
+	}
+	
 
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
@@ -83,6 +89,8 @@ void Game::update(SDL_Event sdlEvent)
 
 	for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end(); it++)
 		(*it)->update();
+
+	//box2->moveCube();
 }
 
 void Game::draw(SDL_Window* window)

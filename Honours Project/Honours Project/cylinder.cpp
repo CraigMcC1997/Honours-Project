@@ -25,6 +25,11 @@ void Cylinder::setHull(vector<glm::vec3> points)
 	collidable->setConvexHull(points);
 }
 
+void Cylinder::changeTexture(GLuint newTexture)
+{
+	texture = newTexture;
+}
+
 void Cylinder::update()
 {
 	rotator -= 0.01f;

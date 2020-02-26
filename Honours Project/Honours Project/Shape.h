@@ -38,4 +38,5 @@ public:
 	virtual void update() = 0;
 	virtual void draw(GLuint shader, std::stack<glm::mat4>* _mvStack,
 		glm::mat4 projection) = 0;
+	virtual void changeTexture(GLuint newTexture) = 0;
 };

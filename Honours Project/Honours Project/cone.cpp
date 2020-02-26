@@ -25,6 +25,11 @@ void Cone::setHull(vector<glm::vec3> points)
 	collidable->setConvexHull(points);
 }
 
+void Cone::changeTexture(GLuint newTexture)
+{
+	texture = newTexture;
+}
+
 void Cone::update()
 {
 	rotator += 0.02f;

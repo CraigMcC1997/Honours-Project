@@ -26,6 +26,11 @@ void Sphere::setHull(vector<glm::vec3> points)
 	collidable->setConvexHull(points);
 }
 
+void Sphere::changeTexture(GLuint newTexture)
+{
+	texture = newTexture;
+}
+
 void Sphere::update()
 {
 	rotator += 0.01f;

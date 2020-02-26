@@ -7,6 +7,9 @@
 
 class Cube : public Shape
 {
+private:
+	float distance = 20;
+	bool left = true;
 public:
 	Cube(glm::vec3 cubeScale, glm::vec3 pos, GLuint texture) {
 		transform->Scale(cubeScale);
@@ -24,5 +27,8 @@ public:
 	
 	glm::vec3 getPosition();
 	vector<glm::vec3> getHull();
+
+	void moveCube();
+	void changeTexture(GLuint);
 };
 
