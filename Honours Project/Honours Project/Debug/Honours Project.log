@@ -1,9 +1,1 @@
-﻿  Game.cpp
-E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(77,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(78,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(79,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(80,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  main.cpp
-E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\main.cpp(22,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  Generating Code...
-  Honours Project.vcxproj -> E:\1.University\Year4\Honours Project\REPO\Honours Project\Debug\Honours Project.exe
+﻿

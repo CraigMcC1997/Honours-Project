@@ -28,7 +28,8 @@ Indices Grid::computeCellIndices(vec2 position)
 
 void Grid::registerObj(Shape* obj)
 {
-	Indices cellInd = computeCellIndices(obj->getPosition());
+	Indices cellInd = computeCellIndices(vec2(obj->getPosition().x, 
+			obj->getPosition().y));
 
 	objBuckets[cellInd].push_back(obj);
 }
@@ -37,7 +38,8 @@ vector<Shape*> Grid::getNeighbours(Shape* obj)
 {
 	vector<Shape*> neighbours;
 
-	Indices cellInd = computeCellIndices(obj->getPosition());
+	Indices cellInd = computeCellIndices(vec2(obj->getPosition().x,
+		obj->getPosition().y));
 	neighbours.insert(neighbours.end(), objBuckets[cellInd].begin(), objBuckets[cellInd].end());
 
 	Indices E(cellInd.first + 1, cellInd.second);

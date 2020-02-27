@@ -103,19 +103,26 @@ void Game::checkCollisions()
 	for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end() - 1; ++it)
 	{
 		//dynamic cast first object here //
-		Cube* box1 = dynamic_cast<Cube*> (*it);
-
-		vector<Shape*> objs = grid->getNeighbours(box1);
-
-		for (auto it1 = objs.begin(); it1 != objs.end(); it1++)
+		Cube* cube1 = dynamic_cast<Cube*> (*it);
+		if (cube1 != nullptr)
 		{
-			if (*it != *it1)
-			{
-				//dynamic cast second object here //
-				Cube* box2 = dynamic_cast<Cube*> (*it);
+			vector<Shape*> objs = grid->getNeighbours(cube1);
 
-				test = gjk->performDetection(box1->getHull(), box2->getHull());
-				cout << test << endl;
+			for (auto it1 = objs.begin(); it1 != objs.end(); it1++)
+			{
+				if (*it != *it1)
+				{
+					//dynamic cast second object here //
+					Cube* cube2 = dynamic_cast<Cube*> (*it1);
+					if (cube2 != nullptr)
+					{
+						if (gjk->performDetection(cube1->getHull(), cube2->getHull()))
+						{
+							cout << test << endl;
+							//do a thing here
+						}
+					}
+				}
 			}
 		}
 	}
