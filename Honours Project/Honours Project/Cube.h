@@ -10,6 +10,9 @@ class Cube : public Shape
 private:
 	float distance = 20;
 	bool left = true;
+
+	glm::vec3 velocity = glm::vec3(0.001, 0, 0);
+	glm::vec3 acceleration = glm::vec3(0, 0, 0);
 public:
 	Cube(glm::vec3 cubeScale, glm::vec3 pos, GLuint texture) {
 		transform->Scale(cubeScale);
@@ -18,7 +21,7 @@ public:
 	}
 
 	void init();
-	void update();
+	void update(float dt);
 	void draw(GLuint shader, std::stack<glm::mat4>* _mvStack,
 		glm::mat4 projection);
 
@@ -30,5 +33,6 @@ public:
 
 	void moveCube();
 	void changeTexture(GLuint);
+	void VelocityVerletSolver(float dt);
 };
 

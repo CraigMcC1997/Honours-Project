@@ -15,9 +15,9 @@ void Game::init() {
 	//Shapes		//scale							//position			//texture
 	box1 = new Cube(glm::vec3(1.5f, 1.5f, 1.5f), glm::vec3(0, 0, 0), textures[0]);
 	box2 = new Cube(glm::vec3(1.5f, 1.5f, 1.5f), glm::vec3(2, 0, 0), textures[1]);
-	ball = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), glm::vec3(20, 0, 0), textures[2]);
-	cone = new Cone(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(30, 0, 0), textures[2]);
-	cylinder = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f), glm::vec3(40, 0, 0), textures[2]);
+	ball = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), glm::vec3(20, 0, 0), textures[0]);
+	cone = new Cone(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(30, 0, 0), textures[1]);
+	cylinder = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f), glm::vec3(40, 0, 0), textures[0]);
 
 	player->init();
 
@@ -51,7 +51,6 @@ void Game::init() {
 		box2->changeTexture(textures[2]);
 	}
 	
-
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -84,7 +83,7 @@ void Game::mouse_callback(double xpos, double ypos)
 	camera::setFront(glm::normalize(front));
 }
 
-void Game::update(SDL_Event sdlEvent)
+void Game::update(SDL_Event sdlEvent, float dt)
 {	
 	int mouseX, mouseY;
 	if (!SDL_GetGlobalMouseState(&mouseX, &mouseY))
@@ -93,7 +92,7 @@ void Game::update(SDL_Event sdlEvent)
 	player->update();
 
 	for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end(); it++)
-		(*it)->update();
+		(*it)->update(dt);
 
 	//box2->moveCube();
 }

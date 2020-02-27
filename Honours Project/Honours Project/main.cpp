@@ -1,11 +1,15 @@
 #pragma once
 #include "Game.h"
+#include "Timer.h"
 
 #if _DEBUG
 #pragma comment(linker, "/subsystem:\"console\" /entry:\"WinMainCRTStartup\"")
 #endif
 
 Game* game;
+
+LowResTimer timer;
+double oldTime = 0;
 
 void init(void)
 {
@@ -15,7 +19,7 @@ void init(void)
 
 void update(SDL_Event sdlEvent)
 {
-	game->update(sdlEvent);
+	game->update(sdlEvent, timer.getTime() - oldTime);
 }
 
 void draw(SDL_Window* window)

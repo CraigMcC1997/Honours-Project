@@ -30,7 +30,7 @@ void Cylinder::changeTexture(GLuint newTexture)
 	texture = newTexture;
 }
 
-void Cylinder::update()
+void Cylinder::update(float dt)
 {
 	rotator -= 0.01f;
 }

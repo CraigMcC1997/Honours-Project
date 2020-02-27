@@ -56,7 +56,7 @@ private:
 	};
 public:
 	void init();
-	void update(SDL_Event sdlEvent);
+	void update(SDL_Event sdlEvent, float dt);
 	void draw(SDL_Window* window);
 	void mouse_callback(double xpos, double ypos);
 };

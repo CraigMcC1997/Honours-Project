@@ -14,7 +14,7 @@ public:
 		this->texture = texture;
 	}
 	void init();
-	void update();
+	void update(float dt);
 	void draw(GLuint shader, std::stack<glm::mat4>* _mvStack, 
 		glm::mat4 projection);
 	glm::vec3 getPosition();

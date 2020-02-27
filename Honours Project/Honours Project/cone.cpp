@@ -30,7 +30,7 @@ void Cone::changeTexture(GLuint newTexture)
 	texture = newTexture;
 }
 
-void Cone::update()
+void Cone::update(float dt)
 {
 	rotator += 0.02f;
 }

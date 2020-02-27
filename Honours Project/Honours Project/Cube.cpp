@@ -22,20 +22,20 @@ vector<glm::vec3> Cube::getHull()
 
 void Cube::moveCube()
 {
-	if (transform->getPosition().x < -5)
-		left = false;
-	if (transform->getPosition().x > 5)
-		left = true;
-	
-	if (left)
-		move(glm::vec3(transform->getPosition()));
+	//if (transform->getPosition().x < -5)
+	//	left = false;
+	//if (transform->getPosition().x > 5)
+	//	left = true;
+	//
+	//if (left)
+	//	move(glm::vec3(transform->getPosition()));
 
-	cout << "X: " << transform->getPosition().x << endl;
-	cout << "Y: " << transform->getPosition().y << endl;
-	cout << "Z: " << transform->getPosition().z << endl;
-	/*if (!left)
-		move(glm::vec3((transform->getPosition().x + 0.001f),
-			transform->getPosition().y, transform->getPosition().z));*/
+	//cout << "X: " << transform->getPosition().x << endl;
+	//cout << "Y: " << transform->getPosition().y << endl;
+	//cout << "Z: " << transform->getPosition().z << endl;
+	///*if (!left)
+	//	move(glm::vec3((transform->getPosition().x + 0.001f),
+	//		transform->getPosition().y, transform->getPosition().z));*/
 }
 
 void Cube::changeTexture(GLuint newTexture)
@@ -54,8 +54,16 @@ void Cube::setHull(vector<glm::vec3> points)
 	collidable->setConvexHull(points);
 }
 
-void Cube::update()
+void Cube::VelocityVerletSolver(float dt)
 {
+	move(dt * velocity + 0.5f * dt * dt * acceleration);
+	glm::vec3 velInBetween = velocity + 0.5f * dt * acceleration;
+	velocity = velInBetween + 0.5f * acceleration;
+}
+
+void Cube::update(float dt)
+{
+	VelocityVerletSolver(dt);
 	//transform->RotateY(0.1f);
 	//rotator += 0.1f;
 }

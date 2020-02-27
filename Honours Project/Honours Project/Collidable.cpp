@@ -17,3 +17,11 @@ vector<glm::vec3> Collidable::getConvexHull()
 {
 	return convexHull;
 }
+
+
+//algorithm for computing the centroid of a set of points
+//for(auto it=points.begin(); it< points.end(); it++) {
+//	C += *it;
+//}
+//C /= N;
+

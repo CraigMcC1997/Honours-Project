@@ -31,7 +31,7 @@ void Sphere::changeTexture(GLuint newTexture)
 	texture = newTexture;
 }
 
-void Sphere::update()
+void Sphere::update(float dt)
 {
 	rotator += 0.01f;
 }
