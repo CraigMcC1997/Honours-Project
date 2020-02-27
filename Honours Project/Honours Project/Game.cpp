@@ -12,9 +12,12 @@ void Game::init() {
 	//adding sound files to the array to be played later in code
 	samples[0] = Sound::loadSample("../Resources/SoundFiles/Click.wav", BASS_SAMPLE_OVER_POS);	
 
+	//adding a grid for optimisation
+	grid = new Grid(1200, 800, 50);
+
 	//Shapes		//scale							//position			//texture
-	box1 = new Cube(glm::vec3(1.5f, 1.5f, 1.5f), glm::vec3(0, 0, 0), textures[0]);
-	box2 = new Cube(glm::vec3(1.5f, 1.5f, 1.5f), glm::vec3(2, 0, 0), textures[1]);
+	box1 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0, 0, 0), textures[0]);
+	box2 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(2, 0, 0), textures[1]);
 	ball = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), glm::vec3(20, 0, 0), textures[0]);
 	cone = new Cone(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(30, 0, 0), textures[1]);
 	cylinder = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f), glm::vec3(40, 0, 0), textures[0]);
@@ -24,24 +27,31 @@ void Game::init() {
 	//adding shapes to container
 	box1->init();
 	gameEntities.push_back(box1);
+	grid->registerObj(box1);
 
 	box2->init();
 	gameEntities.push_back(box2);
+	grid->registerObj(box2);
 
 	ball->init();
 	gameEntities.push_back(ball);
+	grid->registerObj(ball);
 
 	cone->init();
 	gameEntities.push_back(cone);
+	grid->registerObj(cone);
 
 	cylinder->init();
 	gameEntities.push_back(cylinder);
+	grid->registerObj(cylinder);
 
+	cout << "box 1:" << endl;
 	box1->setHull(boxVerts);
+	cout << "box 2:" << endl;
 	box2->setHull(boxVerts);
 
 	//testing GJK on arbritrary point clouds saved in boxes collidables
-	bool test = gjk->performDetection(box1->getHull(), box2->getHull());
+	test = gjk->performDetection(box1->getHull(), box2->getHull());
 	cout << test << endl;
 
 	if (test)
@@ -49,6 +59,11 @@ void Game::init() {
 		Sound::playSample(samples[0]);
 		box1->changeTexture(textures[2]);
 		box2->changeTexture(textures[2]);
+	}
+	else
+	{
+		box1->changeTexture(textures[0]);
+		box2->changeTexture(textures[1]);
 	}
 	
 	glEnable(GL_DEPTH_TEST);
@@ -83,18 +98,52 @@ void Game::mouse_callback(double xpos, double ypos)
 	camera::setFront(glm::normalize(front));
 }
 
+void Game::checkCollisions()
+{
+	for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end() - 1; ++it)
+	{
+		//dynamic cast first object here //
+		Cube* box1 = dynamic_cast<Cube*> (*it);
+
+		vector<Shape*> objs = grid->getNeighbours(box1);
+
+		for (auto it1 = objs.begin(); it1 != objs.end(); it1++)
+		{
+			if (*it != *it1)
+			{
+				//dynamic cast second object here //
+				Cube* box2 = dynamic_cast<Cube*> (*it);
+
+				test = gjk->performDetection(box1->getHull(), box2->getHull());
+				cout << test << endl;
+			}
+		}
+	}
+}
+
 void Game::update(SDL_Event sdlEvent, float dt)
 {	
 	int mouseX, mouseY;
-	if (!SDL_GetGlobalMouseState(&mouseX, &mouseY))
+	if (!SDL_GetGlobalMouseState(&mouseX, &mouseY))	//mouse input
 		mouse_callback(mouseX, mouseY);
+
+	const Uint8* keys = SDL_GetKeyboardState(NULL); //keyboard input
+	
+	if (keys[SDL_SCANCODE_RIGHT])
+		box1->VelocityVerletSolver(dt);
+
+	if (keys[SDL_SCANCODE_LEFT])
+		box1->VelocityVerletSolver(-dt);
+
+	if (keys[SDL_SCANCODE_RETURN])
+	{
+		checkCollisions();
+	}
 
 	player->update();
 
 	for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end(); it++)
 		(*it)->update(dt);
-
-	//box2->moveCube();
 }
 
 void Game::draw(SDL_Window* window)

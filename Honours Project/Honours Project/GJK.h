@@ -14,13 +14,14 @@ class GJK : public collisionDetector
 private:
 	//subsections of the algorithm
 	SupportFunction* support = new SupportFunction();
-	
-	glm::vec3 direction = glm::vec3(1, 1, 1);
+
 	int steps = 0;
 	int simplexSize = 0;
 	glm::vec3 simplex[4];
 
 public:
+	GJK() { fill(std::begin(simplex), std::end(simplex), glm::vec3(0, 0, 0)); }
+
 	bool performDetection(vector<glm::vec3>, vector<glm::vec3>);
 	bool ContainsOrigin(glm::vec3);
 	bool triangle(glm::vec3);

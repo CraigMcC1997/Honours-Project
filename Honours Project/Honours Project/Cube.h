@@ -31,7 +31,6 @@ public:
 	glm::vec3 getPosition();
 	vector<glm::vec3> getHull();
 
-	void moveCube();
 	void changeTexture(GLuint);
 	void VelocityVerletSolver(float dt);
 };

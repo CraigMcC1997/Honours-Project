@@ -3,6 +3,7 @@
 bool GJK::performDetection(vector<glm::vec3> hull1, vector<glm::vec3> hull2)
 {
 	cout << "Starting GJK..." << endl;
+	glm::vec3 direction = glm::vec3(1, 1, 1);
 
 	simplex[2] = support->support(direction, hull1, hull2);	//Adding first point to the simplex
 	direction = -simplex[2];								//opposite direction

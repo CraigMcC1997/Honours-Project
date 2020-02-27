@@ -9,6 +9,7 @@
 #include "cylinder.h"
 #include "GJK.h"
 #include "Shape.h"
+#include "Grid.h"
 
 class Game
 {
@@ -22,6 +23,7 @@ private:
 
 	Player* player = new Player();
 	GJK* gjk = new GJK();
+	Grid* grid;
 
 	//container of shapes
 	vector<Shape*> gameEntities;
@@ -42,6 +44,8 @@ private:
 	//Used by BASS library
 	HSAMPLE* samples = new HSAMPLE[5];
 
+	bool test;
+
 	//arbitrary point clouds for convex hull
 	vector<glm::vec3> points =
 	{ {1, 1, 1}, {1, 6, 1}, {7, 1, 1}, {7, 6, 1}, {3, 3, 1} };
@@ -59,4 +63,5 @@ public:
 	void update(SDL_Event sdlEvent, float dt);
 	void draw(SDL_Window* window);
 	void mouse_callback(double xpos, double ypos);
+	void checkCollisions();
 };

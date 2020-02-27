@@ -133,6 +133,7 @@
     <ClCompile Include="Collidable.cpp" />
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Maths.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="PlaySound.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="Collidable.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Grid.h" />
     <ClInclude Include="Maths.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="PlaySound.h" />
