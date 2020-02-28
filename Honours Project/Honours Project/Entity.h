@@ -3,12 +3,10 @@
 //################################################################
 
 #pragma once
-#include "rt3d.h"
-#include "rt3dObjLoader.h"
+#include <GL/glew.h>
+#include <SDL.h>
 
 #include <glm/glm.hpp>
-//#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 
 #include <stack>
 #include <Windows.h>

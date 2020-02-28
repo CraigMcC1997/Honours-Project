@@ -118,8 +118,16 @@ void Game::checkCollisions()
 					{
 						if (gjk->performDetection(cube1->getHull(), cube2->getHull()))
 						{
+							//Collision response
 							cout << test << endl;
-							//do a thing here
+							Sound::playSample(samples[0]);
+							box1->changeTexture(textures[2]);
+							box2->changeTexture(textures[2]);
+						}
+						else
+						{
+							box1->changeTexture(textures[0]);
+							box2->changeTexture(textures[1]);
 						}
 					}
 				}
@@ -137,10 +145,10 @@ void Game::update(SDL_Event sdlEvent, float dt)
 	const Uint8* keys = SDL_GetKeyboardState(NULL); //keyboard input
 	
 	if (keys[SDL_SCANCODE_RIGHT])
-		box1->VelocityVerletSolver(dt);
+		box1->move(dt);
 
 	if (keys[SDL_SCANCODE_LEFT])
-		box1->VelocityVerletSolver(-dt);
+		box1->move(-dt);
 
 	if (keys[SDL_SCANCODE_RETURN])
 	{

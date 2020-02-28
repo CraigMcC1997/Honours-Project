@@ -26,6 +26,11 @@ void Cube::changeTexture(GLuint newTexture)
 	texture = newTexture;
 }
 
+void Cube::move(float dt)
+{
+	VelocityVerletSolver(dt);
+}
+
 void Cube::setHull(vector<glm::vec3> points)
 {
 	for (int i = 0; i < points.size(); ++i)

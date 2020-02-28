@@ -1,14 +1,14 @@
 #pragma once
 #include "PlaySound.h"
 #include "Window.h"
-#include "Player.h"
 #include "loadTextures.h"
+#include "Player.h"
+#include "Shape.h"
 #include "Cube.h"
 #include "Sphere.h"
 #include "cone.h"
 #include "cylinder.h"
 #include "GJK.h"
-#include "Shape.h"
 #include "Grid.h"
 
 class Game

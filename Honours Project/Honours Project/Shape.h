@@ -4,7 +4,7 @@
 #include "Transform.h"
 #include "Collidable.h"
 
-class Shape : Entity
+class Shape : public Entity
 {
 protected:
 	Mesh* mesh = new Mesh();

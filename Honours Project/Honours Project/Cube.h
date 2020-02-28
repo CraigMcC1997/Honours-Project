@@ -13,6 +13,8 @@ private:
 
 	glm::vec3 velocity = glm::vec3(0.001, 0, 0);
 	glm::vec3 acceleration = glm::vec3(0, 0, 0);
+	void move(glm::vec3 translation);
+	void VelocityVerletSolver(float dt);
 public:
 	Cube(glm::vec3 cubeScale, glm::vec3 pos, GLuint texture) {
 		transform->Scale(cubeScale);
@@ -26,12 +28,11 @@ public:
 		glm::mat4 projection);
 
 	void setHull(vector<glm::vec3>);
-	void move(glm::vec3 translation);
 	
 	glm::vec3 getPosition();
 	vector<glm::vec3> getHull();
 
 	void changeTexture(GLuint);
-	void VelocityVerletSolver(float dt);
+	void move(float dt);
 };
 
