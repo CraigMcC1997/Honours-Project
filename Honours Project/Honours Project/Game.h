@@ -10,12 +10,14 @@
 #include "cylinder.h"
 #include "GJK.h"
 #include "Grid.h"
+#include <time.h>
 
 class Game
 {
 private:
 	//shapes
-	Cube* box1;
+	//Cube* boxes[10];
+	Cube* box;
 	Cube* box2;
 	Sphere* ball;
 	Cone* cone;
@@ -28,7 +30,7 @@ private:
 	//container of shapes
 	vector<Shape*> gameEntities;
 
-	GLuint textures[3];
+	GLuint textures[5];
 	glm::vec4 lightPos = glm::vec4(1.0f, 2.0f, 2.0f, 1.0f); //global light position
 	GLuint shaderProgram;
 	std::stack<glm::mat4> mvStack;
@@ -64,4 +66,5 @@ public:
 	void draw(SDL_Window* window);
 	void mouse_callback(double xpos, double ypos);
 	void checkCollisions();
+	void moveObjects(float dt);
 };

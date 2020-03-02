@@ -25,6 +25,6 @@ void Player::update()
 void Player::draw(GLuint shader, std::stack<glm::mat4>* _mvStack, glm::mat4 projection, GLuint texture, glm::vec3 pos)
 {
 	//camera set up
-	_mvStack->top() = glm::lookAt(camera::getEye(), 
-		glm::vec3(camera::getEye() + camera::getFront()), camera::getUp());
+	_mvStack->push(glm::lookAt(camera::getEye(), 
+		glm::vec3(camera::getEye() + camera::getFront()), camera::getUp()));
 }

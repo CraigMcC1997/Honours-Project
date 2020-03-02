@@ -5,24 +5,17 @@ void Cone::init()
 	mesh->loadMesh("../Resources/Models/cone.obj");
 }
 
-glm::vec3 Cone::getPosition()
+void Cone::VelocityVerletSolver(float dt)
 {
-	return transform->getPosition();
+	privMove(dt * velocity + 0.5f * (dt * dt) * acceleration);
+	glm::vec3 velInBetween = velocity + 0.5f * dt * acceleration;
+	velocity = velInBetween + 0.5f * acceleration;
 }
 
-void Cone::move(glm::vec3 translation)
+void Cone::privMove(glm::vec3 translation)
 {
 	transform->Translate(translation);
-}
-
-vector<glm::vec3> Cone::getHull()
-{
-	return collidable->getConvexHull();
-}
-
-void Cone::setHull(vector<glm::vec3> points)
-{
-	collidable->setConvexHull(points);
+	setHull(collidable->getConvexHull());
 }
 
 void Cone::changeTexture(GLuint newTexture)
@@ -30,13 +23,68 @@ void Cone::changeTexture(GLuint newTexture)
 	texture = newTexture;
 }
 
+void Cone::move(float dt)
+{
+	//updateVelocity(dir);
+	VelocityVerletSolver(dt);
+}
+
+void Cone::updateVelocity(glm::vec3 newVelocity)
+{
+	velocity = newVelocity;
+}
+
+glm::vec3 Cone::getVelocity()
+{
+	return velocity;
+}
+
+void Cone::setHull(vector<glm::vec3> points)
+{
+	for (int i = 0; i < points.size(); ++i)
+	{
+		points[i] += transform->getPosition();
+		points[i] *= transform->getScale();
+	}
+
+	collidable->setConvexHull(points);
+
+	//for (int i = 0; i < points.size(); ++i)
+	//{
+	//	cout << "---" << endl;
+	//	cout << "COLLIDABLE POS:" << endl;
+	//	cout << "X: " << collidable->getConvexHull()[i].x << endl;
+	//	cout << "Y: " << collidable->getConvexHull()[i].y << endl;
+	//	cout << "Z: " << collidable->getConvexHull()[i].z << endl;
+	//}
+
+	//cout << "---" << endl;
+	//cout << "MESH POS:" << endl;
+	//cout << "X: " << transform->getPosition().x << endl;
+	//cout << "Y: " << transform->getPosition().y << endl;
+	//cout << "Z: " << transform->getPosition().z << endl;
+
+}
+
+glm::vec3 Cone::getPosition()
+{
+	return transform->getPosition();
+}
+
+vector<glm::vec3> Cone::getHull()
+{
+	return collidable->getConvexHull();
+}
+
 void Cone::update(float dt)
 {
-	rotator += 0.02f;
+	//VelocityVerletSolver(dt);
+	//transform->RotateY(0.1f);
+	//rotator += 0.1f;
 }
 
 void Cone::draw(GLuint shader, std::stack<glm::mat4>* _mvStack, glm::mat4 projection)
 {
-	mesh->drawMesh(shader, _mvStack, projection, texture, 
-		transform->getPosition(), transform->getScale());
+	mesh->drawMesh(shader, _mvStack, projection, texture,
+		transform);//->getPosition(), transform->getScale());
 }

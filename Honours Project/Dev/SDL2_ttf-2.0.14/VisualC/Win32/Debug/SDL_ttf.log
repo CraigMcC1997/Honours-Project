@@ -1,0 +1,12 @@
+﻿  Copying libfreetype-6.dll
+          1 file(s) copied.
+  Copying LICENSE.freetype.txt
+          1 file(s) copied.
+  Copying LICENSE.zlib.txt
+          1 file(s) copied.
+  Copying zlib1.dll
+          1 file(s) copied.
+  SDL_ttf.c
+     Creating library C:\RT3D\dev_build\SDL2_ttf-2.0.14\VisualC\\Win32\Debug\SDL2_ttf.lib and object C:\RT3D\dev_build\SDL2_ttf-2.0.14\VisualC\\Win32\Debug\SDL2_ttf.exp
+  SDL_ttf.vcxproj -> C:\RT3D\dev_build\SDL2_ttf-2.0.14\VisualC\\Win32\Debug\SDL2_ttf.dll
+  SDL_ttf.vcxproj -> C:\RT3D\dev_build\SDL2_ttf-2.0.14\VisualC\\Win32\Debug\SDL2_ttf.pdb (Full PDB)

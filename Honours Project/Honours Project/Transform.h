@@ -25,4 +25,5 @@ public:
 
 	glm::vec3 getPosition();
 	glm::vec3 getScale();
+	glm::mat4* getModelMatrix();
 };

@@ -82,3 +82,8 @@ glm::vec3 Transform::getScale()
 
 	return glm::vec3(sx, sy, sz);
 }
+
+glm::mat4* Transform::getModelMatrix()
+{
+	return &transformMatrix;
+}

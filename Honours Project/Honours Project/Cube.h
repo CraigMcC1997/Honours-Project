@@ -8,17 +8,12 @@
 class Cube : public Shape
 {
 private:
-	float distance = 20;
-	bool left = true;
-
-	glm::vec3 velocity = glm::vec3(0.001, 0, 0);
-	glm::vec3 acceleration = glm::vec3(0, 0, 0);
-	void move(glm::vec3 translation);
+	void privMove(glm::vec3 translation);
 	void VelocityVerletSolver(float dt);
 public:
 	Cube(glm::vec3 cubeScale, glm::vec3 pos, GLuint texture) {
 		transform->Scale(cubeScale);
-		move(pos);
+		privMove(pos);
 		this->texture = texture;
 	}
 
@@ -34,5 +29,6 @@ public:
 
 	void changeTexture(GLuint);
 	void move(float dt);
+	void updateVelocity(glm::vec3);
+	glm::vec3 getVelocity();
 };
-

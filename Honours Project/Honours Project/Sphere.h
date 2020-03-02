@@ -7,10 +7,13 @@
 
 class Sphere : public Shape
 {
+private:
+	void privMove(glm::vec3 translation);
+	void VelocityVerletSolver(float dt);
 public:
 	Sphere(glm::vec3 sphereScale, glm::vec3 pos, GLuint texture) {
 		transform->Scale(sphereScale);
-		move(pos);
+		privMove(pos);
 		this->texture = texture;
 	}
 	void init();
@@ -21,7 +24,9 @@ public:
 	vector<glm::vec3> getHull();
 	void setHull(vector<glm::vec3>);
 
-	void move(glm::vec3 translation);
 	void changeTexture(GLuint);
+	void move(float dt);
+	void updateVelocity(glm::vec3);
+	glm::vec3 getVelocity();
 };
 

@@ -2,6 +2,7 @@
 
 bool GJK::performDetection(vector<glm::vec3> hull1, vector<glm::vec3> hull2)
 {
+	steps = 0;
 	cout << "Starting GJK..." << endl;
 	glm::vec3 direction = glm::vec3(1, 1, 1);
 
@@ -11,7 +12,7 @@ bool GJK::performDetection(vector<glm::vec3> hull1, vector<glm::vec3> hull2)
 
 	//is this new point further than the origin?
 	if (dot(simplex[1], direction) < 0) {
-		cout << "Collision Not Found" << endl;
+		cout << "Collision Not Found - Line Creation" << endl;
 		return false;
 	}
 	
@@ -26,7 +27,7 @@ bool GJK::performDetection(vector<glm::vec3> hull1, vector<glm::vec3> hull2)
 			return false;
 		else {
 			if (ContainsOrigin(direction)) {
-				cout << "Collision Found" << endl;
+				cout << "Collision Found - Triangle Creation" << endl;
 				return true;
 			}
 		}
@@ -39,10 +40,16 @@ bool GJK::performDetection(vector<glm::vec3> hull1, vector<glm::vec3> hull2)
 bool GJK::ContainsOrigin(glm::vec3 direction)
 {
 	if (simplexSize == 2)
+	{
+		cout << "Triangle" << endl;
 		return triangle(direction);
+	}
 
 	else if (simplexSize == 3)
+	{
+		cout << "Tetrahedon" << endl;
 		return tetrahedron(direction);
+	}
 
 	return false;
 }

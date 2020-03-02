@@ -7,10 +7,13 @@
 
 class Cylinder : public Shape
 {
+private:
+	void privMove(glm::vec3 translation);
+	void VelocityVerletSolver(float dt);
 public:
 	Cylinder(glm::vec3 cylinderScale, glm::vec3 pos, GLuint texture) {
 		transform->Scale(cylinderScale);
-		move(pos);
+		privMove(pos);
 		this->texture = texture;
 	}
 
@@ -22,6 +25,8 @@ public:
 	vector<glm::vec3> getHull();
 	void setHull(vector<glm::vec3>);
 	
-	void move(glm::vec3 translation);
 	void changeTexture(GLuint);
+	void move(float dt);
+	void updateVelocity(glm::vec3);
+	glm::vec3 getVelocity();
 };

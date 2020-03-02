@@ -6,6 +6,7 @@
 #include <stack>
 #include "glm/glm.hpp"
 #include <glm/gtc/type_ptr.hpp>
+#include "Transform.h"
 
 using namespace std;
 
@@ -30,10 +31,11 @@ private:
 
 	//glm::vec3 scale = glm::vec3(1.5f, 1.5f, 1.5f);
 
-	vector<GLfloat> storedVerts;
+	//vector<GLfloat> storedVerts;
 
 public:
 	void loadMesh(string filename);
 	void drawMesh(GLuint shader, std::stack<glm::mat4>* _mvStack,
-		glm::mat4 projection, GLuint texture, glm::vec3 pos, glm::vec3 scale);
+		glm::mat4 projection, GLuint texture, Transform* modelMatrix);//, glm::vec3 pos, glm::vec3 scale);
+	vector<GLfloat>* getVerts();
 };

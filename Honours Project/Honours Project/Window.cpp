@@ -17,7 +17,7 @@ SDL_Window* Window::setupRC(SDL_GLContext &context)
 
 											   //Create window
 	window = SDL_CreateWindow(windowName, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-		width2, height2, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
+		width, height, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
 	if (!window) // Check window was created OK
 		cout << "Unable to create window" << endl;
 

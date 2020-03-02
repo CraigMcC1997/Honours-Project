@@ -5,20 +5,17 @@ void Cube::init()
 	mesh->loadMesh("../Resources/Models/cube.obj");
 }
 
-glm::vec3 Cube::getPosition()
+void Cube::VelocityVerletSolver(float dt)
 {
-	return transform->getPosition();
+	privMove(dt * velocity + 0.5f * (dt * dt) * acceleration);
+	glm::vec3 velInBetween = velocity + 0.5f * dt * acceleration;
+	velocity = velInBetween + 0.5f * acceleration;
 }
 
-void Cube::move(glm::vec3 translation)
+void Cube::privMove(glm::vec3 translation)
 {
 	transform->Translate(translation);
 	setHull(collidable->getConvexHull());
-}
-
-vector<glm::vec3> Cube::getHull()
-{
-	return collidable->getConvexHull();
 }
 
 void Cube::changeTexture(GLuint newTexture)
@@ -28,17 +25,31 @@ void Cube::changeTexture(GLuint newTexture)
 
 void Cube::move(float dt)
 {
+	//updateVelocity(dir);
 	VelocityVerletSolver(dt);
+}
+
+void Cube::updateVelocity(glm::vec3 newVelocity)
+{
+	velocity = newVelocity;
+}
+
+glm::vec3 Cube::getVelocity()
+{
+	return velocity;
 }
 
 void Cube::setHull(vector<glm::vec3> points)
 {
 	for (int i = 0; i < points.size(); ++i)
 	{
-		points[i] += transform->getPosition();
-		points[i] *= transform->getScale();
-	}
+		glm::vec4 v = glm::vec4(points[i].x, points[i].y, points[i].z, 1.0);
+
+		v = v * *(transform->getModelMatrix());
 		
+		points[i] = glm::vec3(v.x, v.y, v.z);
+	}
+
 	collidable->setConvexHull(points);
 
 	//for (int i = 0; i < points.size(); ++i)
@@ -58,11 +69,14 @@ void Cube::setHull(vector<glm::vec3> points)
 
 }
 
-void Cube::VelocityVerletSolver(float dt)
+glm::vec3 Cube::getPosition()
 {
-	move(dt * velocity + 0.5f * (dt * dt) * acceleration);
-	glm::vec3 velInBetween = velocity + 0.5f * dt * acceleration;
-	velocity = velInBetween + 0.5f * acceleration;
+	return transform->getPosition();
+}
+
+vector<glm::vec3> Cube::getHull()
+{
+	return collidable->getConvexHull();
 }
 
 void Cube::update(float dt)
@@ -74,6 +88,6 @@ void Cube::update(float dt)
 
 void Cube::draw(GLuint shader, std::stack<glm::mat4>* _mvStack, glm::mat4 projection)
 {
-	mesh->drawMesh(shader, _mvStack, projection, texture, 
-		transform->getPosition(), transform->getScale());
+	mesh->drawMesh(shader, _mvStack, projection, texture,
+		transform);//->getPosition(), transform->getScale());
 }

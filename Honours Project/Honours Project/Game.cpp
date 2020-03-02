@@ -8,6 +8,8 @@ void Game::init() {
 	textures[0] = loadTextures::loadTexture("../Resources/Textures/fabric.bmp");
 	textures[1] = loadTextures::loadTexture("../Resources/Textures/dirt.bmp");
 	textures[2] = loadTextures::loadTexture("../Resources/Textures/studdedmetal.bmp");
+	textures[3] = loadTextures::loadTexture("../Resources/Textures/colliding.bmp");
+	textures[4] = loadTextures::loadTexture("../Resources/Textures/nocollision.bmp");
 	
 	//adding sound files to the array to be played later in code
 	samples[0] = Sound::loadSample("../Resources/SoundFiles/Click.wav", BASS_SAMPLE_OVER_POS);	
@@ -16,20 +18,39 @@ void Game::init() {
 	grid = new Grid(1200, 800, 50);
 
 	//Shapes		//scale							//position			//texture
-	box1 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0, 0, 0), textures[0]);
-	box2 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(2, 0, 0), textures[1]);
 	ball = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), glm::vec3(20, 0, 0), textures[0]);
 	cone = new Cone(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(30, 0, 0), textures[1]);
 	cylinder = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f), glm::vec3(40, 0, 0), textures[0]);
 
+	//randomly placing the boxes
+	srand(time(NULL));
+	/*for (auto i = 0; i < 10; i++) {
+		glm::vec3 position = glm::vec3(rand() % 20, rand() % 20, rand() % 20);
+		glm::vec3 velocity = glm::vec3(rand() % 5, rand() % 5, rand() % 5);
+		velocity.x /= 100;
+		velocity.y /= 100;
+		velocity.z /= 100;
+
+		boxes[i] = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), 
+			position, textures[0]);
+
+		boxes[i]->init();
+		boxes[i]->updateVelocity(velocity);
+		gameEntities.push_back(boxes[i]);
+		grid->registerObj(boxes[i]);
+	}*/
+
 	player->init();
 
-	//adding shapes to container
-	box1->init();
-	gameEntities.push_back(box1);
-	grid->registerObj(box1);
-
+	box = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), textures[4]);
+	box->init();
+	//box->updateVelocity(velocity);
+	gameEntities.push_back(box);
+	grid->registerObj(box);
+	
+	box2 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(2.0f, 0.0f, 0.0f), textures[4]);
 	box2->init();
+	//box->updateVelocity(velocity);
 	gameEntities.push_back(box2);
 	grid->registerObj(box2);
 
@@ -45,25 +66,33 @@ void Game::init() {
 	gameEntities.push_back(cylinder);
 	grid->registerObj(cylinder);
 
+	//cout << "box 1:" << endl;
+	//boxes[0]->setHull(boxVerts);
+	//cout << "box 2:" << endl;
+	//boxes[1]->setHull(boxVerts);
+
+	//testing GJK on arbritrary point clouds saved in boxes collidables
+	//test = gjk->performDetection(boxes[0]->getHull(), boxes[1]->getHull());
+	//cout << test << endl;
+
 	cout << "box 1:" << endl;
-	box1->setHull(boxVerts);
+	box->setHull(boxVerts);
 	cout << "box 2:" << endl;
 	box2->setHull(boxVerts);
 
-	//testing GJK on arbritrary point clouds saved in boxes collidables
-	test = gjk->performDetection(box1->getHull(), box2->getHull());
+	test = gjk->performDetection(box->getHull(), box->getHull());
 	cout << test << endl;
 
 	if (test)
 	{
 		Sound::playSample(samples[0]);
-		box1->changeTexture(textures[2]);
-		box2->changeTexture(textures[2]);
+		box->changeTexture(textures[3]);
+		box2->changeTexture(textures[3]);
 	}
 	else
 	{
-		box1->changeTexture(textures[0]);
-		box2->changeTexture(textures[1]);
+		box->changeTexture(textures[4]);
+		box2->changeTexture(textures[4]);
 	}
 	
 	glEnable(GL_DEPTH_TEST);
@@ -106,7 +135,7 @@ void Game::checkCollisions()
 		Cube* cube1 = dynamic_cast<Cube*> (*it);
 		if (cube1 != nullptr)
 		{
-			vector<Shape*> objs = grid->getNeighbours(cube1);
+			vector<Shape*> objs = gameEntities;//grid->getNeighbours(cube1);
 
 			for (auto it1 = objs.begin(); it1 != objs.end(); it1++)
 			{
@@ -121,18 +150,32 @@ void Game::checkCollisions()
 							//Collision response
 							cout << test << endl;
 							Sound::playSample(samples[0]);
-							box1->changeTexture(textures[2]);
-							box2->changeTexture(textures[2]);
+							cube1->changeTexture(textures[3]);
+							cube2->changeTexture(textures[3]);
 						}
 						else
 						{
-							box1->changeTexture(textures[0]);
-							box2->changeTexture(textures[1]);
+							cube1->changeTexture(textures[4]);
+							cube2->changeTexture(textures[4]);
 						}
 					}
 				}
 			}
 		}
+	}
+}
+
+void Game::moveObjects(float dt)
+{
+	for (vector<Shape*>::iterator it = gameEntities.begin(); 
+		it < gameEntities.end(); it++)
+	{
+		if ((*it)->getPosition().x > 10 ||
+			(*it)->getPosition().y > 10 ||
+			(*it)->getPosition().z > 10)
+			(*it)->updateVelocity(-(*it)->getVelocity());
+		else
+		(*it)->move(dt);		
 	}
 }
 
@@ -145,16 +188,23 @@ void Game::update(SDL_Event sdlEvent, float dt)
 	const Uint8* keys = SDL_GetKeyboardState(NULL); //keyboard input
 	
 	if (keys[SDL_SCANCODE_RIGHT])
-		box1->move(dt);
+		box->move(dt);
 
 	if (keys[SDL_SCANCODE_LEFT])
-		box1->move(-dt);
+		box->move(-dt);
+
+	//if (keys[SDL_SCANCODE_UP])
+	//	box->move(dt);
+
+	//if (keys[SDL_SCANCODE_DOWN])
+	//	box->move(dt);
 
 	if (keys[SDL_SCANCODE_RETURN])
 	{
 		checkCollisions();
 	}
 
+	//moveObjects(dt);
 	player->update();
 
 	for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end(); it++)
