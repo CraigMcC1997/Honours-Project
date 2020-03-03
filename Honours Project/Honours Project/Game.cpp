@@ -5,11 +5,10 @@ void Game::init() {
 	shaderProgram = rt3d::initShaders("../Resources/Shaders/textured.vert", "../Resources/Shaders/textured.frag");
 
 	//textures
-	textures[0] = loadTextures::loadTexture("../Resources/Textures/fabric.bmp");
-	textures[1] = loadTextures::loadTexture("../Resources/Textures/dirt.bmp");
-	textures[2] = loadTextures::loadTexture("../Resources/Textures/studdedmetal.bmp");
-	textures[3] = loadTextures::loadTexture("../Resources/Textures/colliding.bmp");
-	textures[4] = loadTextures::loadTexture("../Resources/Textures/nocollision.bmp");
+	textures[0] = loadTextures::loadTexture("../Resources/Textures/nocollision.bmp");
+	textures[1] = loadTextures::loadTexture("../Resources/Textures/colliding.bmp");
+	textures[2] = loadTextures::loadTexture("../Resources/Textures/red.bmp");
+	textures[3] = loadTextures::loadTexture("../Resources/Textures/blue.bmp");
 	
 	//adding sound files to the array to be played later in code
 	samples[0] = Sound::loadSample("../Resources/SoundFiles/Click.wav", BASS_SAMPLE_OVER_POS);	
@@ -18,9 +17,9 @@ void Game::init() {
 	grid = new Grid(1200, 800, 50);
 
 	//Shapes		//scale							//position			//texture
-	ball = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), glm::vec3(20, 0, 0), textures[0]);
-	cone = new Cone(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(30, 0, 0), textures[1]);
-	cylinder = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f), glm::vec3(40, 0, 0), textures[0]);
+	ball = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), glm::vec3(20, 0, 0), textures[2]);
+	cone = new Cone(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(30, 0, 0), textures[2]);
+	cylinder = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f), glm::vec3(40, 0, 0), textures[2]);
 
 	//randomly placing the boxes
 	srand(time(NULL));
@@ -42,13 +41,13 @@ void Game::init() {
 
 	player->init();
 
-	box = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), textures[4]);
+	box = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), textures[0]);
 	box->init();
 	//box->updateVelocity(velocity);
 	gameEntities.push_back(box);
 	grid->registerObj(box);
 	
-	box2 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(2.0f, 0.0f, 0.0f), textures[4]);
+	box2 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(2.0f, 0.0f, 0.0f), textures[0]);
 	box2->init();
 	//box->updateVelocity(velocity);
 	gameEntities.push_back(box2);
@@ -86,13 +85,13 @@ void Game::init() {
 	if (test)
 	{
 		Sound::playSample(samples[0]);
-		box->changeTexture(textures[3]);
-		box2->changeTexture(textures[3]);
+		box->changeTexture(textures[1]);
+		box2->changeTexture(textures[1]);
 	}
 	else
 	{
-		box->changeTexture(textures[4]);
-		box2->changeTexture(textures[4]);
+		box->changeTexture(textures[0]);
+		box2->changeTexture(textures[0]);
 	}
 	
 	glEnable(GL_DEPTH_TEST);
@@ -150,13 +149,13 @@ void Game::checkCollisions()
 							//Collision response
 							cout << test << endl;
 							Sound::playSample(samples[0]);
-							cube1->changeTexture(textures[3]);
-							cube2->changeTexture(textures[3]);
+							cube1->changeTexture(textures[1]);
+							cube2->changeTexture(textures[1]);
 						}
 						else
 						{
-							cube1->changeTexture(textures[4]);
-							cube2->changeTexture(textures[4]);
+							cube1->changeTexture(textures[0]);
+							cube2->changeTexture(textures[0]);
 						}
 					}
 				}

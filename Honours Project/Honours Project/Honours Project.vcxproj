@@ -79,11 +79,11 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Dev\SDL2-2.0.10\include;C:\Dev\glm;C:\Dev\glew-2.1.0\include;C:\Dev\SDL2_image-2.0.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Dev\SDL2-2.0.10\include;..\Dev\glm;..\Dev\glew-2.1.0\include;..\Dev\SDL2_image-2.0.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>C:\Dev\SDL2_image-2.0.5\lib\x86;C:\Dev\SDL2-2.0.10\lib\x86;C:\Dev\glew-2.1.0\src\lib\Debug\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\Dev\SDL2_image-2.0.5\lib\x86;..\Dev\SDL2-2.0.10\lib\x86;..\Dev\glew-2.1.0\src\lib\Debug\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32d.lib;opengl32.lib;SDL2_image.lib;bass.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
