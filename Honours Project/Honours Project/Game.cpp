@@ -126,40 +126,40 @@ void Game::mouse_callback(double xpos, double ypos)
 
 void Game::checkCollisions()
 {
-	//for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end() - 1; ++it)
-	//{
-	//	//dynamic cast first object here //
-	//	Cube* cube1 = dynamic_cast<Cube*> (*it);
-	//	if (cube1 != nullptr)
-	//	{
-	//		vector<Shape*> objs = gameEntities;//grid->getNeighbours(cube1);
+	for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end() - 1; ++it)
+	{
+		//dynamic cast first object here //
+		Cube* cube1 = dynamic_cast<Cube*> (*it);
+		if (cube1 != nullptr)
+		{
+			vector<Shape*> objs = gameEntities;//grid->getNeighbours(cube1);
 
-	//		for (auto it1 = objs.begin(); it1 != objs.end(); it1++)
-	//		{
-	//			if (*it != *it1)
-	//			{
-	//				//dynamic cast second object here //
-	//				Cube* cube2 = dynamic_cast<Cube*> (*it1);
-	//				if (cube2 != nullptr)
-	//				{
-						if (gjk->performDetection(box->getHull(), box2->getHull()) == true)
+			for (auto it1 = objs.begin(); it1 != objs.end(); it1++)
+			{
+				if (*it != *it1)
+				{
+					//dynamic cast second object here //
+					Cube* cube2 = dynamic_cast<Cube*> (*it1);
+					if (cube2 != nullptr)
+					{
+						if (gjk->performDetection(cube1->getHull(), cube2->getHull()))
 						{
 							//Collision response
 							Sound::playSample(samples[0]);
-							box->changeTexture(textures[1]);
-							box2->changeTexture(textures[1]);
+							cube1->changeTexture(textures[1]);
+							cube2->changeTexture(textures[1]);
 						}
 						else
 						{
 							//No collision response
-							box->changeTexture(textures[0]);
-							box2->changeTexture(textures[0]);
+							cube1->changeTexture(textures[0]);
+							cube2->changeTexture(textures[0]);
 						}
-	//				}
-	//			}
-	//		}
-	//	}
-	//}
+					}
+				}
+			}
+		}
+	}
 }
 
 void Game::moveObjects(float dt)

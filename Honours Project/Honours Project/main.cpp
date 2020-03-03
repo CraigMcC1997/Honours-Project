@@ -20,6 +20,7 @@ void init(void)
 void update(SDL_Event sdlEvent)
 {
 	game->update(sdlEvent, timer.getTime() - oldTime);
+	oldTime = timer.getTime();
 }
 
 void draw(SDL_Window* window)
