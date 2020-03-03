@@ -41,15 +41,20 @@ void Game::init() {
 
 	player->init();
 
-	box = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(5.0f, 5.0f, 5.0f), textures[0]);
+	box = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), textures[0]);
 	box->init();
 	gameEntities.push_back(box);
 	grid->registerObj(box);
 	
-	box2 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(10.0f, 5.0f, 5.0f), textures[0]);
+	box2 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(5.0f, 0.0f, 0.0f), textures[0]);
 	box2->init();
 	gameEntities.push_back(box2);
 	grid->registerObj(box2);
+
+	/*box3 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(15.0f, 0.0f, 0.0f), textures[0]);
+	box3->init();
+	gameEntities.push_back(box3);
+	grid->registerObj(box3);*/
 
 	ball->init();
 	gameEntities.push_back(ball);
@@ -132,7 +137,7 @@ void Game::checkCollisions()
 		Cube* cube1 = dynamic_cast<Cube*> (*it);
 		if (cube1 != nullptr)
 		{
-			vector<Shape*> objs = gameEntities;//grid->getNeighbours(cube1);
+			vector<Shape*> objs = gameEntities; //grid->getNeighbours(cube1);
 
 			for (auto it1 = objs.begin(); it1 != objs.end(); it1++)
 			{
@@ -196,10 +201,7 @@ void Game::update(SDL_Event sdlEvent, float dt)
 	//if (keys[SDL_SCANCODE_DOWN])
 	//	box->move(dt);
 
-	if (keys[SDL_SCANCODE_RETURN])
-	{
-		checkCollisions();
-	}
+	checkCollisions();
 
 	//moveObjects(dt);
 	player->update();

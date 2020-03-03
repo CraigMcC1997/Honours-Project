@@ -12,8 +12,6 @@ void Mesh::loadMesh(string filename)
 	norms.clear(), tex_coords.clear(), indices.clear();
 }
 
-
-
 void Mesh::drawMesh(GLuint shader, std::stack<glm::mat4>* _mvStack,
  glm::mat4 projection, GLuint texture, Transform* modelMatrix)//glm::vec3 pos, glm::vec3 scale)
 {

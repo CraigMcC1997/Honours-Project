@@ -14,7 +14,7 @@ protected:
 	GLuint texture;
 	vector<glm::vec3> cHull;
 
-	glm::vec3 velocity = glm::vec3(1, 0, 0);
+	glm::vec3 velocity = glm::vec3(1.5, 0, 0);
 	glm::vec3 acceleration = glm::vec3(0, 0, 0);
 
 public:

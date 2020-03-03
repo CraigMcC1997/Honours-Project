@@ -16,6 +16,8 @@ private:
 	  {-1.0,  1.0,  1.0}, {1.0, -1.0, -1.0}, {1.0, -1.0,  1.0},
 	  {1.0,  1.0, -1.0},  {1.0, 1.0,  1.0}
 	};
+	
+	vector<glm::vec3> hull;
 public:
 	Cube(glm::vec3 cubeScale, glm::vec3 pos, GLuint texture) {
 		transform->Scale(cubeScale);
@@ -38,4 +40,5 @@ public:
 	void move(float dt);
 	void updateVelocity(glm::vec3);
 	glm::vec3 getVelocity();
+	void makeHullContainer(vector<float> points);
 };

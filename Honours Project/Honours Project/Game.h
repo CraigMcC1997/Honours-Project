@@ -19,6 +19,7 @@ private:
 	//Cube* boxes[10];
 	Cube* box;
 	Cube* box2;
+	Cube* box3;
 	Sphere* ball;
 	Cone* cone;
 	Cylinder* cylinder;
