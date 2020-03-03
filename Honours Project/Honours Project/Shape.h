@@ -18,13 +18,13 @@ protected:
 	glm::vec3 acceleration = glm::vec3(0, 0, 0);
 
 public:
-	virtual void update(float dt) = 0;
+	virtual void update(/*float dt*/) = 0;
 	virtual void draw(GLuint shader, std::stack<glm::mat4>* _mvStack,
 		glm::mat4 projection) = 0;
 	
 	virtual void setHull(vector<glm::vec3>) = 0;
 	virtual void changeTexture(GLuint newTexture) = 0;
-	virtual void move(float dt) = 0;
+	virtual void move(float dt, glm::vec3 dir) = 0;
 	virtual void updateVelocity(glm::vec3) = 0;
 
 	virtual glm::vec3 getPosition() = 0;

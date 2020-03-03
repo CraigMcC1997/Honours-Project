@@ -18,7 +18,7 @@ void Game::init() {
 
 	//Shapes		//scale							//position			//texture
 	ball = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), glm::vec3(20, 0, 0), textures[2]);
-	cone = new Cone(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(30, 0, 0), textures[2]);
+	cone = new Cone(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(5, 0, 0), textures[2]);
 	cylinder = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f), glm::vec3(40, 0, 0), textures[2]);
 
 	//randomly placing the boxes
@@ -41,20 +41,20 @@ void Game::init() {
 
 	player->init();
 
-	box = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), textures[0]);
+	box = new Cube(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(0.0f, 4.0f, 0.0f), textures[0]);
 	box->init();
 	gameEntities.push_back(box);
 	grid->registerObj(box);
 	
-	box2 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(5.0f, 0.0f, 0.0f), textures[0]);
+	box2 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(30.0f, 0.0f, 0.0f), textures[0]);
 	box2->init();
 	gameEntities.push_back(box2);
 	grid->registerObj(box2);
 
-	/*box3 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(15.0f, 0.0f, 0.0f), textures[0]);
-	box3->init();
-	gameEntities.push_back(box3);
-	grid->registerObj(box3);*/
+	//box3 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(10.0f, 0.0f, 0.0f), textures[0]);
+	//box3->init();
+	//gameEntities.push_back(box3);
+	//grid->registerObj(box3);
 
 	ball->init();
 	gameEntities.push_back(ball);
@@ -67,35 +67,6 @@ void Game::init() {
 	cylinder->init();
 	gameEntities.push_back(cylinder);
 	grid->registerObj(cylinder);
-
-	//cout << "box 1:" << endl;
-	//boxes[0]->setHull(boxVerts);
-	//cout << "box 2:" << endl;
-	//boxes[1]->setHull(boxVerts);
-
-	//testing GJK on arbritrary point clouds saved in boxes collidables
-	//test = gjk->performDetection(boxes[0]->getHull(), boxes[1]->getHull());
-	//cout << test << endl;
-
-	//cout << "box 1:" << endl;
-	//box->setHull(boxVerts);
-	//cout << "box 2:" << endl;
-	//box2->setHull(boxVerts);
-
-	/*test = gjk->performDetection(box->getHull(), box->getHull());
-	cout << test << endl;
-
-	if (test)
-	{
-		Sound::playSample(samples[0]);
-		box->changeTexture(textures[1]);
-		box2->changeTexture(textures[1]);
-	}
-	else
-	{
-		box->changeTexture(textures[0]);
-		box2->changeTexture(textures[0]);
-	}*/
 	
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
@@ -131,57 +102,57 @@ void Game::mouse_callback(double xpos, double ypos)
 
 void Game::checkCollisions()
 {
-	for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end() - 1; ++it)
-	{
-		//dynamic cast first object here //
-		Cube* cube1 = dynamic_cast<Cube*> (*it);
-		if (cube1 != nullptr)
-		{
-			vector<Shape*> objs = gameEntities; //grid->getNeighbours(cube1);
+	//for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end() - 1; ++it)
+	//{
+	//	//dynamic cast first object here //
+	//	Cube* cube1 = dynamic_cast<Cube*> (*it);
+	//	if (cube1 != nullptr)
+	//	{
+	//		vector<Shape*> objs = gameEntities; //grid->getNeighbours(cube1);
 
-			for (auto it1 = objs.begin(); it1 != objs.end(); it1++)
-			{
-				if (*it != *it1)
-				{
-					//dynamic cast second object here //
-					Cube* cube2 = dynamic_cast<Cube*> (*it1);
-					if (cube2 != nullptr)
-					{
-						if (gjk->performDetection(cube1->getHull(), cube2->getHull()))
+	//		for (auto it1 = objs.begin(); it1 != objs.end(); it1++)
+	//		{
+	//			if (*it != *it1)
+	//			{
+	//				//dynamic cast second object here //
+	//				Cube* cube2 = dynamic_cast<Cube*> (*it1);
+	//				if (cube2 != nullptr)
+	//				{
+						if (gjk->performDetection(box->getHull(), cone->getHull()))
 						{
 							//Collision response
 							Sound::playSample(samples[0]);
-							cube1->changeTexture(textures[1]);
-							cube2->changeTexture(textures[1]);
+							box->changeTexture(textures[1]);
+							cone->changeTexture(textures[3]);
 						}
 						else
 						{
 							//No collision response
-							cube1->changeTexture(textures[0]);
-							cube2->changeTexture(textures[0]);
+							box->changeTexture(textures[0]);
+							cone->changeTexture(textures[2]);
 						}
-					}
+					/*}
 				}
 			}
 		}
-	}
+	}*/
 }
 
 void Game::moveObjects(float dt)
 {
-	for (vector<Shape*>::iterator it = gameEntities.begin(); 
-		it < gameEntities.end(); it++)
-	{
-		if ((*it)->getPosition().x > 10 ||
-			(*it)->getPosition().y > 10 ||
-			(*it)->getPosition().z > 10)
-			(*it)->updateVelocity(-(*it)->getVelocity());
-		else
-		(*it)->move(dt);		
-	}
+	//for (vector<Shape*>::iterator it = gameEntities.begin(); 
+	//	it < gameEntities.end(); it++)
+	//{
+	//	if ((*it)->getPosition().x > 10 ||
+	//		(*it)->getPosition().y > 10 ||
+	//		(*it)->getPosition().z > 10)
+	//		(*it)->updateVelocity(-(*it)->getVelocity());
+	//	else
+	//	(*it)->move(dt);		
+	//}
 }
 
-void Game::update(SDL_Event sdlEvent, float dt)
+void Game::update(SDL_Event sdlEvent/*, float dt*/)
 {	
 	int mouseX, mouseY;
 	if (!SDL_GetGlobalMouseState(&mouseX, &mouseY))	//mouse input
@@ -189,17 +160,24 @@ void Game::update(SDL_Event sdlEvent, float dt)
 
 	const Uint8* keys = SDL_GetKeyboardState(NULL); //keyboard input
 	
+	//testing code for moving cube
 	if (keys[SDL_SCANCODE_RIGHT])
-		box->move(dt);
+		box->move(0.1, glm::vec3(1, 0, 0));
 
 	if (keys[SDL_SCANCODE_LEFT])
-		box->move(-dt);
+		box->move(0.1, glm::vec3(-1, 0, 0));
 
-	//if (keys[SDL_SCANCODE_UP])
-	//	box->move(dt);
+	if (keys[SDL_SCANCODE_UP])
+		box->move(0.1, glm::vec3(0, 1, 0));
 
-	//if (keys[SDL_SCANCODE_DOWN])
-	//	box->move(dt);
+	if (keys[SDL_SCANCODE_DOWN])
+		box->move(0.1, glm::vec3(0, -1, 0));
+
+	if (keys[SDL_SCANCODE_Q])
+		box->move(0.1, glm::vec3(0, 0, 1));
+
+	if (keys[SDL_SCANCODE_E])
+		box->move(0.1, glm::vec3(0, 0, -1));
 
 	checkCollisions();
 
@@ -207,7 +185,7 @@ void Game::update(SDL_Event sdlEvent, float dt)
 	player->update();
 
 	for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end(); it++)
-		(*it)->update(dt);
+		(*it)->update(/*dt*/);
 }
 
 void Game::draw(SDL_Window* window)

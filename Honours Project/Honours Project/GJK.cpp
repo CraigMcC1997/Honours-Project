@@ -40,11 +40,6 @@ bool GJK::performDetection(vector<glm::vec3> hull1, vector<glm::vec3> hull2)
 
 bool GJK::ContainsOrigin(glm::vec3 direction)
 {
-	if (simplexSize == 1)
-	{
-		return line(direction);
-	}
-
 	if (simplexSize == 2)
 	{
 		cout << "Triangle" << endl;
@@ -60,27 +55,10 @@ bool GJK::ContainsOrigin(glm::vec3 direction)
 	return false;
 }
 
-bool GJK::line(glm::vec3 direction)
-{
-	glm::vec3 ab = simplex[1] - simplex[0];
-	glm::vec3 ao = -simplex[0];
-
-	//can t be behind b;
-
-	//new direction towards a0
-	direction = Maths::doubleCross(ab, ao);
-
-	simplex[2] = simplex[1];
-	simplex[1] = simplex[0];
-	simplexSize = 2;
-
-	return false;
-}
-
 //check which edge/face of this triangle is closest to the origin
 bool GJK::triangle(glm::vec3 direction)
 {
-	glm::vec3 ao = glm::vec3(-simplex[0].x, -simplex[0].y, -simplex[0].z);					//Line AO
+	glm::vec3 ao = -simplex[0];					//Line AO
 	glm::vec3 ab = simplex[1] - simplex[0];		//Line AB
 	glm::vec3 ac = simplex[2] - simplex[0];		//Line AC
 	glm::vec3 abc = Maths::cross(ab, ac);		//Face ABC

@@ -25,9 +25,9 @@ void Cube::changeTexture(GLuint newTexture)
 	texture = newTexture;
 }
 
-void Cube::move(float dt)
+void Cube::move(float dt, glm::vec3 dir)
 {
-	//updateVelocity(dir);
+	updateVelocity(dir);
 	VelocityVerletSolver(dt);
 }
 
@@ -75,14 +75,14 @@ void Cube::setHull(vector<glm::vec3> points)
 
 	collidable->setConvexHull(points);
 
-	for (int i = 0; i < points.size(); ++i)
-	{
-		cout << "---" << endl;
-		cout << "COLLIDABLE POS:" << endl;
-		cout << "X: " << collidable->getConvexHull()[i].x << endl;
-		cout << "Y: " << collidable->getConvexHull()[i].y << endl;
-		cout << "Z: " << collidable->getConvexHull()[i].z << endl;
-	}
+	//for (int i = 0; i < points.size(); ++i)
+	//{
+	//	cout << "---" << endl;
+	//	cout << "COLLIDABLE POS:" << endl;
+	//	cout << "X: " << collidable->getConvexHull()[i].x << endl;
+	//	cout << "Y: " << collidable->getConvexHull()[i].y << endl;
+	//	cout << "Z: " << collidable->getConvexHull()[i].z << endl;
+	//}
 
 	//cout << "---" << endl;
 	//cout << "MESH POS:" << endl;
@@ -101,7 +101,7 @@ vector<glm::vec3> Cube::getHull()
 	return collidable->getConvexHull();
 }
 
-void Cube::update(float dt)
+void Cube::update(/*float dt*/)
 {
 	//VelocityVerletSolver(dt);
 	//transform->RotateY(0.1f);

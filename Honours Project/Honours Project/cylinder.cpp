@@ -23,7 +23,7 @@ void Cylinder::changeTexture(GLuint newTexture)
 	texture = newTexture;
 }
 
-void Cylinder::move(float dt)
+void Cylinder::move(float dt, glm::vec3 dir)
 {
 	//updateVelocity(dir);
 	VelocityVerletSolver(dt);
@@ -76,7 +76,7 @@ vector<glm::vec3> Cylinder::getHull()
 	return collidable->getConvexHull();
 }
 
-void Cylinder::update(float dt)
+void Cylinder::update(/*float dt*/)
 {
 	//VelocityVerletSolver(dt);
 	//transform->RotateY(0.1f);

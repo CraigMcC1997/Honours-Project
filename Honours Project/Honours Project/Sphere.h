@@ -17,7 +17,7 @@ public:
 		this->texture = texture;
 	}
 	void init();
-	void update(float dt);
+	void update(/*float dt*/);
 	void draw(GLuint shader, std::stack<glm::mat4>* _mvStack, 
 		glm::mat4 projection);
 	glm::vec3 getPosition();
@@ -25,7 +25,7 @@ public:
 	void setHull(vector<glm::vec3>);
 
 	void changeTexture(GLuint);
-	void move(float dt);
+	void move(float dt, glm::vec3 dir);
 	void updateVelocity(glm::vec3);
 	glm::vec3 getVelocity();
 };

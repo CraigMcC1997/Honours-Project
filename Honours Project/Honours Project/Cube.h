@@ -27,7 +27,7 @@ public:
 	}
 
 	void init();
-	void update(float dt);
+	void update(/*float dt*/);
 	void draw(GLuint shader, std::stack<glm::mat4>* _mvStack,
 		glm::mat4 projection);
 
@@ -37,7 +37,7 @@ public:
 	vector<glm::vec3> getHull();
 
 	void changeTexture(GLuint);
-	void move(float dt);
+	void move(float dt, glm::vec3 dir);
 	void updateVelocity(glm::vec3);
 	glm::vec3 getVelocity();
 	void makeHullContainer(vector<float> points);

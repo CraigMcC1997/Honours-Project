@@ -46,18 +46,9 @@ private:
 
 	//Used by BASS library
 	HSAMPLE* samples = new HSAMPLE[5];
-
-	bool test;
-
-	//arbitrary point clouds for convex hull
-	vector<glm::vec3> points =
-	{ {1, 1, 1}, {1, 6, 1}, {7, 1, 1}, {7, 6, 1}, {3, 3, 1} };
-
-	vector<glm::vec3> points2 =
-	{ {1, 1, 1}, {-1, -6, -1}, {-7, -1, -1}, {-7, -6, -1}, {-3, -3, -1} };
 public:
 	void init();
-	void update(SDL_Event sdlEvent, float dt);
+	void update(SDL_Event sdlEvent/*, float dt*/);
 	void draw(SDL_Window* window);
 	void mouse_callback(double xpos, double ypos);
 	void checkCollisions();

@@ -8,19 +8,20 @@
 
 Game* game;
 
-LowResTimer timer;
-double oldTime = 0;
+//LowResTimer timer;
+//double oldTime = 0;
 
 void init(void)
 {
 	game = new Game();
 	game->init();
+	//timer.startTimer();
 }
 
 void update(SDL_Event sdlEvent)
 {
-	game->update(sdlEvent, timer.getTime() - oldTime);
-	oldTime = timer.getTime();
+	game->update(sdlEvent/*, timer.getTime() - oldTime*/);
+	//oldTime = timer.getTime();
 }
 
 void draw(SDL_Window* window)

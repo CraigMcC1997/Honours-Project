@@ -23,7 +23,7 @@ void Sphere::changeTexture(GLuint newTexture)
 	texture = newTexture;
 }
 
-void Sphere::move(float dt)
+void Sphere::move(float dt, glm::vec3 dir)
 {
 	//updateVelocity(dir);
 	VelocityVerletSolver(dt);
@@ -76,7 +76,7 @@ vector<glm::vec3> Sphere::getHull()
 	return collidable->getConvexHull();
 }
 
-void Sphere::update(float dt)
+void Sphere::update(/*float dt*/)
 {
 	//VelocityVerletSolver(dt);
 	//transform->RotateY(0.1f);
