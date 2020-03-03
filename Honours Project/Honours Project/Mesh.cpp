@@ -19,7 +19,7 @@ void Mesh::drawMesh(GLuint shader, std::stack<glm::mat4>* _mvStack,
 {
 	glBindTexture(GL_TEXTURE_2D, texture);
 	_mvStack->push(_mvStack->top());
-	//_mvStack->top() = glm::translate(_mvStack->top(), pos);
+	//_mvStack->top() = glm::translate(_mvStack->top(), modelMatrix->getPosition());
 	//_mvStack->top() = glm::rotate(_mvStack->top(), float(rotator), glm::vec3(0.0f, 1.0f, 0.0f));
 	_mvStack->top() = _mvStack->top() * *(modelMatrix->getModelMatrix());//glm::scale(_mvStack->top(), scale);
 	rt3d::setUniformMatrix4fv(shader, "projection", glm::value_ptr(projection));

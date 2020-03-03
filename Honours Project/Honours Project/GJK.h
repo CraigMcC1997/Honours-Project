@@ -6,7 +6,7 @@
 #pragma once
 #include "collisionDetector.h"
 #include "SupportFunction.h"
-#include "Simplex.h"
+//#include "Simplex.h"
 #include "Maths.h"
 
 class GJK : public collisionDetector
@@ -20,12 +20,13 @@ private:
 	glm::vec3 simplex[4];
 
 public:
-	GJK() { fill(std::begin(simplex), std::end(simplex), glm::vec3(0, 0, 0)); }
+	GJK() { /*fill(std::begin(simplex), std::end(simplex), glm::vec3(0, 0, 0));*/ }
 
 	bool performDetection(vector<glm::vec3>, vector<glm::vec3>);
 	bool ContainsOrigin(glm::vec3);
+	bool line(glm::vec3 direction);
 	bool triangle(glm::vec3);
 	bool tetrahedron(glm::vec3);
 	bool checkTetrahedron(const glm::vec3, const glm::vec3, 
-		const glm::vec3, const glm::vec3, glm::vec3 dir);
+		const glm::vec3, const glm::vec3, glm::vec3);
 };
