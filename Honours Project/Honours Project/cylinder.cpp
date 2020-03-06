@@ -76,7 +76,7 @@ vector<glm::vec3> Cylinder::getHull()
 	return collidable->getConvexHull();
 }
 
-void Cylinder::update(/*float dt*/)
+void Cylinder::update()
 {
 	//VelocityVerletSolver(dt);
 	//transform->RotateY(0.1f);

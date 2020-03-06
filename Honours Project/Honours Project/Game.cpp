@@ -17,44 +17,49 @@ void Game::init() {
 	grid = new Grid(1200, 800, 50);
 
 	//Shapes		//scale							//position			//texture
-	ball = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), glm::vec3(20, 0, 0), textures[2]);
-	cone = new Cone(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(5, 0, 0), textures[2]);
-	cylinder = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f), glm::vec3(40, 0, 0), textures[2]);
+	ball = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), glm::vec3(30, 0, 0), textures[2]);
+	cone = new Cone(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(30, 0, 0), textures[2]);
+	cylinder = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f), glm::vec3(30, 0, 0), textures[2]);
 
-	//randomly placing the boxes
-	srand(time(NULL));
-	/*for (auto i = 0; i < 10; i++) {
-		glm::vec3 position = glm::vec3(rand() % 20, rand() % 20, rand() % 20);
-		glm::vec3 velocity = glm::vec3(rand() % 5, rand() % 5, rand() % 5);
-		velocity.x /= 100;
-		velocity.y /= 100;
-		velocity.z /= 100;
+	////randomly placing the boxes
+	//srand(time(NULL));
+	//for (auto i = 0; i < 10; i++) {
+	//	glm::vec3 position = glm::vec3(rand() % 10, rand() % 10, rand() % 10);
+	//	glm::vec3 velocity = glm::vec3(rand() % 5, rand() % 5, rand() % 5);
+	//	velocity.x /= 100;
+	//	velocity.y /= 100;
+	//	velocity.z /= 100;
 
-		boxes[i] = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), 
-			position, textures[0]);
+	//	boxes[i] = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), 
+	//		position, textures[0]);
 
-		boxes[i]->init();
-		boxes[i]->updateVelocity(velocity);
-		gameEntities.push_back(boxes[i]);
-		grid->registerObj(boxes[i]);
-	}*/
+	//	boxes[i]->init();
+	//	boxes[i]->updateVelocity(velocity);
+	//	gameEntities.push_back(boxes[i]);
+	//	grid->registerObj(boxes[i]);
+	//}
 
 	player->init();
 
-	box = new Cube(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(0.0f, 4.0f, 0.0f), textures[0]);
+	box = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), textures[0]);
 	box->init();
 	gameEntities.push_back(box);
 	grid->registerObj(box);
 	
-	box2 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(30.0f, 0.0f, 0.0f), textures[0]);
+	box2 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(5.0f, 0.0f, 0.0f), textures[0]);
 	box2->init();
 	gameEntities.push_back(box2);
 	grid->registerObj(box2);
 
-	//box3 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(10.0f, 0.0f, 0.0f), textures[0]);
-	//box3->init();
-	//gameEntities.push_back(box3);
-	//grid->registerObj(box3);
+	box3 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(10.0f, 0.0f, 0.0f), textures[0]);
+	box3->init();
+	gameEntities.push_back(box3);
+	grid->registerObj(box3);
+
+	box4 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(15.0f, 0.0f, 0.0f), textures[0]);
+	box4->init();
+	gameEntities.push_back(box4);
+	grid->registerObj(box4);
 
 	ball->init();
 	gameEntities.push_back(ball);
@@ -102,43 +107,62 @@ void Game::mouse_callback(double xpos, double ypos)
 
 void Game::checkCollisions()
 {
-	//for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end() - 1; ++it)
-	//{
-	//	//dynamic cast first object here //
-	//	Cube* cube1 = dynamic_cast<Cube*> (*it);
-	//	if (cube1 != nullptr)
-	//	{
-	//		vector<Shape*> objs = gameEntities; //grid->getNeighbours(cube1);
+	for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end() - 1; ++it)
+	{
+		//dynamic cast first object here //
+		Cube* cube1 = dynamic_cast<Cube*> (*it);
+		if (cube1 != nullptr)
+		{
+			vector<Shape*> objs = grid->getNeighbours(cube1);//gameEntities;
 
-	//		for (auto it1 = objs.begin(); it1 != objs.end(); it1++)
-	//		{
-	//			if (*it != *it1)
-	//			{
-	//				//dynamic cast second object here //
-	//				Cube* cube2 = dynamic_cast<Cube*> (*it1);
-	//				if (cube2 != nullptr)
-	//				{
-						if (gjk->performDetection(box->getHull(), cone->getHull()))
+			for (auto it1 = objs.begin(); it1 != objs.end(); it1++)
+			{
+				if (*it != *it1)
+				{
+					//dynamic cast second object here //
+					Cube* cube2 = dynamic_cast<Cube*> (*it1);
+					if (cube2 != nullptr)
+					{
+						if (gjk->performDetection(cube1->getHull(), cube2->getHull()))
 						{
 							//Collision response
 							Sound::playSample(samples[0]);
-							box->changeTexture(textures[1]);
-							cone->changeTexture(textures[3]);
+							//cube1->changeTexture(textures[1]);
+							cube2->changeTexture(textures[1]);
 						}
-						else
-						{
-							//No collision response
-							box->changeTexture(textures[0]);
-							cone->changeTexture(textures[2]);
-						}
-					/*}
+						//else
+						//{
+						//	//No collision response
+						//	cube1->changeTexture(textures[0]);
+						//	cube2->changeTexture(textures[0]);
+						//}
+					}
+
+					////dynamic cast third object here //
+					//Cone* cone = dynamic_cast<Cone*> (*it1);
+					//if (cone != nullptr)
+					//{
+					//	if (gjk->performDetection(cone->getHull(), cube1->getHull()))
+					//	{
+					//		//Collision response
+					//		Sound::playSample(samples[0]);
+					//		cube1->changeTexture(textures[1]);
+					//		cone->changeTexture(textures[3]);
+					//	}
+					//	else
+					//	{
+					//		//No collision response
+					//		cube1->changeTexture(textures[0]);
+					//		cone->changeTexture(textures[2]);
+					//	}
+					//}
 				}
 			}
 		}
-	}*/
+	}
 }
 
-void Game::moveObjects(float dt)
+void Game::moveObjects()
 {
 	//for (vector<Shape*>::iterator it = gameEntities.begin(); 
 	//	it < gameEntities.end(); it++)
@@ -148,11 +172,11 @@ void Game::moveObjects(float dt)
 	//		(*it)->getPosition().z > 10)
 	//		(*it)->updateVelocity(-(*it)->getVelocity());
 	//	else
-	//	(*it)->move(dt);		
+	//	(*it)->move();		
 	//}
 }
 
-void Game::update(SDL_Event sdlEvent/*, float dt*/)
+void Game::update(SDL_Event sdlEvent)
 {	
 	int mouseX, mouseY;
 	if (!SDL_GetGlobalMouseState(&mouseX, &mouseY))	//mouse input
@@ -179,13 +203,22 @@ void Game::update(SDL_Event sdlEvent/*, float dt*/)
 	if (keys[SDL_SCANCODE_E])
 		box->move(0.1, glm::vec3(0, 0, -1));
 
-	checkCollisions();
+	
 
 	//moveObjects(dt);
 	player->update();
 
+	//Clear grid here
+	grid->clearGrid();
+
 	for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end(); it++)
-		(*it)->update(/*dt*/);
+	{
+		(*it)->update();
+		
+		//Register object to grid here
+		grid->registerObj(*it);
+	}
+	checkCollisions();
 }
 
 void Game::draw(SDL_Window* window)

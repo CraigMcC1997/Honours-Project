@@ -81,7 +81,7 @@ vector<glm::vec3> Cone::getHull()
 	return collidable->getConvexHull();
 }
 
-void Cone::update(/*float dt*/)
+void Cone::update()
 {
 	//VelocityVerletSolver(dt);
 	//transform->RotateY(0.1f);

@@ -43,20 +43,27 @@ glm::vec3 Cube::getVelocity()
 
 void Cube::makeHullContainer(vector<float> points)
 {
-	hull.resize(points.size() / 3);
-	int counter = 0;
+	//hull.resize(8);
+	//int counter = 0;
 
-	for (int i = 0; i < points.size() /3; ++i)
-	{
-		for (int j = 0; j < 2; ++j)
-		{
-			hull[i] += points[counter];
-			counter++;
-		}
-		
-	}
-	collidable->setConvexHull(hull);
+	//for (int i = 0; i < 7; ++i)
+	//{
+	//	for (int j = 0; j < 2; ++j)
+	//	{
+	//		hull[i] += points[counter];
+	//		counter++;
+	//	}
+	//	
+	//}
+	//for (int i = 0; i < hull.size(); ++i)
+	//{
+	//	cout << i <<": "<< endl;
+	//	cout << "X: " << hull[i].x << endl;
+	//	cout << "Y: " << hull[i].y << endl;
+	//	cout << "Z: " << hull[i].z << endl;
+	//}
 
+	////collidable->setConvexHull(hull);
 }
 
 void Cube::setHull(vector<glm::vec3> points)
@@ -101,7 +108,7 @@ vector<glm::vec3> Cube::getHull()
 	return collidable->getConvexHull();
 }
 
-void Cube::update(/*float dt*/)
+void Cube::update()
 {
 	//VelocityVerletSolver(dt);
 	//transform->RotateY(0.1f);

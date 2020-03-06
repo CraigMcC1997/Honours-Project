@@ -20,12 +20,14 @@ private:
 	Cube* box;
 	Cube* box2;
 	Cube* box3;
+	Cube* box4;
 	Sphere* ball;
 	Cone* cone;
 	Cylinder* cylinder;
 
 	Player* player = new Player();
 	GJK* gjk = new GJK();
+	GJK* gjk2 = new GJK();
 	Grid* grid;
 
 	//container of shapes
@@ -48,9 +50,9 @@ private:
 	HSAMPLE* samples = new HSAMPLE[5];
 public:
 	void init();
-	void update(SDL_Event sdlEvent/*, float dt*/);
+	void update(SDL_Event sdlEvent);
 	void draw(SDL_Window* window);
 	void mouse_callback(double xpos, double ypos);
 	void checkCollisions();
-	void moveObjects(float dt);
+	void moveObjects();
 };

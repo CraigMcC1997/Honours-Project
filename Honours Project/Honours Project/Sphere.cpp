@@ -76,7 +76,7 @@ vector<glm::vec3> Sphere::getHull()
 	return collidable->getConvexHull();
 }
 
-void Sphere::update(/*float dt*/)
+void Sphere::update()
 {
 	//VelocityVerletSolver(dt);
 	//transform->RotateY(0.1f);
