@@ -17,9 +17,10 @@ void Game::init() {
 	grid = new Grid(1200, 800, 100);
 
 	//Shapes		//scale							//position			//texture
-	ball = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), glm::vec3(30, 0, 0), textures[2]);
-	cone = new Cone(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(30, 0, 0), textures[2]);
-	cylinder = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f), glm::vec3(30, 0, 0), textures[2]);
+	ball = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), glm::vec3(60, 0, 0), textures[2]);
+	cone[0] = new Cone(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(10, 10, 0), textures[2]);
+	cone[1] = new Cone(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(10, 20, 0), textures[2]);
+	cylinder = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f), glm::vec3(60, 0, 0), textures[2]);
 
 	//randomly placing the boxes
 	srand(time(NULL));
@@ -60,9 +61,13 @@ void Game::init() {
 	gameEntities.push_back(ball);
 	grid->registerObj(ball);
 
-	cone->init();
-	gameEntities.push_back(cone);
-	grid->registerObj(cone);
+	cone[0]->init();
+	gameEntities.push_back(cone[0]);
+	grid->registerObj(cone[0]);
+
+	cone[1]->init();
+	gameEntities.push_back(cone[1]);
+	grid->registerObj(cone[1]);
 
 	cylinder->init();
 	gameEntities.push_back(cylinder);
