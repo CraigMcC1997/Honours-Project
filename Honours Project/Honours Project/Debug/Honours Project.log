@@ -1,1 +1,17 @@
-﻿
+﻿  GJK.cpp
+  Game.cpp
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(26,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(84,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(85,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(86,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(87,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(189,36): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(192,37): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(195,36): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(198,37): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(201,36): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(204,37): warning C4305: 'argument': truncation from 'double' to 'float'
+  main.cpp
+  Generating Code...
+E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\GJK.cpp(36): warning C4715: 'GJK::initialise': not all control paths return a value
+  Honours Project.vcxproj -> E:\1.University\Year4\Honours Project\REPO\Honours Project\Debug\Honours Project.exe

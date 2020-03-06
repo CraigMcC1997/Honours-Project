@@ -2,20 +2,7 @@
 
 bool GJK::performDetection(vector<glm::vec3>& hull1, vector<glm::vec3>& hull2)
 {
-	glm::vec3 direction = glm::vec3(1, 1, 1);
-
-	simplex[2] = support->support(direction, hull1, hull2);	//Adding first point to the simplex
-	direction = -simplex[2];								//opposite direction
-	simplex[1] = support->support(direction, hull1, hull2);	//Adding second point to the simplex
-
-	//is this new point further than the origin?
-	if (dot(simplex[1], direction) < 0)
-		return false;
-	
-	//updating search direction
-	direction = Maths::doubleCross(simplex[2] - simplex[1], -simplex[1]);
-
-	simplexSize = 2; //begin with a line
+	initialise(hull1, hull2);
 
 	steps = 0;
 	while (steps < 50) {
@@ -30,6 +17,22 @@ bool GJK::performDetection(vector<glm::vec3>& hull1, vector<glm::vec3>& hull2)
 		steps++;
 	}
 	return false;
+}
+
+bool GJK::initialise(vector<glm::vec3>& hull1, vector<glm::vec3>& hull2)
+{
+	simplex[2] = support->support(direction, hull1, hull2);	//Adding first point to the simplex
+	direction = -simplex[2];								//opposite direction
+	simplex[1] = support->support(direction, hull1, hull2);	//Adding second point to the simplex
+
+	//is this new point further than the origin?
+	if (dot(simplex[1], direction) < 0)
+		return false;
+
+	//updating search direction
+	direction = Maths::doubleCross(simplex[2] - simplex[1], -simplex[1]);
+
+	simplexSize = 2; //begin with a line
 }
 
 bool GJK::ContainsOrigin(glm::vec3 direction)
