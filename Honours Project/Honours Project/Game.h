@@ -16,18 +16,14 @@ class Game
 {
 private:
 	//shapes
-	//Cube* boxes[10];
+	Cube* boxes[10];
 	Cube* box;
-	Cube* box2;
-	Cube* box3;
-	Cube* box4;
 	Sphere* ball;
 	Cone* cone;
 	Cylinder* cylinder;
 
 	Player* player = new Player();
 	GJK* gjk = new GJK();
-	GJK* gjk2 = new GJK();
 	Grid* grid;
 
 	//container of shapes

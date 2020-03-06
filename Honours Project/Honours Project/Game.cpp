@@ -14,30 +14,30 @@ void Game::init() {
 	samples[0] = Sound::loadSample("../Resources/SoundFiles/Click.wav", BASS_SAMPLE_OVER_POS);	
 
 	//adding a grid for optimisation
-	grid = new Grid(1200, 800, 50);
+	grid = new Grid(1200, 800, 100);
 
 	//Shapes		//scale							//position			//texture
 	ball = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), glm::vec3(30, 0, 0), textures[2]);
 	cone = new Cone(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(30, 0, 0), textures[2]);
 	cylinder = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f), glm::vec3(30, 0, 0), textures[2]);
 
-	////randomly placing the boxes
-	//srand(time(NULL));
-	//for (auto i = 0; i < 10; i++) {
-	//	glm::vec3 position = glm::vec3(rand() % 10, rand() % 10, rand() % 10);
-	//	glm::vec3 velocity = glm::vec3(rand() % 5, rand() % 5, rand() % 5);
-	//	velocity.x /= 100;
-	//	velocity.y /= 100;
-	//	velocity.z /= 100;
+	//randomly placing the boxes
+	srand(time(NULL));
+	for (auto i = 0; i < 10; i++) {
+		glm::vec3 position = glm::vec3(rand() % 50, 0.0f, 0.0f);
+		glm::vec3 velocity = glm::vec3(rand() % 5, rand() % 5, rand() % 5);
+		velocity.x /= 100;
+		velocity.y /= 100;
+		velocity.z /= 100;
 
-	//	boxes[i] = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), 
-	//		position, textures[0]);
+		boxes[i] = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), 
+			position, textures[0]);
 
-	//	boxes[i]->init();
-	//	boxes[i]->updateVelocity(velocity);
-	//	gameEntities.push_back(boxes[i]);
-	//	grid->registerObj(boxes[i]);
-	//}
+		boxes[i]->init();
+		boxes[i]->updateVelocity(velocity);
+		gameEntities.push_back(boxes[i]);
+		grid->registerObj(boxes[i]);
+	}
 
 	player->init();
 
@@ -45,13 +45,8 @@ void Game::init() {
 	box->init();
 	gameEntities.push_back(box);
 	grid->registerObj(box);
-	
-	box2 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(5.0f, 0.0f, 0.0f), textures[0]);
-	box2->init();
-	gameEntities.push_back(box2);
-	grid->registerObj(box2);
 
-	box3 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(10.0f, 0.0f, 0.0f), textures[0]);
+	/*box3 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(10.0f, 0.0f, 0.0f), textures[0]);
 	box3->init();
 	gameEntities.push_back(box3);
 	grid->registerObj(box3);
@@ -59,7 +54,7 @@ void Game::init() {
 	box4 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(15.0f, 0.0f, 0.0f), textures[0]);
 	box4->init();
 	gameEntities.push_back(box4);
-	grid->registerObj(box4);
+	grid->registerObj(box4);*/
 
 	ball->init();
 	gameEntities.push_back(ball);
@@ -123,7 +118,7 @@ void Game::checkCollisions()
 					Cube* cube2 = dynamic_cast<Cube*> (*it1);
 					if (cube2 != nullptr)
 					{
-						if (gjk->performDetection(cube1->getHull(), cube2->getHull()))
+						if (gjk->performDetection(*&cube1->getHull(), *&cube2->getHull()))
 						{
 							//Collision response
 							Sound::playSample(samples[0]);
@@ -138,24 +133,24 @@ void Game::checkCollisions()
 						//}
 					}
 
-					////dynamic cast third object here //
-					//Cone* cone = dynamic_cast<Cone*> (*it1);
-					//if (cone != nullptr)
-					//{
-					//	if (gjk->performDetection(cone->getHull(), cube1->getHull()))
-					//	{
-					//		//Collision response
-					//		Sound::playSample(samples[0]);
-					//		cube1->changeTexture(textures[1]);
-					//		cone->changeTexture(textures[3]);
-					//	}
+					//dynamic cast third object here //
+					Cone* cone = dynamic_cast<Cone*> (*it1);
+					if (cone != nullptr)
+					{
+						if (gjk->performDetection(*&cone->getHull(), *&cube1->getHull()))
+						{
+							//Collision response
+							Sound::playSample(samples[0]);
+							cube1->changeTexture(textures[1]);
+							cone->changeTexture(textures[3]);
+						}
 					//	else
 					//	{
 					//		//No collision response
 					//		cube1->changeTexture(textures[0]);
 					//		cone->changeTexture(textures[2]);
 					//	}
-					//}
+					}
 				}
 			}
 		}

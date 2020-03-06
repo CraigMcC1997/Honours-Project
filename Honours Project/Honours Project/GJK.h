@@ -22,7 +22,7 @@ private:
 public:
 	GJK() { /*fill(std::begin(simplex), std::end(simplex), glm::vec3(0, 0, 0));*/ }
 
-	bool performDetection(vector<glm::vec3>, vector<glm::vec3>);
+	bool performDetection(vector<glm::vec3>&, vector<glm::vec3>&);
 	bool ContainsOrigin(glm::vec3);
 	bool line(glm::vec3 direction);
 	bool triangle(glm::vec3);
