@@ -18,14 +18,12 @@ void Game::init() {
 
 	//Shapes		//scale							//position			//texture
 	ball = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), glm::vec3(60, 0, 0), textures[2]);
-	cone[0] = new Cone(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(10, 10, 0), textures[2]);
-	cone[1] = new Cone(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(10, 20, 0), textures[2]);
 	cylinder = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f), glm::vec3(60, 0, 0), textures[2]);
 
 	//randomly placing the boxes
 	srand(time(NULL));
 	for (auto i = 0; i < 10; i++) {
-		glm::vec3 position = glm::vec3(rand() % 50, 0.0f, 0.0f);
+		glm::vec3 position = glm::vec3(rand() % 50, rand() % 10, rand() % 20);
 		glm::vec3 velocity = glm::vec3(rand() % 5, rand() % 5, rand() % 5);
 		velocity.x /= 100;
 		velocity.y /= 100;
@@ -40,22 +38,21 @@ void Game::init() {
 		grid->registerObj(boxes[i]);
 	}
 
+	for (auto i = 0; i < 5; i++) {
+		glm::vec3 position = glm::vec3(rand() % 50, rand() % 10, rand() % 20);
+		cone[i] = new Cone(glm::vec3(1.0f, 1.0f, 1.0f),
+			position, textures[2]);
+		cone[i]->init();
+		gameEntities.push_back(cone[i]);
+		grid->registerObj(cone[i]);
+	}
+
 	player->init();
 
 	box = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), textures[0]);
 	box->init();
 	gameEntities.push_back(box);
 	grid->registerObj(box);
-
-	/*box3 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(10.0f, 0.0f, 0.0f), textures[0]);
-	box3->init();
-	gameEntities.push_back(box3);
-	grid->registerObj(box3);
-
-	box4 = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(15.0f, 0.0f, 0.0f), textures[0]);
-	box4->init();
-	gameEntities.push_back(box4);
-	grid->registerObj(box4);*/
 
 	ball->init();
 	gameEntities.push_back(ball);
@@ -126,7 +123,7 @@ void Game::checkCollisions()
 						if (gjk->performDetection(*&cube1->getHull(), *&cube2->getHull()))
 						{
 							//Collision response
-							Sound::playSample(samples[0]);
+							//Sound::playSample(samples[0]);
 							//cube1->changeTexture(textures[1]);
 							cube2->changeTexture(textures[1]);
 						}
@@ -145,7 +142,7 @@ void Game::checkCollisions()
 						if (gjk->performDetection(*&cone->getHull(), *&cube1->getHull()))
 						{
 							//Collision response
-							Sound::playSample(samples[0]);
+							//Sound::playSample(samples[0]);
 							cube1->changeTexture(textures[1]);
 							cone->changeTexture(textures[3]);
 						}
@@ -202,8 +199,6 @@ void Game::update(SDL_Event sdlEvent)
 
 	if (keys[SDL_SCANCODE_E])
 		box->move(0.1, glm::vec3(0, 0, -1));
-
-	
 
 	//moveObjects(dt);
 	player->update();

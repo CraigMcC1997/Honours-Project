@@ -35,7 +35,7 @@ bool GJK::initialise(vector<glm::vec3>& hull1, vector<glm::vec3>& hull2)
 	simplexSize = 2; //begin with a line
 }
 
-bool GJK::ContainsOrigin(glm::vec3 direction)
+bool GJK::ContainsOrigin(glm::vec3& direction)
 {
 	if (simplexSize == 2)
 		return triangle(direction);
@@ -47,7 +47,7 @@ bool GJK::ContainsOrigin(glm::vec3 direction)
 }
 
 //check which edge/face of this triangle is closest to the origin
-bool GJK::triangle(glm::vec3 direction)
+bool GJK::triangle(glm::vec3& direction)
 {
 	glm::vec3 ao = -simplex[0];					//Line AO
 	glm::vec3 ab = simplex[1] - simplex[0];		//Line AB
@@ -105,7 +105,7 @@ bool GJK::triangle(glm::vec3 direction)
 
 //does the current tetrahedron contain the origin
 //or do we have to keep checking?
-bool GJK::tetrahedron(glm::vec3 direction) {
+bool GJK::tetrahedron(glm::vec3& direction) {
 	glm::vec3 ao = -simplex[0];					//Line AO
 	glm::vec3 ab = simplex[1] - simplex[0];		//Line AB
 	glm::vec3 ac = simplex[2] - simplex[0];		//Line AC
@@ -151,8 +151,8 @@ bool GJK::tetrahedron(glm::vec3 direction) {
 //tetrahedon doesnt contain origin
 //therefor, must check which face on it is closest to the origin
 //and set the search direction to this direction
-bool GJK::checkTetrahedron(const glm::vec3 ao, const glm::vec3 ab, 
-	const glm::vec3 ac, const glm::vec3 abc, glm::vec3 direction) 
+bool GJK::checkTetrahedron(const glm::vec3& ao, const glm::vec3& ab,
+	const glm::vec3& ac, const glm::vec3& abc, glm::vec3& direction)
 {
 	glm::vec3 ab_abc = Maths::cross(ab, abc);		//Line AB on face ABC
 

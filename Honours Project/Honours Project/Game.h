@@ -19,7 +19,7 @@ private:
 	Cube* boxes[10];
 	Cube* box;
 	Sphere* ball;
-	Cone* cone[2];
+	Cone* cone[5];
 	Cylinder* cylinder;
 
 	Player* player = new Player();
