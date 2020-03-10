@@ -130,12 +130,6 @@ void Game::checkCollisions()
 							//cube1->changeTexture(textures[1]);
 							cube2->changeTexture(textures[1]);
 						}
-						//else
-						//{
-						//	//No collision response
-						//	cube1->changeTexture(textures[0]);
-						//	cube2->changeTexture(textures[0]);
-						//}
 					}
 
 					//dynamic cast third object here //
@@ -149,12 +143,6 @@ void Game::checkCollisions()
 							cube1->changeTexture(textures[1]);
 							cone->changeTexture(textures[3]);
 						}
-					//	else
-					//	{
-					//		//No collision response
-					//		cube1->changeTexture(textures[0]);
-					//		cone->changeTexture(textures[2]);
-					//	}
 					}
 				}
 			}

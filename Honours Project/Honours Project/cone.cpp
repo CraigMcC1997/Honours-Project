@@ -3,6 +3,7 @@
 void Cone::init()
 {
 	mesh->loadMesh("../Resources/Models/cone.obj");
+	makeHullContainer(*mesh->getVerts());
 }
 
 void Cone::VelocityVerletSolver(float dt)
@@ -39,6 +40,21 @@ glm::vec3 Cone::getVelocity()
 	return velocity;
 }
 
+void Cone::makeHullContainer(vector<float> points)
+{
+	hull.resize(8);
+	int counter = 0;
+
+	for (int i = 0; i < hull.size(); ++i)
+	{
+		hull[i].x = points[counter];
+		hull[i].y = points[counter + 1];
+		hull[i].z = points[counter + 2];
+		counter += 3;
+	}
+	setHull(hull);
+}
+
 void Cone::setHull(vector<glm::vec3> points)
 {
 	for (int i = 0; i < points.size(); ++i)
@@ -46,29 +62,10 @@ void Cone::setHull(vector<glm::vec3> points)
 		glm::vec4 v = glm::vec4(points[i].x, points[i].y, points[i].z, 1.0);
 		glm::mat4 m = *(transform->getModelMatrix());
 		v = m * v;
-		//cout << "w: " <<  v.w << endl;
-		//cout << "X: " << v.x << endl;
-		//cout << "Y: " << v.y << endl;
-		//cout << "Z: " << v.z << endl;
 		points[i] = glm::vec3(v.x, v.y, v.z);
 	}
 
 	collidable->setConvexHull(points);
-
-	//for (int i = 0; i < points.size(); ++i)
-	//{
-	//	cout << "---" << endl;
-	//	cout << "COLLIDABLE POS:" << endl;
-	//	cout << "X: " << collidable->getConvexHull()[i].x << endl;
-	//	cout << "Y: " << collidable->getConvexHull()[i].y << endl;
-	//	cout << "Z: " << collidable->getConvexHull()[i].z << endl;
-	//}
-
-	//cout << "---" << endl;
-	//cout << "MESH POS:" << endl;
-	//cout << "X: " << transform->getPosition().x << endl;
-	//cout << "Y: " << transform->getPosition().y << endl;
-	//cout << "Z: " << transform->getPosition().z << endl;
 }
 
 glm::vec3 Cone::getPosition()

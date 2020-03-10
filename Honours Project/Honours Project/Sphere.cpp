@@ -3,6 +3,7 @@
 void Sphere::init()
 {
 	mesh->loadMesh("../Resources/Models/sphere.obj");
+	makeHullContainer(*mesh->getVerts());
 }
 
 void Sphere::VelocityVerletSolver(float dt)
@@ -39,6 +40,21 @@ glm::vec3 Sphere::getVelocity()
 	return velocity;
 }
 
+void Sphere::makeHullContainer(vector<float> points)
+{
+	hull.resize(8);
+	int counter = 0;
+
+	for (int i = 0; i < hull.size(); ++i)
+	{
+		hull[i].x = points[counter];
+		hull[i].y = points[counter + 1];
+		hull[i].z = points[counter + 2];
+		counter += 3;
+	}
+	setHull(hull);
+}
+
 void Sphere::setHull(vector<glm::vec3> points)
 {
 	for (int i = 0; i < points.size(); ++i)
@@ -48,22 +64,6 @@ void Sphere::setHull(vector<glm::vec3> points)
 	}
 
 	collidable->setConvexHull(points);
-
-	//for (int i = 0; i < points.size(); ++i)
-	//{
-	//	cout << "---" << endl;
-	//	cout << "COLLIDABLE POS:" << endl;
-	//	cout << "X: " << collidable->getConvexHull()[i].x << endl;
-	//	cout << "Y: " << collidable->getConvexHull()[i].y << endl;
-	//	cout << "Z: " << collidable->getConvexHull()[i].z << endl;
-	//}
-
-	//cout << "---" << endl;
-	//cout << "MESH POS:" << endl;
-	//cout << "X: " << transform->getPosition().x << endl;
-	//cout << "Y: " << transform->getPosition().y << endl;
-	//cout << "Z: " << transform->getPosition().z << endl;
-
 }
 
 glm::vec3 Sphere::getPosition()

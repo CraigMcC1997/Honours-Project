@@ -164,6 +164,7 @@ namespace rt3d {
 				else {
 					fileStream >> tmp.x >> tmp.y >> tmp.z;
 					inVerts.push_back(tmp);
+					//std::cout << tmp.x << " " << tmp.y << " " << tmp.z << std::endl;
 				}
 				break;
 			case 'f':
@@ -206,14 +207,4 @@ namespace rt3d {
 
 
 	}
-
-	//std::vector<glm::vec3> getVerts() {
-	//	std::vector<glm::vec3> vertices;
-	//	for (int i = 0; i < inVerts.size(); i++) {
-	//		vertices[i].x = inVerts[i].x;
-	//		vertices[i].y = inVerts[i].y;
-	//		vertices[i].z = inVerts[i].z;
-	//	}
-	//	return vertices;
-	//}
 }

@@ -10,6 +10,8 @@ class Sphere : public Shape
 private:
 	void privMove(glm::vec3 translation);
 	void VelocityVerletSolver(float dt);
+
+	vector<glm::vec3> hull;
 public:
 	Sphere(glm::vec3 sphereScale, glm::vec3 pos, GLuint texture) {
 		transform->Scale(sphereScale);
@@ -28,5 +30,6 @@ public:
 	void move(float dt, glm::vec3 dir);
 	void updateVelocity(glm::vec3);
 	glm::vec3 getVelocity();
+	void makeHullContainer(vector<float> points);
 };
 

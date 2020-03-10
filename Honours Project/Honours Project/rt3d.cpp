@@ -158,6 +158,8 @@ namespace rt3d {
 		glVertexAttribPointer((GLuint)RT3D_VERTEX, 3, GL_FLOAT, GL_FALSE, 0, 0);
 		glEnableVertexAttribArray(RT3D_VERTEX);
 		pMeshBuffers[RT3D_VERTEX] = VBO;
+		/*for (int i = 0; i < numVerts; ++i)
+			std::cout << vertices[i] << endl;*/
 
 
 		// VBO for colour data
