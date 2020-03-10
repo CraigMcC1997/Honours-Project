@@ -19,9 +19,9 @@ private:
 	//shapes
 	Cube* boxes[10];
 	Cube* box;
-	Sphere* ball[2];
-	Cone* cone[5];
-	Cylinder* cylinder[2];
+	Sphere* ball[10];
+	Cone* cone[10];
+	Cylinder* cylinder[10];
 
 	Player* player = new Player();
 	GJK* gjk = new GJK();

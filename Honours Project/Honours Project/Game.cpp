@@ -17,36 +17,46 @@ void Game::init() {
 	grid = new Grid(1200, 800, 100);
 
 	//Shapes		//scale							//position			//texture
-	ball[0] = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), glm::vec3(50, 0, 0), textures[2]);
-	ball[1] = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), glm::vec3(45, 0, 0), textures[2]);
-	cylinder[0] = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f), glm::vec3(10, 0, 0), textures[2]);
-	cylinder[1] = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f), glm::vec3(6, 0, 0), textures[2]);
 
 	//randomly placing the boxes
 	srand(time(NULL));
 	for (auto i = 0; i < 10; i++) {
-		glm::vec3 position = glm::vec3(rand() % 50, rand() % 10, rand() % 20);
-		glm::vec3 velocity = glm::vec3(rand() % 5, rand() % 5, rand() % 5);
-		velocity.x /= 100;
-		velocity.y /= 100;
-		velocity.z /= 100;
-
+		glm::vec3 position = glm::vec3(rand() % 60, rand() % 20, rand() % 30);
 		boxes[i] = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), 
 			position, textures[0]);
 
 		boxes[i]->init();
-		boxes[i]->updateVelocity(velocity);
 		gameEntities.push_back(boxes[i]);
 		grid->registerObj(boxes[i]);
 	}
 
-	for (auto i = 0; i < 5; i++) {
-		glm::vec3 position = glm::vec3(rand() % 50, rand() % 10, rand() % 20);
+	for (auto i = 0; i < 10; i++) {
+		glm::vec3 position = glm::vec3(rand() % 60, rand() % 20, rand() % 30);
 		cone[i] = new Cone(glm::vec3(1.0f, 1.0f, 1.0f),
 			position, textures[2]);
 		cone[i]->init();
 		gameEntities.push_back(cone[i]);
 		grid->registerObj(cone[i]);
+	}
+
+	for (auto i = 0; i < 10; i++) {
+		glm::vec3 position = glm::vec3(rand() % 60, rand() % 20, rand() % 30);
+		
+		ball[i] = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), 
+			position, textures[2]);
+		ball[i]->init();
+		gameEntities.push_back(ball[i]);
+		grid->registerObj(ball[i]);
+	}
+
+	for (auto i = 0; i < 10; i++) {
+		glm::vec3 position = glm::vec3(rand() % 60, rand() % 20, rand() % 30);
+
+		cylinder[i] = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f),
+			position, textures[2]);
+		cylinder[i]->init();
+		gameEntities.push_back(cylinder[i]);
+		grid->registerObj(cylinder[i]);
 	}
 
 	/*cone[0] = new Cone(glm::vec3(1.0f, 1.0f, 1.0f),
