@@ -41,8 +41,8 @@ glm::vec3 Cone::getVelocity()
 }
 
 void Cone::makeHullContainer(vector<float> points)
-{
-	hull.resize(8);
+{	
+	hull.resize(points.size() / 3);
 	int counter = 0;
 
 	for (int i = 0; i < hull.size(); ++i)

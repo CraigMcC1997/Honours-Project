@@ -19,9 +19,9 @@ private:
 	//shapes
 	Cube* boxes[10];
 	Cube* box;
-	Sphere* ball;
+	Sphere* ball[2];
 	Cone* cone[5];
-	Cylinder* cylinder;
+	Cylinder* cylinder[2];
 
 	Player* player = new Player();
 	GJK* gjk = new GJK();
@@ -47,13 +47,9 @@ private:
 	//Used by BASS library
 	HSAMPLE* samples = new HSAMPLE[5];
 
-
-
+	//!!!!TEST!!!!
 	vector<glm::vec3> points1 = { {1, 1, 1}, {1, 2, 1}, {1, 0, 1} };
 	vector<glm::vec3> points2 = { {1, 1, 1}, {1, 0, 1}, {1, 0, 1} };
-
-
-
 public:
 	void init();
 	void update(SDL_Event sdlEvent);

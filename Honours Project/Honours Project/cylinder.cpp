@@ -42,7 +42,7 @@ glm::vec3 Cylinder::getVelocity()
 
 void Cylinder::makeHullContainer(vector<float> points)
 {
-	hull.resize(8);
+	hull.resize(points.size() /3);
 	int counter = 0;
 
 	for (int i = 0; i < hull.size(); ++i)
@@ -59,10 +59,11 @@ void Cylinder::setHull(vector<glm::vec3> points)
 {
 	for (int i = 0; i < points.size(); ++i)
 	{
-		points[i] += transform->getPosition();
-		points[i] *= transform->getScale();
+		glm::vec4 v = glm::vec4(points[i].x, points[i].y, points[i].z, 1.0);
+		glm::mat4 m = *(transform->getModelMatrix());
+		v = m * v;
+		points[i] = glm::vec3(v.x, v.y, v.z);
 	}
-
 	collidable->setConvexHull(points);
 }
 

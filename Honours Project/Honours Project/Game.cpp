@@ -17,8 +17,10 @@ void Game::init() {
 	grid = new Grid(1200, 800, 100);
 
 	//Shapes		//scale							//position			//texture
-	ball = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), glm::vec3(60, 0, 0), textures[2]);
-	cylinder = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f), glm::vec3(60, 0, 0), textures[2]);
+	ball[0] = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), glm::vec3(50, 0, 0), textures[2]);
+	ball[1] = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), glm::vec3(45, 0, 0), textures[2]);
+	cylinder[0] = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f), glm::vec3(10, 0, 0), textures[2]);
+	cylinder[1] = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f), glm::vec3(6, 0, 0), textures[2]);
 
 	//randomly placing the boxes
 	srand(time(NULL));
@@ -47,6 +49,12 @@ void Game::init() {
 		grid->registerObj(cone[i]);
 	}
 
+	/*cone[0] = new Cone(glm::vec3(1.0f, 1.0f, 1.0f),
+		glm::vec3(7.0f, 0.0f, 0.0f), textures[2]);
+	cone[0]->init();
+	gameEntities.push_back(cone[0]);
+	grid->registerObj(cone[0]);*/
+
 	player->init();
 
 	box = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), textures[0]);
@@ -54,21 +62,21 @@ void Game::init() {
 	gameEntities.push_back(box);
 	grid->registerObj(box);
 
-	ball->init();
-	gameEntities.push_back(ball);
-	grid->registerObj(ball);
+	ball[0]->init();
+	gameEntities.push_back(ball[0]);
+	grid->registerObj(ball[0]);
+	
+	ball[1]->init();
+	gameEntities.push_back(ball[1]);
+	grid->registerObj(ball[1]);
 
-	cone[0]->init();
-	gameEntities.push_back(cone[0]);
-	grid->registerObj(cone[0]);
+	cylinder[0]->init();
+	gameEntities.push_back(cylinder[0]);
+	grid->registerObj(cylinder[0]);
 
-	cone[1]->init();
-	gameEntities.push_back(cone[1]);
-	grid->registerObj(cone[1]);
-
-	cylinder->init();
-	gameEntities.push_back(cylinder);
-	grid->registerObj(cylinder);
+	cylinder[1]->init();
+	gameEntities.push_back(cylinder[1]);
+	grid->registerObj(cylinder[1]);
 
 	bool test = sat->performDetection(points1, points2);
 	std::cout << test << std::endl;
@@ -144,6 +152,30 @@ void Game::checkCollisions()
 							cone->changeTexture(textures[3]);
 						}
 					}
+
+					Sphere* sphere1 = dynamic_cast<Sphere*>(*it1);
+					if (sphere1 != nullptr)
+					{
+						if (gjk->performDetection(*&sphere1->getHull(), *&cube1->getHull()))
+						{
+							//Collision response
+							//Sound::playSample(samples[0]);
+							sphere1->changeTexture(textures[3]);
+							cube1->changeTexture(textures[1]);
+						}
+					}
+
+					Cylinder* cylinder1 = dynamic_cast<Cylinder*>(*it1);
+					if (cylinder1 != nullptr)
+					{
+						if (gjk->performDetection(*&cylinder1->getHull(), *&cube1->getHull()))
+						{
+							//Collision response
+							//Sound::playSample(samples[0]);
+							cylinder1->changeTexture(textures[3]);
+							cube1->changeTexture(textures[1]);
+						}
+					}
 				}
 			}
 		}
@@ -175,6 +207,102 @@ void Game::checkCollisions()
 							//cube1->changeTexture(textures[1]);
 							cone1->changeTexture(textures[3]);
 							cone2->changeTexture(textures[3]);
+						}
+					}
+					Sphere* sphere1 = dynamic_cast<Sphere*>(*it1);
+					if (sphere1 != nullptr)
+					{
+						if (gjk->performDetection(*&sphere1->getHull(), *&cone1->getHull()))
+						{
+							//Collision response
+							//Sound::playSample(samples[0]);
+							sphere1->changeTexture(textures[3]);
+							cone1->changeTexture(textures[3]);
+						}
+					}
+					Cylinder* cylinder1 = dynamic_cast<Cylinder*>(*it1);
+					if (cylinder1 != nullptr)
+					{
+						if (gjk->performDetection(*&cylinder1->getHull(), *&cone1->getHull()))
+						{
+							//Collision response
+							//Sound::playSample(samples[0]);
+							cylinder1->changeTexture(textures[3]);
+							cone1->changeTexture(textures[3]);
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+	for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end() - 1; ++it)
+	{
+		//dynamic cast first object here //
+		Sphere* sphere = dynamic_cast<Sphere*> (*it);
+		if (sphere != nullptr)
+		{
+			vector<Shape*> objs = grid->getNeighbours(sphere);//gameEntities;
+
+			for (auto it1 = objs.begin(); it1 != objs.end(); it1++)
+			{
+				if (*it != *it1)
+				{
+					//dynamic cast second object here //
+					Sphere* sphere2 = dynamic_cast<Sphere*> (*it1);
+					if (sphere2 != nullptr)
+					{
+						if (gjk->performDetection(*&sphere->getHull(), *&sphere2->getHull()))
+						{
+							//Collision response
+							//Sound::playSample(samples[0]);
+							//cube1->changeTexture(textures[1]);
+							sphere->changeTexture(textures[3]);
+							sphere2->changeTexture(textures[3]);
+						}
+					}
+
+					Cylinder* cylinder = dynamic_cast<Cylinder*> (*it1);
+					if (cylinder != nullptr)
+					{
+						if (gjk->performDetection(*&sphere->getHull(), *&cylinder->getHull()))
+						{
+							//Collision response
+							//Sound::playSample(samples[0]);
+							//cube1->changeTexture(textures[1]);
+							sphere->changeTexture(textures[3]);
+							cylinder->changeTexture(textures[3]);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end() - 1; ++it)
+	{
+		//dynamic cast first object here //
+		Cylinder* cylinder = dynamic_cast<Cylinder*> (*it);
+		if (cylinder != nullptr)
+		{
+			vector<Shape*> objs = grid->getNeighbours(cylinder);//gameEntities;
+
+			for (auto it1 = objs.begin(); it1 != objs.end(); it1++)
+			{
+				if (*it != *it1)
+				{
+					//dynamic cast second object here //
+					Cylinder* cylinder2 = dynamic_cast<Cylinder*> (*it1);
+					if (cylinder2 != nullptr)
+					{
+						if (gjk->performDetection(*&cylinder->getHull(), *&cylinder2->getHull()))
+						{
+							//Collision response
+							//Sound::playSample(samples[0]);
+							//cube1->changeTexture(textures[1]);
+							cylinder->changeTexture(textures[3]);
+							cylinder2->changeTexture(textures[3]);
 						}
 					}
 				}
