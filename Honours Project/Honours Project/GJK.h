@@ -18,14 +18,14 @@ private:
 	glm::vec3 simplex[4];
 	glm::vec3 direction = glm::vec3(1, 1, 1);
 
-public:
-	GJK() { }
-
-	bool performDetection(vector<glm::vec3>&, vector<glm::vec3>&);
 	bool initialise(vector<glm::vec3>&, vector<glm::vec3>&);
 	bool ContainsOrigin(glm::vec3&);
 	bool triangle(glm::vec3&);
 	bool tetrahedron(glm::vec3&);
 	bool checkTetrahedron(const glm::vec3&, const glm::vec3&,
 		const glm::vec3&, const glm::vec3&, glm::vec3&);
+
+public:
+	GJK() { };
+	bool performDetection(vector<glm::vec3>&, vector<glm::vec3>&);
 };

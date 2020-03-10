@@ -69,6 +69,9 @@ void Game::init() {
 	cylinder->init();
 	gameEntities.push_back(cylinder);
 	grid->registerObj(cylinder);
+
+	bool test = sat->performDetection(points1, points2);
+	std::cout << test << std::endl;
 	
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
@@ -152,6 +155,39 @@ void Game::checkCollisions()
 					//		cube1->changeTexture(textures[0]);
 					//		cone->changeTexture(textures[2]);
 					//	}
+					}
+				}
+			}
+		}
+	}
+
+
+
+
+	for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end() - 1; ++it)
+	{
+		//dynamic cast first object here //
+		Cone* cone1 = dynamic_cast<Cone*> (*it);
+		if (cone1 != nullptr)
+		{
+			vector<Shape*> objs = grid->getNeighbours(cone1);//gameEntities;
+
+			for (auto it1 = objs.begin(); it1 != objs.end(); it1++)
+			{
+				if (*it != *it1)
+				{
+					//dynamic cast second object here //
+					Cone* cone2 = dynamic_cast<Cone*> (*it1);
+					if (cone2 != nullptr)
+					{
+						if (gjk->performDetection(*&cone1->getHull(), *&cone2->getHull()))
+						{
+							//Collision response
+							//Sound::playSample(samples[0]);
+							//cube1->changeTexture(textures[1]);
+							cone1->changeTexture(textures[3]);
+							cone2->changeTexture(textures[3]);
+						}
 					}
 				}
 			}
