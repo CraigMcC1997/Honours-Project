@@ -1,6 +1,5 @@
 .vs
 *.exe
-*.lib
 *.pch
 *.pdb
 *.sdf
