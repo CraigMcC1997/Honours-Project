@@ -16,11 +16,10 @@ class Game
 {
 private:
 	//shapes
-	Cube* boxes[10];
-	Cube* box;
-	Sphere* ball[10];
-	Cone* cone[10];
-	Cylinder* cylinder[10];
+	Cube* boxes[5];
+	Sphere* ball[5];
+	Cone* cone[5];
+	Cylinder* cylinder[5];
 
 	Player* player = new Player();
 	GJK* gjk = new GJK();
@@ -50,5 +49,4 @@ public:
 	void draw(SDL_Window* window);
 	void mouse_callback(double xpos, double ypos);
 	void checkCollisions();
-	void moveObjects();
 };

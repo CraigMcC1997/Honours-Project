@@ -24,10 +24,10 @@ void Cube::changeTexture(GLuint newTexture)
 	texture = newTexture;
 }
 
-void Cube::move(float dt, glm::vec3 dir)
+void Cube::move(glm::vec3 dir)
 {
 	updateVelocity(dir);
-	VelocityVerletSolver(dt);
+	VelocityVerletSolver(speed);
 }
 
 void Cube::updateVelocity(glm::vec3 newVelocity)

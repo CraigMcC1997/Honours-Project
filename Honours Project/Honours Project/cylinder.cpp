@@ -24,10 +24,10 @@ void Cylinder::changeTexture(GLuint newTexture)
 	texture = newTexture;
 }
 
-void Cylinder::move(float dt, glm::vec3 dir)
+void Cylinder::move(glm::vec3 dir)
 {
 	updateVelocity(dir);
-	VelocityVerletSolver(dt);
+	VelocityVerletSolver(speed);
 }
 
 void Cylinder::updateVelocity(glm::vec3 newVelocity)

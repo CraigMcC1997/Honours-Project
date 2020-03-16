@@ -24,10 +24,10 @@ void Cone::changeTexture(GLuint newTexture)
 	texture = newTexture;
 }
 
-void Cone::move(float dt, glm::vec3 dir)
+void Cone::move(glm::vec3 dir)
 {
 	updateVelocity(dir);
-	VelocityVerletSolver(dt);
+	VelocityVerletSolver(speed);
 }
 
 void Cone::updateVelocity(glm::vec3 newVelocity)

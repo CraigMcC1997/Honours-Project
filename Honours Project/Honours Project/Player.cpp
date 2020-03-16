@@ -23,41 +23,55 @@ void Player::init()
 	playerPosition = box->getPosition();
 }
 
-void Player::move(float dt, glm::vec3 dir)
+void Player::move(glm::vec3 dir)
 {
-	
+	switch (playerShape)
+	{
+	case 1:
+		box->move(dir);
+		break;
+	case 2:
+		ball->move(dir);
+		break;
+	case 3:
+		cone->move(dir);
+		break;
+	case 4:
+		cylinder->move(dir);
+		break;
+	}
 }
 
-void Player::update()
+void Player::changeShape(const Uint8* keys)
 {
-	const Uint8* keys = SDL_GetKeyboardState(NULL);
-	cameraUpdate(keys);
-
 	//changing player shape
 	if (keys[SDL_SCANCODE_1])
 	{
 		playerShape = 1;	//box
 		box->setPosition(playerPosition);
 	}
-		
+
 	if (keys[SDL_SCANCODE_2])
 	{
 		playerShape = 2;	//ball
 		ball->setPosition(playerPosition);
 	}
-		
+
 	if (keys[SDL_SCANCODE_3])
 	{
 		playerShape = 3;	//cone
 		cone->setPosition(playerPosition);
 	}
-		
+
 	if (keys[SDL_SCANCODE_4])
 	{
 		playerShape = 4;	//cylinder
 		cylinder->setPosition(playerPosition);
 	}
+}
 
+void Player::storePosition()
+{
 	switch (playerShape)
 	{
 	case 1:
@@ -73,123 +87,27 @@ void Player::update()
 		playerPosition = cylinder->getPosition();
 		break;
 	}
+}
+
+void Player::update()
+{
+	const Uint8* keys = SDL_GetKeyboardState(NULL);
+	cameraUpdate(keys);
+	changeShape(keys);
+	storePosition();
 
 	if (keys[SDL_SCANCODE_RIGHT])
-	{
-		switch (playerShape)
-		{
-		case 1:
-			box->move(0.1, glm::vec3(1, 0, 0));
-			break;
-		case 2:
-			ball->move(0.1, glm::vec3(1, 0, 0));
-			break;
-		case 3:
-			cone->move(0.1, glm::vec3(1, 0, 0));
-			break;
-		case 4:
-			cylinder->move(0.1, glm::vec3(1, 0, 0));
-			break;
-		}
-	}
-
+		move(glm::vec3(1, 0, 0));
 	if (keys[SDL_SCANCODE_LEFT])
-	{
-		switch (playerShape)
-		{
-		case 1:
-			box->move(0.1, glm::vec3(-1, 0, 0));
-			break;
-		case 2:
-			ball->move(0.1, glm::vec3(-1, 0, 0));
-			break;
-		case 3:
-			cone->move(0.1, glm::vec3(-1, 0, 0));
-			break;
-		case 4:
-			cylinder->move(0.1, glm::vec3(-1, 0, 0));
-			break;
-		}
-	}
-
+		move(glm::vec3(-1, 0, 0));
 	if (keys[SDL_SCANCODE_UP])
-	{
-		switch (playerShape)
-		{
-		case 1:
-			box->move(0.1, glm::vec3(0, 1, 0));
-			break;
-		case 2:
-			ball->move(0.1, glm::vec3(0, 1, 0));
-			break;
-		case 3:
-			cone->move(0.1, glm::vec3(0, 1, 0));
-			break;
-		case 4:
-			cylinder->move(0.1, glm::vec3(0, 1, 0));
-			break;
-		}
-	}
-
+		move(glm::vec3(0, 1, 0));
 	if (keys[SDL_SCANCODE_DOWN])
-	{
-		switch (playerShape)
-		{
-		case 1:
-			box->move(0.1, glm::vec3(0, -1, 0));
-			break;
-		case 2:
-			ball->move(0.1, glm::vec3(0, -1, 0));
-			break;
-		case 3:
-			cone->move(0.1, glm::vec3(0, -1, 0));
-			break;
-		case 4:
-			cylinder->move(0.1, glm::vec3(0, -1, 0));
-			break;
-		}
-	}
-
-	if (keys[SDL_SCANCODE_Q])
-	{
-		switch (playerShape)
-		{
-		case 1:
-			box->move(0.1, glm::vec3(0, 0, 1));
-			break;
-		case 2:
-			ball->move(0.1, glm::vec3(0, 0, 1));
-			break;
-		case 3:
-			cone->move(0.1, glm::vec3(0, 0, 1));
-			break;
-		case 4:
-			cylinder->move(0.1, glm::vec3(0, 0, 1));
-			break;
-		}
-	}
-
+		move(glm::vec3(0, -1, 0));
 	if (keys[SDL_SCANCODE_E])
-	{
-		switch (playerShape)
-		{
-		case 1:
-			box->move(0.1, glm::vec3(0, 0, -1));
-			break;
-		case 2:
-			ball->move(0.1, glm::vec3(0, 0, -1));
-			break;
-		case 3:
-			cone->move(0.1, glm::vec3(0, 0, -1));
-			break;
-		case 4:
-			cylinder->move(0.1, glm::vec3(0, 0, -1));
-			break;
-		}
-	}
-
-	
-	box->update();
+		move(glm::vec3(0, 0, 1));
+	if (keys[SDL_SCANCODE_Q])
+		move(glm::vec3(0, 0, -1));
 }
 
 void Player::cameraUpdate(const Uint8* keys)

@@ -18,7 +18,7 @@ void Game::init() {
 
 	//randomly placing the boxes
 	srand(time(NULL));
-	for (auto i = 0; i < 10; i++) {
+	for (auto i = 0; i < 5; i++) {
 		glm::vec3 position = glm::vec3(rand() % 60, rand() % 20, rand() % 30);
 		
 		boxes[i] = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), 
@@ -29,7 +29,7 @@ void Game::init() {
 		grid->registerObj(boxes[i]);
 	}
 
-	for (auto i = 0; i < 10; i++) {
+	for (auto i = 0; i < 5; i++) {
 		glm::vec3 position = glm::vec3(rand() % 60, rand() % 20, rand() % 30);
 		cone[i] = new Cone(glm::vec3(1.0f, 1.0f, 1.0f),
 			position, textures[2]);
@@ -38,7 +38,7 @@ void Game::init() {
 		grid->registerObj(cone[i]);
 	}
 
-	for (auto i = 0; i < 10; i++) {
+	for (auto i = 0; i < 5; i++) {
 		glm::vec3 position = glm::vec3(rand() % 60, rand() % 20, rand() % 30);
 		
 		ball[i] = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), 
@@ -48,7 +48,7 @@ void Game::init() {
 		grid->registerObj(ball[i]);
 	}
 
-	for (auto i = 0; i < 10; i++) {
+	for (auto i = 0; i < 5; i++) {
 		glm::vec3 position = glm::vec3(rand() % 60, rand() % 20, rand() % 30);
 
 		cylinder[i] = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f),
@@ -58,34 +58,7 @@ void Game::init() {
 		grid->registerObj(cylinder[i]);
 	}
 
-	/*cone[0] = new Cone(glm::vec3(1.0f, 1.0f, 1.0f),
-		glm::vec3(7.0f, 0.0f, 0.0f), textures[2]);
-	cone[0]->init();
-	gameEntities.push_back(cone[0]);
-	grid->registerObj(cone[0]);*/
-
 	player->init();
-
-	box = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), textures[0]);
-	box->init();
-	gameEntities.push_back(box);
-	grid->registerObj(box);
-
-	ball[0]->init();
-	gameEntities.push_back(ball[0]);
-	grid->registerObj(ball[0]);
-	
-	ball[1]->init();
-	gameEntities.push_back(ball[1]);
-	grid->registerObj(ball[1]);
-
-	cylinder[0]->init();
-	gameEntities.push_back(cylinder[0]);
-	grid->registerObj(cylinder[0]);
-
-	cylinder[1]->init();
-	gameEntities.push_back(cylinder[1]);
-	grid->registerObj(cylinder[1]);
 	
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
@@ -315,20 +288,6 @@ void Game::checkCollisions()
 	}
 }
 
-void Game::moveObjects()
-{
-	//for (vector<Shape*>::iterator it = gameEntities.begin(); 
-	//	it < gameEntities.end(); it++)
-	//{
-	//	if ((*it)->getPosition().x > 10 ||
-	//		(*it)->getPosition().y > 10 ||
-	//		(*it)->getPosition().z > 10)
-	//		(*it)->updateVelocity(-(*it)->getVelocity());
-	//	else
-	//	(*it)->move();		
-	//}
-}
-
 void Game::update(SDL_Event sdlEvent)
 {	
 	int mouseX, mouseY;
@@ -336,38 +295,6 @@ void Game::update(SDL_Event sdlEvent)
 		mouse_callback(mouseX, mouseY);
 
 	const Uint8* keys = SDL_GetKeyboardState(NULL); //keyboard input
-
-	switch (*keys)
-	{
-	case SDL_SCANCODE_RIGHT:
-		cout << "right" << endl;
-		break;
-	case 1:
-		cout << "1" << endl;
-		break;
-	}
-	
-	//testing code for moving cube
-	/*if (keys[SDL_SCANCODE_RIGHT])
-		box->move(0.1, glm::vec3(1, 0, 0));
-
-	if (keys[SDL_SCANCODE_LEFT])
-		box->move(0.1, glm::vec3(-1, 0, 0));
-
-	if (keys[SDL_SCANCODE_UP])
-		box->move(0.1, glm::vec3(0, 1, 0));
-
-	if (keys[SDL_SCANCODE_DOWN])
-		box->move(0.1, glm::vec3(0, -1, 0));
-
-	if (keys[SDL_SCANCODE_Q])
-		box->move(0.1, glm::vec3(0, 0, 1));
-
-	if (keys[SDL_SCANCODE_E])
-		box->move(0.1, glm::vec3(0, 0, -1));*/
-
-	//moveObjects(dt);
-	
 
 	//Clear grid here
 	grid->clearGrid();
@@ -380,7 +307,6 @@ void Game::update(SDL_Event sdlEvent)
 		grid->registerObj(*it);
 	}
 	checkCollisions();
-
 	player->update();
 }
 

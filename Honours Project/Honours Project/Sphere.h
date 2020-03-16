@@ -28,7 +28,7 @@ public:
 	void setHull(vector<glm::vec3>);
 
 	void changeTexture(GLuint);
-	void move(float dt, glm::vec3 dir);
+	void move(glm::vec3 dir);
 	void updateVelocity(glm::vec3);
 	glm::vec3 getVelocity();
 	void makeHullContainer(vector<float> points);

@@ -24,10 +24,10 @@ void Sphere::changeTexture(GLuint newTexture)
 	texture = newTexture;
 }
 
-void Sphere::move(float dt, glm::vec3 dir)
+void Sphere::move(glm::vec3 dir)
 {
 	updateVelocity(dir);
-	VelocityVerletSolver(dt);
+	VelocityVerletSolver(speed);
 }
 
 void Sphere::updateVelocity(glm::vec3 newVelocity)

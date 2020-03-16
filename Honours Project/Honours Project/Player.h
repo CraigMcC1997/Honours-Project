@@ -28,9 +28,10 @@ public:
 	Player() {}
 	void init();
 	void update();
-	void draw(GLuint shader, std::stack<glm::mat4>* _mvStack,
-		glm::mat4 projection);
+	void draw(GLuint, std::stack<glm::mat4>*, glm::mat4);
 
-	void move(float dt, glm::vec3 dir);
+	void move(glm::vec3);
+	void changeShape(const Uint8*);
+	void storePosition();
 };
 

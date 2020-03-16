@@ -13,6 +13,7 @@ protected:
 	glm::vec3 scale;
 	GLuint texture;
 	vector<glm::vec3> cHull;
+	float speed = 0.1;
 
 	glm::vec3 velocity = glm::vec3(1.5, 0, 0);
 	glm::vec3 acceleration = glm::vec3(0, 0, 0);
@@ -25,7 +26,7 @@ public:
 	virtual void setHull(vector<glm::vec3>) = 0;
 	virtual void makeHullContainer(vector<float> points) = 0;
 	virtual void changeTexture(GLuint newTexture) = 0;
-	virtual void move(float dt, glm::vec3 dir) = 0;
+	virtual void move(glm::vec3 dir) = 0;
 	virtual void updateVelocity(glm::vec3) = 0;
 
 	virtual glm::vec3 getPosition() = 0;
