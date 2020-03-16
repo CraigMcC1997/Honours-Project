@@ -17,12 +17,12 @@ typedef pair<int, int> Indices;
 class Grid
 {
 private:
-	int cellSize, height, width;
+	int cellSize, height, width, depth;
 	int columns, rows;
 	map <Indices, vector<Shape*>> objBuckets;
-	Indices computeCellIndices(vec2 position);
+	Indices computeCellIndices(vec3 position);
 public:
-	Grid(int width, int height, int cellSize);
+	Grid(int width, int height, int depth, int cellSize);
 	virtual ~Grid();
 	void registerObj(Shape* obj);
 	vector<Shape*> getNeighbours(Shape* obj);

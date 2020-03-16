@@ -6,15 +6,13 @@
 #pragma once
 #include <vector>
 #include <glm/glm.hpp>
-#include <iostream>
-
-using namespace std;
 
 class SupportFunction
 {
+private:
+	unsigned int furthestPoint(const glm::vec3& direction, const std::vector<glm::vec3>& points);
 public:
-	unsigned int furthestPoint(const glm::vec3& direction, const vector<glm::vec3>& points);
 	glm::vec3 support(const glm::vec3& direction, 
-		const vector<glm::vec3>& points, const vector<glm::vec3>& points2);
+		const std::vector<glm::vec3>& points, const std::vector<glm::vec3>& points2);
 };
 

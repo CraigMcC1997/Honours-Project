@@ -14,14 +14,13 @@ void Game::init() {
 	samples[0] = Sound::loadSample("../Resources/SoundFiles/Click.wav", BASS_SAMPLE_OVER_POS);	
 
 	//adding a grid for optimisation
-	grid = new Grid(1200, 800, 100);
-
-	//Shapes		//scale							//position			//texture
+	grid = new Grid(1200, 800, 50, 100);
 
 	//randomly placing the boxes
 	srand(time(NULL));
 	for (auto i = 0; i < 10; i++) {
 		glm::vec3 position = glm::vec3(rand() % 60, rand() % 20, rand() % 30);
+		
 		boxes[i] = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), 
 			position, textures[0]);
 
@@ -87,9 +86,6 @@ void Game::init() {
 	cylinder[1]->init();
 	gameEntities.push_back(cylinder[1]);
 	grid->registerObj(cylinder[1]);
-
-	bool test = sat->performDetection(points1, points2);
-	std::cout << test << std::endl;
 	
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
@@ -144,8 +140,6 @@ void Game::checkCollisions()
 						if (gjk->performDetection(*&cube1->getHull(), *&cube2->getHull()))
 						{
 							//Collision response
-							//Sound::playSample(samples[0]);
-							//cube1->changeTexture(textures[1]);
 							cube2->changeTexture(textures[1]);
 						}
 					}

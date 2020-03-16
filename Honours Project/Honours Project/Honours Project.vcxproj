@@ -141,7 +141,6 @@
     <ClCompile Include="Maths.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="PlaySound.cpp" />
-    <ClCompile Include="SAT.cpp" />
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="cone.cpp" />
     <ClCompile Include="Convex_Hull.cpp" />
@@ -171,8 +170,6 @@
     <ClInclude Include="Maths.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="PlaySound.h" />
-    <ClInclude Include="Quickhull\QuickHull.hpp" />
-    <ClInclude Include="SAT.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="collisionDetector.h" />
     <ClInclude Include="cone.h" />

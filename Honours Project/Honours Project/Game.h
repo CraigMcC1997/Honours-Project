@@ -9,7 +9,6 @@
 #include "cone.h"
 #include "cylinder.h"
 #include "GJK.h"
-#include "SAT.h"
 #include "Grid.h"
 #include <time.h>
 
@@ -25,7 +24,6 @@ private:
 
 	Player* player = new Player();
 	GJK* gjk = new GJK();
-	SAT* sat = new SAT();
 	Grid* grid;
 
 	//container of shapes
@@ -46,10 +44,6 @@ private:
 
 	//Used by BASS library
 	HSAMPLE* samples = new HSAMPLE[5];
-
-	//!!!!TEST!!!!
-	vector<glm::vec3> points1 = { {1, 1, 1}, {1, 2, 1}, {1, 0, 1} };
-	vector<glm::vec3> points2 = { {1, 1, 1}, {1, 0, 1}, {1, 0, 1} };
 public:
 	void init();
 	void update(SDL_Event sdlEvent);

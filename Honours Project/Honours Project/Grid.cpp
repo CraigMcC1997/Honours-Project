@@ -1,10 +1,8 @@
 #include "Grid.h"
 #include <iostream>
 
-using namespace std;
-
-Grid::Grid(int width, int height, int cellSize) : cellSize(cellSize),
-width(width), height(height)
+Grid::Grid(int width, int height, int depth, int cellSize) : cellSize(cellSize),
+width(width), height(height), depth(depth)
 {
 	columns = width / cellSize;
 	rows = height / cellSize;
@@ -19,7 +17,7 @@ Grid::~Grid()
 	objBuckets.clear();
 }
 
-Indices Grid::computeCellIndices(vec2 position)
+Indices Grid::computeCellIndices(vec3 position)
 {
 	int i = position.x / columns;
 	int j = position.y / rows;
@@ -28,8 +26,8 @@ Indices Grid::computeCellIndices(vec2 position)
 
 void Grid::registerObj(Shape* obj)
 {
-	Indices cellInd = computeCellIndices(vec2(obj->getPosition().x, 
-			obj->getPosition().y));
+	Indices cellInd = computeCellIndices(vec3(obj->getPosition().x, 
+			obj->getPosition().y, obj->getPosition().z));
 
 	objBuckets[cellInd].push_back(obj);
 }
@@ -38,8 +36,8 @@ vector<Shape*> Grid::getNeighbours(Shape* obj)
 {
 	vector<Shape*> neighbours;
 
-	Indices cellInd = computeCellIndices(vec2(obj->getPosition().x,
-		obj->getPosition().y));
+	Indices cellInd = computeCellIndices(vec3(obj->getPosition().x,
+		obj->getPosition().y, obj->getPosition().z));
 	neighbours.insert(neighbours.end(), objBuckets[cellInd].begin(), objBuckets[cellInd].end());
 
 	Indices E(cellInd.first + 1, cellInd.second);

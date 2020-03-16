@@ -23,6 +23,7 @@ public:
 		glm::mat4 projection) = 0;
 	
 	virtual void setHull(vector<glm::vec3>) = 0;
+	virtual void makeHullContainer(vector<float> points) = 0;
 	virtual void changeTexture(GLuint newTexture) = 0;
 	virtual void move(float dt, glm::vec3 dir) = 0;
 	virtual void updateVelocity(glm::vec3) = 0;

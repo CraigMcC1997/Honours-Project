@@ -87,9 +87,6 @@
     <ClCompile Include="Sphere.cpp">
       <Filter>Source Files\Shapes</Filter>
     </ClCompile>
-    <ClCompile Include="SAT.cpp">
-      <Filter>Source Files\CollisionDetection</Filter>
-    </ClCompile>
     <ClCompile Include="Maths.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
@@ -173,9 +170,6 @@
     <ClInclude Include="Maths.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="SAT.h">
-      <Filter>Header Files\CollisionDetection</Filter>
-    </ClInclude>
     <ClInclude Include="collisionDetector.h">
       <Filter>Header Files\CollisionDetection</Filter>
     </ClInclude>
@@ -190,9 +184,6 @@
     </ClInclude>
     <ClInclude Include="Mesh.h">
       <Filter>Header Files\Shapes</Filter>
-    </ClInclude>
-    <ClInclude Include="Quickhull\QuickHull.hpp">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Grid.h">
       <Filter>Header Files</Filter>
