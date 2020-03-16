@@ -16,7 +16,7 @@ void Cone::VelocityVerletSolver(float dt)
 void Cone::privMove(glm::vec3 translation)
 {
 	transform->Translate(translation);
-	setHull(collidable->getConvexHull());
+	setHull(hull);
 }
 
 void Cone::changeTexture(GLuint newTexture)
@@ -26,7 +26,7 @@ void Cone::changeTexture(GLuint newTexture)
 
 void Cone::move(float dt, glm::vec3 dir)
 {
-	//updateVelocity(dir);
+	updateVelocity(dir);
 	VelocityVerletSolver(dt);
 }
 
@@ -38,6 +38,12 @@ void Cone::updateVelocity(glm::vec3 newVelocity)
 glm::vec3 Cone::getVelocity()
 {
 	return velocity;
+}
+
+void Cone::setPosition(glm::vec3 newPosition)
+{
+	transform->Move(newPosition);
+	setHull(hull);
 }
 
 void Cone::makeHullContainer(vector<float> points)

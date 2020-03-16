@@ -49,12 +49,13 @@ void Player::update()
 	if (keys[SDL_SCANCODE_3])
 	{
 		playerShape = 3;	//cone
-		//cone->setPosition(playerPosition);
+		cone->setPosition(playerPosition);
 	}
 		
 	if (keys[SDL_SCANCODE_4])
 	{
 		playerShape = 4;	//cylinder
+		cylinder->setPosition(playerPosition);
 	}
 
 	switch (playerShape)

@@ -16,7 +16,7 @@ void Cylinder::VelocityVerletSolver(float dt)
 void Cylinder::privMove(glm::vec3 translation)
 {
 	transform->Translate(translation);
-	setHull(collidable->getConvexHull());
+	setHull(hull);
 }
 
 void Cylinder::changeTexture(GLuint newTexture)
@@ -26,7 +26,7 @@ void Cylinder::changeTexture(GLuint newTexture)
 
 void Cylinder::move(float dt, glm::vec3 dir)
 {
-	//updateVelocity(dir);
+	updateVelocity(dir);
 	VelocityVerletSolver(dt);
 }
 
@@ -70,6 +70,12 @@ void Cylinder::setHull(vector<glm::vec3> points)
 glm::vec3 Cylinder::getPosition()
 {
 	return transform->getPosition();
+}
+
+void Cylinder::setPosition(glm::vec3 newPosition)
+{
+	transform->Move(newPosition);
+	setHull(hull);
 }
 
 vector<glm::vec3> Cylinder::getHull()

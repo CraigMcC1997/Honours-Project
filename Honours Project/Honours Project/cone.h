@@ -24,6 +24,7 @@ public:
 		glm::mat4 projection);
 
 	glm::vec3 getPosition();
+	void setPosition(glm::vec3 newPosition);
 	vector<glm::vec3> getHull();
 	void setHull(vector<glm::vec3>);
 	
