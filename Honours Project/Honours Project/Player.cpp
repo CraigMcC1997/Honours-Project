@@ -3,21 +3,18 @@
 void Player::init()
 {
 	//textures
-	textures[0] = loadTextures::loadTexture("../Resources/Textures/nocollision.bmp");
-	textures[1] = loadTextures::loadTexture("../Resources/Textures/colliding.bmp");
-	textures[2] = loadTextures::loadTexture("../Resources/Textures/red.bmp");
-	textures[3] = loadTextures::loadTexture("../Resources/Textures/blue.bmp");
+	texture = loadTextures::loadTexture("../Resources/Textures/player.bmp");
 
-	box = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), textures[0]);
+	box = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), texture);
 	box->init();
 
-	cone = new Cone(glm::vec3(1.0f, 1.0f, 1.0f), hidePosition, textures[2]);
+	cone = new Cone(glm::vec3(1.0f, 1.0f, 1.0f), conePosition, texture);
 	cone->init();
 
-	cylinder = new Cylinder(glm::vec3(1.0f, 1.0f, 1.0f), hidePosition, textures[2]);
+	cylinder = new Cylinder(glm::vec3(1.0f, 1.0f, 1.0f), cylinderPosition, texture);
 	cylinder->init();
 
-	ball = new Sphere(glm::vec3(1.0f, 1.0f, 1.0f), hidePosition, textures[2]);
+	ball = new Sphere(glm::vec3(1.0f, 1.0f, 1.0f), ballPosition, texture);
 	ball->init();
 
 	playerPosition = box->getPosition();
@@ -49,36 +46,36 @@ void Player::changeShape(const Uint8* keys)
 	{
 		playerShape = 1;	//box
 		box->setPosition(playerPosition);
-		ball->setPosition(hidePosition);
-		cone->setPosition(hidePosition);
-		cylinder->setPosition(hidePosition);
+		ball->setPosition(ballPosition);
+		cone->setPosition(conePosition);
+		cylinder->setPosition(cylinderPosition);
 	}
 
 	if (keys[SDL_SCANCODE_2])
 	{
 		playerShape = 2;	//ball
 		ball->setPosition(playerPosition);
-		box->setPosition(hidePosition);
-		cone->setPosition(hidePosition);
-		cylinder->setPosition(hidePosition);
+		box->setPosition(cubePosition);
+		cone->setPosition(conePosition);
+		cylinder->setPosition(cylinderPosition);
 	}
 
 	if (keys[SDL_SCANCODE_3])
 	{
 		playerShape = 3;	//cone
 		cone->setPosition(playerPosition);
-		ball->setPosition(hidePosition);
-		box->setPosition(hidePosition);
-		cylinder->setPosition(hidePosition);
+		ball->setPosition(ballPosition);
+		box->setPosition(cubePosition);
+		cylinder->setPosition(cylinderPosition);
 	}
 
 	if (keys[SDL_SCANCODE_4])
 	{
 		playerShape = 4;	//cylinder
 		cylinder->setPosition(playerPosition);
-		cone->setPosition(hidePosition);
-		ball->setPosition(hidePosition);
-		box->setPosition(hidePosition);
+		cone->setPosition(conePosition);
+		ball->setPosition(ballPosition);
+		box->setPosition(cubePosition);
 	}
 }
 

@@ -11,11 +11,14 @@
 class Player : public Entity
 {
 private:
-	GLuint textures[4];
+	GLuint texture;
 	int playerShape = 1;
 	glm::vec3 camPosition;
 	glm::vec3 playerPosition;
-	glm::vec3 hidePosition = glm::vec3(0.0f, -1000.0f, 0.0f);
+	glm::vec3 cubePosition = glm::vec3(0.0f, -1000.0f, 0.0f);
+	glm::vec3 ballPosition = glm::vec3(0.0f, -1100.0f, 0.0f);
+	glm::vec3 conePosition = glm::vec3(0.0f, -1200.0f, 0.0f);
+	glm::vec3 cylinderPosition = glm::vec3(0.0f, -1300.0f, 0.0f);
 	glm::vec3 scale = glm::vec3(1.5f, 1.5f, 1.5f);
 
 	Cube* box;
