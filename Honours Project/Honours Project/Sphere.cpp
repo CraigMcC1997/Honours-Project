@@ -16,7 +16,7 @@ void Sphere::VelocityVerletSolver(float dt)
 void Sphere::privMove(glm::vec3 translation)
 {
 	transform->Translate(translation);
-	setHull(collidable->getConvexHull());
+	setHull(hull);
 }
 
 void Sphere::changeTexture(GLuint newTexture)
@@ -26,7 +26,7 @@ void Sphere::changeTexture(GLuint newTexture)
 
 void Sphere::move(float dt, glm::vec3 dir)
 {
-	//updateVelocity(dir);
+	updateVelocity(dir);
 	VelocityVerletSolver(dt);
 }
 
@@ -64,13 +64,18 @@ void Sphere::setHull(vector<glm::vec3> points)
 		v = m * v;
 		points[i] = glm::vec3(v.x, v.y, v.z);
 	}
-
 	collidable->setConvexHull(points);
 }
 
 glm::vec3 Sphere::getPosition()
 {
 	return transform->getPosition();
+}
+
+void Sphere::setPosition(glm::vec3 newPosition)
+{
+	transform->Move(newPosition);
+	setHull(hull);
 }
 
 vector<glm::vec3> Sphere::getHull()

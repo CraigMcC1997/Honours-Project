@@ -18,7 +18,6 @@ public:
 		privMove(pos);
 		this->texture = texture;
 	}
-
 	void init();
 	void update();
 	void draw(GLuint shader, std::stack<glm::mat4>* _mvStack,
@@ -27,6 +26,7 @@ public:
 	void setHull(vector<glm::vec3>);
 	
 	glm::vec3 getPosition();
+	void setPosition(glm::vec3 newPosition);
 	vector<glm::vec3> getHull();
 
 	void changeTexture(GLuint);

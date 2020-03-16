@@ -61,7 +61,7 @@ void Cube::setHull(vector<glm::vec3> points)
 	{
 		glm::vec4 v = glm::vec4(points[i].x, points[i].y, points[i].z, 1.0);
 		glm::mat4 m = *(transform->getModelMatrix());
-		v = m * v ;
+		v = m * v;
 		points[i] = glm::vec3(v.x, v.y, v.z);
 	}
 	collidable->setConvexHull(points);
@@ -70,6 +70,12 @@ void Cube::setHull(vector<glm::vec3> points)
 glm::vec3 Cube::getPosition()
 {
 	return transform->getPosition();
+}
+
+void Cube::setPosition(glm::vec3 newPosition)
+{
+	transform->Move(newPosition);
+	setHull(hull);
 }
 
 vector<glm::vec3> Cube::getHull()

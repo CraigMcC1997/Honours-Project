@@ -348,7 +348,7 @@ void Game::update(SDL_Event sdlEvent)
 	}
 	
 	//testing code for moving cube
-	if (keys[SDL_SCANCODE_RIGHT])
+	/*if (keys[SDL_SCANCODE_RIGHT])
 		box->move(0.1, glm::vec3(1, 0, 0));
 
 	if (keys[SDL_SCANCODE_LEFT])
@@ -364,10 +364,10 @@ void Game::update(SDL_Event sdlEvent)
 		box->move(0.1, glm::vec3(0, 0, 1));
 
 	if (keys[SDL_SCANCODE_E])
-		box->move(0.1, glm::vec3(0, 0, -1));
+		box->move(0.1, glm::vec3(0, 0, -1));*/
 
 	//moveObjects(dt);
-	player->update();
+	
 
 	//Clear grid here
 	grid->clearGrid();
@@ -380,6 +380,8 @@ void Game::update(SDL_Event sdlEvent)
 		grid->registerObj(*it);
 	}
 	checkCollisions();
+
+	player->update();
 }
 
 void Game::draw(SDL_Window* window)
@@ -403,7 +405,7 @@ void Game::draw(SDL_Window* window)
 
 	//draw here
 	glUseProgram(shaderProgram);
-	player->draw(shaderProgram, &mvStack, projection, NULL, camera::getEye());
+	player->draw(shaderProgram, &mvStack, projection);
 
 	for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end(); it++)
 		(*it)->draw(shaderProgram, &mvStack, projection);

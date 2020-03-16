@@ -20,9 +20,19 @@ void Transform::Translate(glm::vec3& translation)
 	transformMatrix = translationMatrix * transformMatrix;
 }
 
+void Transform::Move(glm::vec3& translation)
+{
+	glm::mat4 translationMatrix = glm::mat4(1.0f, 0.0f, 0.0f, 0.0f,
+		0.0f, 1.0f, 0.0f, 0.0f,
+		0.0f, 0.0f, 1.0f, 0.0f,
+		translation.x, translation.y, translation.z, 1.0f);
+
+	transformMatrix = translationMatrix;
+}
+
 // Translate the object by creating a Scaling matrix and 
 // multiplying it to the transform matrix
-void Transform::Scale(glm::vec3 scaling)
+void Transform::Scale(glm::vec3& scaling)
 {
 	glm::mat4 scalingMatrix = glm::mat4(scaling.x, 0.0f, 0.0f, 0.0f,
 										0.0f, scaling.y, 0.0f, 0.0f,

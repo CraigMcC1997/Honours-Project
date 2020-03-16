@@ -17,7 +17,8 @@ public:
 	virtual ~Transform() {}
 
 	void Translate(glm::vec3& translation);
-	void Scale(glm::vec3 scaling);
+	void Move(glm::vec3& translation);
+	void Scale(glm::vec3& scaling);
 	
 	void RotateX(float angle); 
 	void RotateY(float angle); 

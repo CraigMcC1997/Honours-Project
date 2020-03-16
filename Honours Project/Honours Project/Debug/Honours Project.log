@@ -1,16 +1,1 @@
-﻿  Game.cpp
-E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(20,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(98,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(99,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(100,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(101,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(352,36): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(355,37): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(358,36): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(361,37): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(364,36): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Game.cpp(367,37): warning C4305: 'argument': truncation from 'double' to 'float'
-  Player.cpp
-  main.cpp
-  Generating Code...
-  Honours Project.vcxproj -> E:\1.University\Year4\Honours Project\REPO\Honours Project\Debug\Honours Project.exe
+﻿
