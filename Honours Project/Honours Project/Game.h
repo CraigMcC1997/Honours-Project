@@ -29,7 +29,7 @@ private:
 	//container of shapes
 	vector<Shape*> gameEntities;
 
-	GLuint textures[5];
+	GLuint textures[4];
 	glm::vec4 lightPos = glm::vec4(1.0f, 2.0f, 2.0f, 1.0f); //global light position
 	GLuint shaderProgram;
 	std::stack<glm::mat4> mvStack;

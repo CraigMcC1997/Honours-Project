@@ -336,6 +336,16 @@ void Game::update(SDL_Event sdlEvent)
 		mouse_callback(mouseX, mouseY);
 
 	const Uint8* keys = SDL_GetKeyboardState(NULL); //keyboard input
+
+	switch (*keys)
+	{
+	case SDL_SCANCODE_RIGHT:
+		cout << "right" << endl;
+		break;
+	case 1:
+		cout << "1" << endl;
+		break;
+	}
 	
 	//testing code for moving cube
 	if (keys[SDL_SCANCODE_RIGHT])

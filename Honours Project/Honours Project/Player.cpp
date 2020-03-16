@@ -2,12 +2,33 @@
 
 void Player::init()
 {
+	//textures
+	textures[0] = loadTextures::loadTexture("../Resources/Textures/nocollision.bmp");
+	textures[1] = loadTextures::loadTexture("../Resources/Textures/colliding.bmp");
+	textures[2] = loadTextures::loadTexture("../Resources/Textures/red.bmp");
+	textures[3] = loadTextures::loadTexture("../Resources/Textures/blue.bmp");
+
+	box = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), textures[0]);
+	box->init();
+
+	cone = new Cone(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), textures[0]);
+	cone->init();
+
+	cylinder = new Cylinder(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), textures[0]);
+	cylinder->init();
+
+	ball = new Sphere(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), textures[0]);
+	ball->init();
 }
 
 void Player::update()
 {
 	const Uint8* keys = SDL_GetKeyboardState(NULL);
+	cameraUpdate(keys);
+}
 
+void Player::cameraUpdate(const Uint8* keys)
+{
 	//moving the camera
 	float cameraSpeed = 1.0;
 	if (keys[SDL_SCANCODE_W])
