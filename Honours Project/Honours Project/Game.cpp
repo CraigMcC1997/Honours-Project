@@ -59,6 +59,14 @@ void Game::init() {
 	}
 
 	player->init();
+	grid->registerObj(player->getCube());
+	gameEntities.push_back(player->getCube());
+	grid->registerObj(player->getBall());
+	gameEntities.push_back(player->getBall());
+	grid->registerObj(player->getCone());
+	gameEntities.push_back(player->getCone());
+	grid->registerObj(player->getCylinder());
+	gameEntities.push_back(player->getCylinder());
 	
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
@@ -100,8 +108,7 @@ void Game::checkCollisions()
 		Cube* cube1 = dynamic_cast<Cube*> (*it);
 		if (cube1 != nullptr)
 		{
-			vector<Shape*> objs = grid->getNeighbours(cube1);//gameEntities;
-
+			vector<Shape*> objs = grid->getNeighbours(cube1);
 			for (auto it1 = objs.begin(); it1 != objs.end(); it1++)
 			{
 				if (*it != *it1)

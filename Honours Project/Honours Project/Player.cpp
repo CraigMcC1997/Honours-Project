@@ -11,13 +11,13 @@ void Player::init()
 	box = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), textures[0]);
 	box->init();
 
-	cone = new Cone(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), textures[0]);
+	cone = new Cone(glm::vec3(1.0f, 1.0f, 1.0f), hidePosition, textures[2]);
 	cone->init();
 
-	cylinder = new Cylinder(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), textures[0]);
+	cylinder = new Cylinder(glm::vec3(1.0f, 1.0f, 1.0f), hidePosition, textures[2]);
 	cylinder->init();
 
-	ball = new Sphere(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), textures[0]);
+	ball = new Sphere(glm::vec3(1.0f, 1.0f, 1.0f), hidePosition, textures[2]);
 	ball->init();
 
 	playerPosition = box->getPosition();
@@ -49,24 +49,36 @@ void Player::changeShape(const Uint8* keys)
 	{
 		playerShape = 1;	//box
 		box->setPosition(playerPosition);
+		ball->setPosition(hidePosition);
+		cone->setPosition(hidePosition);
+		cylinder->setPosition(hidePosition);
 	}
 
 	if (keys[SDL_SCANCODE_2])
 	{
 		playerShape = 2;	//ball
 		ball->setPosition(playerPosition);
+		box->setPosition(hidePosition);
+		cone->setPosition(hidePosition);
+		cylinder->setPosition(hidePosition);
 	}
 
 	if (keys[SDL_SCANCODE_3])
 	{
 		playerShape = 3;	//cone
 		cone->setPosition(playerPosition);
+		ball->setPosition(hidePosition);
+		box->setPosition(hidePosition);
+		cylinder->setPosition(hidePosition);
 	}
 
 	if (keys[SDL_SCANCODE_4])
 	{
 		playerShape = 4;	//cylinder
 		cylinder->setPosition(playerPosition);
+		cone->setPosition(hidePosition);
+		ball->setPosition(hidePosition);
+		box->setPosition(hidePosition);
 	}
 }
 
@@ -87,6 +99,26 @@ void Player::storePosition()
 		playerPosition = cylinder->getPosition();
 		break;
 	}
+}
+
+Cube* Player::getCube()
+{
+	return box;
+}
+
+Sphere* Player::getBall()
+{
+	return ball;
+}
+
+Cone* Player::getCone()
+{
+	return cone;
+}
+
+Cylinder* Player::getCylinder()
+{
+	return cylinder;
 }
 
 void Player::update()

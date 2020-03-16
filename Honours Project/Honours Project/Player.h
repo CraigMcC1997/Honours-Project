@@ -15,6 +15,7 @@ private:
 	int playerShape = 1;
 	glm::vec3 camPosition;
 	glm::vec3 playerPosition;
+	glm::vec3 hidePosition = glm::vec3(0.0f, -1000.0f, 0.0f);
 	glm::vec3 scale = glm::vec3(1.5f, 1.5f, 1.5f);
 
 	Cube* box;
@@ -33,5 +34,10 @@ public:
 	void move(glm::vec3);
 	void changeShape(const Uint8*);
 	void storePosition();
+
+	Cube* getCube();
+	Sphere* getBall();
+	Cone* getCone();
+	Cylinder* getCylinder();
 };
 
