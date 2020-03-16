@@ -1,20 +1,6 @@
 # Honours-Project
 A Repository For My 4th Years Honours Project
 
-Current State
-------------------------------------------------------
-3D environment,
-Multiple different 3D shapes,
-Mouse controlled camera,
-Keyboard controlled player,
-Windower,
-Texture Handler,
-3D model loader,
-
-Convex Hulls can be created from a set of points in 3D space
-
-
-
 Libraries Used
 ------------------------------------------------------
 SDL2(2.0.10)      - Windowing
@@ -25,7 +11,7 @@ RT3D              - Model loading/ shader handeling
 
 
 
-Controls
+Camera Controls
 ------------------------------------------------------
 W -> Forward
 S -> Backwards
@@ -33,6 +19,18 @@ A -> Left
 D -> Right
 
 Mouse(unpressed) -> Look around scene
+
+
+
+Player Controls
+------------------------------------------------------
+LEFT -> Move along X-axis (positive)
+RIGHT -> Move along X-axis (negative)
+UP -> Move along Y-axis (positive)
+DOWN -> Move along Y-axis (negative)
+E -> Move along Z-axis (positive)
+Q -> Move along Z-axis (negative)
+
 
 
 Extra Info
