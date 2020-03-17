@@ -5,7 +5,7 @@ void Player::init()
 	//textures
 	texture = loadTextures::loadTexture("../Resources/Textures/player.bmp");
 
-	box = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f), texture);
+	box = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 5.0f), texture);
 	box->init();
 
 	cone = new Cone(glm::vec3(1.0f, 1.0f, 1.0f), conePosition, texture);
@@ -137,12 +137,17 @@ void Player::update()
 		move(glm::vec3(0, 0, 1));
 	if (keys[SDL_SCANCODE_Q])
 		move(glm::vec3(0, 0, -1));
+
+	box->changeTexture(texture);
+	ball->changeTexture(texture);
+	cone->changeTexture(texture);
+	cylinder->changeTexture(texture);
 }
 
 void Player::cameraUpdate(const Uint8* keys)
 {
 	//moving the camera
-	float cameraSpeed = 1.0;
+	float cameraSpeed = 0.5;
 	if (keys[SDL_SCANCODE_W])
 		camera::setEye(camera::getEye() += cameraSpeed * camera::getFront());
 	if (keys[SDL_SCANCODE_S])

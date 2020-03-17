@@ -20,10 +20,8 @@ void Game::init() {
 	srand(time(NULL));
 	for (auto i = 0; i < 5; i++) {
 		glm::vec3 position = glm::vec3(rand() % 60, rand() % 20, rand() % 30);
-		
 		boxes[i] = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), 
 			position, textures[0]);
-
 		boxes[i]->init();
 		gameEntities.push_back(boxes[i]);
 		grid->registerObj(boxes[i]);

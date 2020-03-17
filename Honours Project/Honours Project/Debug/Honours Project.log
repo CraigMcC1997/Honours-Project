@@ -1,1 +1,25 @@
-﻿
+﻿  Cube.cpp
+E:\HonsRepo\Honours Project\Honours Project\Shape.h(16,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+E:\HonsRepo\Honours Project\Honours Project\Cube.cpp(48,20): warning C4018: '<': signed/unsigned mismatch
+E:\HonsRepo\Honours Project\Honours Project\Cube.cpp(60,20): warning C4018: '<': signed/unsigned mismatch
+  Game.cpp
+E:\HonsRepo\Honours Project\Honours Project\Shape.h(16,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+E:\HonsRepo\Honours Project\Honours Project\Game.cpp(20,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+E:\HonsRepo\Honours Project\Honours Project\Game.cpp(77,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\HonsRepo\Honours Project\Honours Project\Game.cpp(78,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\HonsRepo\Honours Project\Honours Project\Game.cpp(79,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\HonsRepo\Honours Project\Honours Project\Game.cpp(80,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Sphere.cpp
+E:\HonsRepo\Honours Project\Honours Project\Shape.h(16,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+E:\HonsRepo\Honours Project\Honours Project\Sphere.cpp(48,20): warning C4018: '<': signed/unsigned mismatch
+E:\HonsRepo\Honours Project\Honours Project\Sphere.cpp(60,20): warning C4018: '<': signed/unsigned mismatch
+  cone.cpp
+E:\HonsRepo\Honours Project\Honours Project\Shape.h(16,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+E:\HonsRepo\Honours Project\Honours Project\cone.cpp(54,20): warning C4018: '<': signed/unsigned mismatch
+E:\HonsRepo\Honours Project\Honours Project\cone.cpp(66,20): warning C4018: '<': signed/unsigned mismatch
+  cylinder.cpp
+E:\HonsRepo\Honours Project\Honours Project\Shape.h(16,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+E:\HonsRepo\Honours Project\Honours Project\cylinder.cpp(48,20): warning C4018: '<': signed/unsigned mismatch
+E:\HonsRepo\Honours Project\Honours Project\cylinder.cpp(60,20): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Honours Project.vcxproj -> E:\HonsRepo\Honours Project\Debug\Honours Project.exe

@@ -84,10 +84,8 @@ vector<glm::vec3> Cube::getHull()
 }
 
 void Cube::update()
-{
-	//VelocityVerletSolver(dt);
-	//transform->RotateY(0.1f);
-	//rotator += 0.1f;
+{ 
+
 }
 
 void Cube::draw(GLuint shader,

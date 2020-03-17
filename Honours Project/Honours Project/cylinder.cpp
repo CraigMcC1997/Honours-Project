@@ -85,9 +85,7 @@ vector<glm::vec3> Cylinder::getHull()
 
 void Cylinder::update()
 {
-	//VelocityVerletSolver(dt);
-	//transform->RotateY(0.1f);
-	//rotator += 0.1f;
+
 }
 
 void Cylinder::draw(GLuint shader, std::stack<glm::mat4>* _mvStack, glm::mat4 projection)
