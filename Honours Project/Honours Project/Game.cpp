@@ -18,7 +18,7 @@ void Game::init() {
 
 	//randomly placing the boxes
 	srand(time(NULL));
-	for (auto i = 0; i < 5; i++) {
+	for (auto i = 0; i < MAX_SHAPES; i++) {
 		glm::vec3 position = glm::vec3(rand() % 60, rand() % 20, rand() % 30);
 		boxes[i] = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), 
 			position, textures[0]);
@@ -27,7 +27,7 @@ void Game::init() {
 		grid->registerObj(boxes[i]);
 	}
 
-	for (auto i = 0; i < 5; i++) {
+	for (auto i = 0; i < MAX_SHAPES; i++) {
 		glm::vec3 position = glm::vec3(rand() % 60, rand() % 20, rand() % 30);
 		cone[i] = new Cone(glm::vec3(1.0f, 1.0f, 1.0f),
 			position, textures[2]);
@@ -36,7 +36,7 @@ void Game::init() {
 		grid->registerObj(cone[i]);
 	}
 
-	for (auto i = 0; i < 5; i++) {
+	for (auto i = 0; i < MAX_SHAPES; i++) {
 		glm::vec3 position = glm::vec3(rand() % 60, rand() % 20, rand() % 30);
 		
 		ball[i] = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), 
@@ -46,7 +46,7 @@ void Game::init() {
 		grid->registerObj(ball[i]);
 	}
 
-	for (auto i = 0; i < 5; i++) {
+	for (auto i = 0; i < MAX_SHAPES; i++) {
 		glm::vec3 position = glm::vec3(rand() % 60, rand() % 20, rand() % 30);
 
 		cylinder[i] = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f),
@@ -72,6 +72,9 @@ void Game::init() {
 }
 
 //Get mouse data
+//THIS CODE WAS TAKEN FROM 
+//https://learnopengl.com/code_viewer_gh.php?code=src/1.getting_started/7.2.camera_keyboard_dt/camera_keyboard_dt.cpp
+//All camera code based around the https://learnopengl.com/Getting-started/Camera tutorial
 void Game::mouse_callback(double xpos, double ypos)
 {
 	float xoffset = xpos - lastX;
@@ -100,7 +103,8 @@ void Game::mouse_callback(double xpos, double ypos)
 
 void Game::checkCollisions()
 {
-	for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end() - 1; ++it)
+	for (vector<Shape*>::iterator it = gameEntities.begin(); 
+		it < gameEntities.end() - 1; ++it)
 	{
 		//dynamic cast first object here //
 		Cube* cube1 = dynamic_cast<Cube*> (*it);
@@ -186,7 +190,6 @@ void Game::checkCollisions()
 						{
 							//Collision response
 							//Sound::playSample(samples[0]);
-							//cube1->changeTexture(textures[1]);
 							cone1->changeTexture(textures[3]);
 							cone2->changeTexture(textures[3]);
 						}
@@ -239,7 +242,6 @@ void Game::checkCollisions()
 						{
 							//Collision response
 							//Sound::playSample(samples[0]);
-							//cube1->changeTexture(textures[1]);
 							sphere->changeTexture(textures[3]);
 							sphere2->changeTexture(textures[3]);
 						}
@@ -252,7 +254,6 @@ void Game::checkCollisions()
 						{
 							//Collision response
 							//Sound::playSample(samples[0]);
-							//cube1->changeTexture(textures[1]);
 							sphere->changeTexture(textures[3]);
 							cylinder->changeTexture(textures[3]);
 						}
@@ -293,23 +294,16 @@ void Game::checkCollisions()
 	}
 }
 
-void Game::update(SDL_Event sdlEvent)
-{	
+void Game::update(SDL_Event sdlEvent) {	
 	int mouseX, mouseY;
-	if (!SDL_GetGlobalMouseState(&mouseX, &mouseY))	//mouse input
+	if (!SDL_GetGlobalMouseState(&mouseX, &mouseY)) //tracking mouse position/ input
 		mouse_callback(mouseX, mouseY);
-
-	const Uint8* keys = SDL_GetKeyboardState(NULL); //keyboard input
 
 	//Clear grid here
 	grid->clearGrid();
-
-	for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end(); it++)
-	{
+	for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end(); it++) {
 		(*it)->update();
-		
-		//Register object to grid here
-		grid->registerObj(*it);
+		grid->registerObj(*it); //Register object to grid here
 	}
 	checkCollisions();
 	player->update();

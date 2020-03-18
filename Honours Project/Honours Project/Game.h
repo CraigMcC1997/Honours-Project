@@ -16,10 +16,11 @@ class Game
 {
 private:
 	//shapes
-	Cube* boxes[5];
-	Sphere* ball[5];
-	Cone* cone[5];
-	Cylinder* cylinder[5];
+	Cube* boxes[10];
+	Sphere* ball[10];
+	Cone* cone[10];
+	Cylinder* cylinder[10];
+	const int MAX_SHAPES = 10;
 
 	Player* player = new Player();
 	GJK* gjk = new GJK();

@@ -19,7 +19,5 @@
 namespace rt3d {
 	void loadObj(const char* filename, std::vector<GLfloat> &verts, std::vector<GLfloat> &norms,
 		std::vector<GLfloat> &texcoords, std::vector<GLuint> &indices);
-
-	//std::vector<glm::vec3> getVerts();
 }
 #endif

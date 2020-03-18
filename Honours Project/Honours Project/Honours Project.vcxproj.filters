@@ -48,15 +48,6 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Convex_Hull.cpp">
-      <Filter>Source Files\CollisionDetection</Filter>
-    </ClCompile>
-    <ClCompile Include="MinkowskiSum.cpp">
-      <Filter>Source Files\CollisionDetection</Filter>
-    </ClCompile>
-    <ClCompile Include="Simplex.cpp">
-      <Filter>Source Files\CollisionDetection</Filter>
-    </ClCompile>
     <ClCompile Include="SupportFunction.cpp">
       <Filter>Source Files\CollisionDetection</Filter>
     </ClCompile>
@@ -121,15 +112,6 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Convex_Hull.h">
-      <Filter>Header Files\CollisionDetection</Filter>
-    </ClInclude>
-    <ClInclude Include="MinkowskiSum.h">
-      <Filter>Header Files\CollisionDetection</Filter>
-    </ClInclude>
-    <ClInclude Include="Simplex.h">
-      <Filter>Header Files\CollisionDetection</Filter>
     </ClInclude>
     <ClInclude Include="SupportFunction.h">
       <Filter>Header Files\CollisionDetection</Filter>

@@ -1,4 +1,4 @@
-/* md2model.h - based on original:
+    /* md2model.h - based on original:
  * md2.c -- md2 model loader
 
  * Modified: March 2013 by Daniel Livingstone

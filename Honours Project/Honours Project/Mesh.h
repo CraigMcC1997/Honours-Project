@@ -31,6 +31,6 @@ private:
 public:
 	void loadMesh(string filename);
 	void drawMesh(GLuint shader, std::stack<glm::mat4>* _mvStack,
-		glm::mat4 projection, GLuint texture, Transform* modelMatrix);//, glm::vec3 pos, glm::vec3 scale);
+		glm::mat4 projection, GLuint texture, Transform* modelMatrix);
 	vector<GLfloat>* getVerts();
 };

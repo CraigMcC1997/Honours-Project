@@ -10,9 +10,9 @@
 class SupportFunction
 {
 private:
-	unsigned int furthestPoint(const glm::vec3& direction, const std::vector<glm::vec3>& points);
+	unsigned int furthestPoint(const glm::vec3&, const std::vector<glm::vec3>&);
 public:
-	glm::vec3 support(const glm::vec3& direction, 
-		const std::vector<glm::vec3>& points, const std::vector<glm::vec3>& points2);
+	glm::vec3 support(const glm::vec3&, 
+		const std::vector<glm::vec3>&, const std::vector<glm::vec3>&);
 };
 

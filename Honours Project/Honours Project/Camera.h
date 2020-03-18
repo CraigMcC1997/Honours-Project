@@ -1,3 +1,6 @@
+//THIS CODE WAS TAKEN FROM 
+//https://learnopengl.com/code_viewer_gh.php?code=src/1.getting_started/7.2.camera_keyboard_dt/camera_keyboard_dt.cpp
+//All camera code based around the https://learnopengl.com/Getting-started/Camera tutorial
 #pragma once
 #ifndef CAMERA
 #define CAMERA

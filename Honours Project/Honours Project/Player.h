@@ -1,12 +1,13 @@
 #pragma once
 #include "Entity.h"
 #include "Camera.h"
+#include "loadTextures.h"
 
 #include "Cube.h"
 #include "Cone.h"
 #include "Sphere.h"
 #include "cylinder.h"
-#include "loadTextures.h"
+
 
 class Player : public Entity
 {
