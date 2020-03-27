@@ -140,6 +140,7 @@
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Maths.cpp" />
     <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="PlaySound.cpp" />
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="cone.cpp" />
@@ -166,6 +167,7 @@
     <ClInclude Include="Grid.h" />
     <ClInclude Include="Maths.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Mouse.h" />
     <ClInclude Include="PlaySound.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="collisionDetector.h" />
