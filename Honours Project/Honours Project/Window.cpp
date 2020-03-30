@@ -3,7 +3,7 @@
 SDL_Window* Window::setupRC(SDL_GLContext &context)
 {
 	if (SDL_Init(SDL_INIT_VIDEO) < 0) // Initialize video
-		cout << "Unable to initialize SDL" << endl;
+		std::cout << "Unable to initialize SDL" << std::endl;
 
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
@@ -19,7 +19,7 @@ SDL_Window* Window::setupRC(SDL_GLContext &context)
 	window = SDL_CreateWindow(windowName, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
 		width, height, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
 	if (!window) // Check window was created OK
-		cout << "Unable to create window" << endl;
+		std::cout << "Unable to create window" << std::endl;
 
 	context = SDL_GL_CreateContext(window); // Create opengl context and attach to window
 	SDL_GL_SetSwapInterval(1); // set swap buffers to sync with monitor's vertical refresh rate

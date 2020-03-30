@@ -1,7 +1,8 @@
  #include "GJK.h"
 
-bool GJK::performDetection(vector<glm::vec3>& hull1, vector<glm::vec3>& hull2)
+bool GJK::performDetection(std::vector<glm::vec3>& hull1, std::vector<glm::vec3>& hull2)
 {
+	t1 = chrono::high_resolution_clock::now();
 	initialise(hull1, hull2);
 
 	steps = 0;
@@ -12,14 +13,19 @@ bool GJK::performDetection(vector<glm::vec3>& hull1, vector<glm::vec3>& hull2)
 		else 
 		{
 			if (ContainsOrigin(direction))
+			{
+				t2 = chrono::high_resolution_clock::now();
+				auto time = chrono::duration_cast<chrono::microseconds>(t2 - t1).count();
+				cout << time << ' ' << "microseconds.\n";
 				return true;
+			}
 		}
 		steps++;
 	}
 	return false;
 }
 
-bool GJK::initialise(vector<glm::vec3>& hull1, vector<glm::vec3>& hull2)
+bool GJK::initialise(std::vector<glm::vec3>& hull1, std::vector<glm::vec3>& hull2)
 {
 	simplex[2] = support->support(direction, hull1, hull2);	//Adding first point to the simplex
 	direction = -simplex[2];								//opposite direction

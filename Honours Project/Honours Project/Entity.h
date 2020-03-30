@@ -15,8 +15,6 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
 class Entity
 {
 public:

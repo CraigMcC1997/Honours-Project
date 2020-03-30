@@ -20,11 +20,11 @@ private:
 	Mouse* mouse = new Mouse();
 
 	//shapes
-	Cube* boxes[5];
-	Sphere* ball[5];
-	Cone* cone[5];
-	Cylinder* cylinder[5];
-	const int MAX_SHAPES = 5;
+	Cube* boxes[1];
+	Cone* cone[1];
+	Sphere* ball[1];
+	Cylinder* cylinder[1];
+	const int MAX_SHAPES = 1;
 
 	Player* player = new Player();
 	GJK* gjk = new GJK();

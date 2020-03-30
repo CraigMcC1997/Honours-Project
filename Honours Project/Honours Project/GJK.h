@@ -3,10 +3,19 @@
 #include "collisionDetector.h"
 #include "SupportFunction.h"
 #include "Maths.h"
+#include <chrono>
+#include <iostream>
+
+using namespace::std;
+//using namespace std::chrono;
+using chronoTime = chrono::time_point<chrono::high_resolution_clock>;
 
 class GJK : public collisionDetector
 {
 private:
+	//for timing 
+	chronoTime t1, t2;
+
 	SupportFunction* support = new SupportFunction();
 
 	int steps;
@@ -14,7 +23,7 @@ private:
 	glm::vec3 simplex[4];
 	glm::vec3 direction = glm::vec3(1, 1, 1);
 
-	bool initialise(vector<glm::vec3>&, vector<glm::vec3>&);
+	bool initialise(std::vector<glm::vec3>&, std::vector<glm::vec3>&);
 	bool ContainsOrigin(glm::vec3&);
 	bool triangle(glm::vec3&);
 	bool tetrahedron(glm::vec3&);
@@ -23,5 +32,5 @@ private:
 
 public:
 	GJK() { };
-	bool performDetection(vector<glm::vec3>&, vector<glm::vec3>&);
+	bool performDetection(std::vector<glm::vec3>&, std::vector<glm::vec3>&);
 };
