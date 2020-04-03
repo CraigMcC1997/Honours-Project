@@ -1,6 +1,1 @@
-﻿  Game.cpp
-E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Shape.h(16,19): warning C4305: 'initializing': truncation from 'double' to 'float'
-  main.cpp
-E:\1.University\Year4\Honours Project\REPO\Honours Project\Honours Project\Shape.h(16,19): warning C4305: 'initializing': truncation from 'double' to 'float'
-  Generating Code...
-  Honours Project.vcxproj -> E:\1.University\Year4\Honours Project\REPO\Honours Project\Debug\Honours Project.exe
+﻿

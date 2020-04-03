@@ -2,7 +2,6 @@
 
 bool GJK::performDetection(std::vector<glm::vec3>& hull1, std::vector<glm::vec3>& hull2)
 {
-	t1 = chrono::high_resolution_clock::now();
 	initialise(hull1, hull2);
 
 	steps = 0;
@@ -14,9 +13,6 @@ bool GJK::performDetection(std::vector<glm::vec3>& hull1, std::vector<glm::vec3>
 		{
 			if (ContainsOrigin(direction))
 			{
-				t2 = chrono::high_resolution_clock::now();
-				auto time = chrono::duration_cast<chrono::microseconds>(t2 - t1).count();
-				cout << time << ' ' << "microseconds.\n";
 				return true;
 			}
 		}
@@ -36,7 +32,9 @@ bool GJK::initialise(std::vector<glm::vec3>& hull1, std::vector<glm::vec3>& hull
 		return false;
 
 	//updating search direction
-	direction = Maths::doubleCross(simplex[2] - simplex[1], -simplex[1]);
+	glm::vec3 bc = simplex[2] - simplex[1];
+	glm::vec3 ao = -simplex[1];
+	direction = glm::cross(glm::cross(bc, ao), bc);
 
 	simplexSize = 2; //begin with a line
 }
@@ -58,11 +56,11 @@ bool GJK::triangle(glm::vec3& direction)
 	glm::vec3 ao = -simplex[0];					//Line AO
 	glm::vec3 ab = simplex[1] - simplex[0];		//Line AB
 	glm::vec3 ac = simplex[2] - simplex[0];		//Line AC
-	glm::vec3 abc = Maths::cross(ab, ac);		//Face ABC
+	glm::vec3 abc = glm::cross(ab, ac);		//Face ABC
 
 	//origin can't be behind points B,C or line BC 
 
-	glm::vec3 ab_abc = Maths::cross(ab, abc);	//Line AB on face ABC
+	glm::vec3 ab_abc = glm::cross(ab, abc);	//Line AB on face ABC
 	
 	//is the origin away from AB?
 	if (dot(ab_abc, ao) > 0) {
@@ -70,19 +68,19 @@ bool GJK::triangle(glm::vec3& direction)
 		simplex[1] = simplex[0];
 
 		//not facing origin, find new direction
-		direction = Maths::doubleCross(ab, ao);
+		direction = glm::cross(glm::cross(ab, ao), ab);
 
 		//can't build tetrahedron
 		return false;
 	}
 
-	glm::vec3 abc_ac = Maths::cross(abc, ac);	//Line AC on face ABC
+	glm::vec3 abc_ac = glm::cross(abc, ac);	//Line AC on face ABC
 
 	// is the origin away from AC? 
 	if (dot(abc_ac, ao) > 0) {
 		simplex[1] = simplex[0];
 
-		direction = Maths::doubleCross(ac, ao);
+		direction = glm::cross(glm::cross(ac, ao), ac);
 
 		//direction change; can't build tetrahedron
 		return false;
@@ -115,7 +113,7 @@ bool GJK::tetrahedron(glm::vec3& direction) {
 	glm::vec3 ao = -simplex[0];					//Line AO
 	glm::vec3 ab = simplex[1] - simplex[0];		//Line AB
 	glm::vec3 ac = simplex[2] - simplex[0];		//Line AC
-	glm::vec3 abc = Maths::cross(ab, ac);		//FACE ABC
+	glm::vec3 abc = glm::cross(ab, ac);		//FACE ABC
 
 	//CASE 1
 	//in front of face ABC
@@ -124,7 +122,7 @@ bool GJK::tetrahedron(glm::vec3& direction) {
 
 	//CASE 2
 	glm::vec3 ad = simplex[3] - simplex[0];		//Line AD
-	glm::vec3 acd = Maths::cross(ac, ad); 		//Face ACD
+	glm::vec3 acd = glm::cross(ac, ad); 		//Face ACD
 	
 	//in front of face ACD
 	if (dot(acd,ao) > 0) {
@@ -138,7 +136,7 @@ bool GJK::tetrahedron(glm::vec3& direction) {
 	}
 
 	//CASE 3
-	glm::vec3 adb = Maths::cross(ad, ab); //ADB triangle
+	glm::vec3 adb = glm::cross(ad, ab); //ADB triangle
 
 	//in front of face ADB
 	if (dot(adb,ao) > 0) {
@@ -160,7 +158,7 @@ bool GJK::tetrahedron(glm::vec3& direction) {
 bool GJK::checkTetrahedron(const glm::vec3& ao, const glm::vec3& ab,
 	const glm::vec3& ac, const glm::vec3& abc, glm::vec3& direction)
 {
-	glm::vec3 ab_abc = Maths::cross(ab, abc);		//Line AB on face ABC
+	glm::vec3 ab_abc = glm::cross(ab, abc);		//Line AB on face ABC
 
 	if (dot(ab_abc,ao) > 0)
 	{
@@ -168,20 +166,20 @@ bool GJK::checkTetrahedron(const glm::vec3& ao, const glm::vec3& ab,
 		simplex[1] = simplex[0];
 
 		//direction is not ab_abc because it does not point towards the origin
-		direction = Maths::doubleCross(ab, ao);
+		direction = glm::cross(glm::cross(ab, ao), ab);
 
 		//start again from triangle checks
 		simplexSize = 2;
 		return false;
 	}
 
-	glm::vec3 acp = Maths::cross(abc, ac);		//Face 
+	glm::vec3 acp = glm::cross(abc, ac);		//Face 
 
 	if (dot(acp,ao) > 0) {
 		simplex[1] = simplex[0];
 
 		//direction is not abc_ac because it's not point towards the origin
-		direction = Maths::doubleCross(ac, ao);
+		direction = glm::cross(glm::cross(ac, ao), ac);
 
 		//start again from triangle checks
 		simplexSize = 2;

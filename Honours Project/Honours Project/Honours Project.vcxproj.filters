@@ -78,9 +78,6 @@
     <ClCompile Include="Sphere.cpp">
       <Filter>Source Files\Shapes</Filter>
     </ClCompile>
-    <ClCompile Include="Maths.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="Transform.cpp">
       <Filter>Source Files\Shapes</Filter>
     </ClCompile>
@@ -151,9 +148,6 @@
     </ClInclude>
     <ClInclude Include="Sphere.h">
       <Filter>Header Files\Shapes</Filter>
-    </ClInclude>
-    <ClInclude Include="Maths.h">
-      <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="collisionDetector.h">
       <Filter>Header Files\CollisionDetection</Filter>

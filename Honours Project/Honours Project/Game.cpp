@@ -73,165 +73,167 @@ void Game::init() {
 
 void Game::checkCollisions()
 {
-	//for (vector<Shape*>::iterator it = gameEntities.begin(); 
-	//	it < gameEntities.end() - 1; ++it)
-	//{
-	//	//dynamic cast first object here //
-	//	Cube* cube1 = dynamic_cast<Cube*> (*it);
-	//	if (cube1 != nullptr)
-	//	{
-	//		vector<Shape*> objs = grid->getNeighbours(cube1);
-	//		for (auto it1 = objs.begin(); it1 != objs.end(); it1++)
-	//		{
-	//			if (*it != *it1)
-	//			{
-	//				//dynamic cast second object here//
-	//				Cube* cube2 = dynamic_cast<Cube*> (*it1);
-	//				if (cube2 != nullptr)
-	//				{
-	//					if (gjk->performDetection(*&cube1->getHull(), *&cube2->getHull()))
-	//					{
-	//						//Collision response
-	//						cube2->changeTexture(textures[1]);
-	//					}
-	//				}
+	//t1 = chrono::high_resolution_clock::now();
 
-	//				//dynamic cast third object here//
-	//				Cone* cone = dynamic_cast<Cone*> (*it1);
-	//				if (cone != nullptr)
-	//				{
-	//					if (gjk->performDetection(*&cone->getHull(), *&cube1->getHull()))
-	//					{
-	//						//Collision response
-	//						//Sound::playSample(samples[0]);
-	//						cube1->changeTexture(textures[1]);
-	//						cone->changeTexture(textures[3]);
-	//					}
-	//				}
+	for (vector<Shape*>::iterator it = gameEntities.begin(); 
+		it < gameEntities.end() - 1; ++it)
+	{
+		//dynamic cast first object here //
+		Cube* cube1 = dynamic_cast<Cube*> (*it);
+		if (cube1 != nullptr)
+		{
+			vector<Shape*> objs = grid->getNeighbours(cube1);
+			for (auto it1 = objs.begin(); it1 != objs.end(); it1++)
+			{
+				if (*it != *it1)
+				{
+					//dynamic cast second object here//
+					Cube* cube2 = dynamic_cast<Cube*> (*it1);
+					if (cube2 != nullptr)
+					{
+						if (gjk->performDetection(*&cube1->getHull(), *&cube2->getHull()))
+						{
+							//Collision response
+							cube2->changeTexture(textures[1]);
+						}
+					}
 
-	//				Sphere* sphere1 = dynamic_cast<Sphere*>(*it1);
-	//				if (sphere1 != nullptr)
-	//				{
-	//					if (gjk->performDetection(*&sphere1->getHull(), *&cube1->getHull()))
-	//					{
-	//						//Collision response
-	//						//Sound::playSample(samples[0]);
-	//						sphere1->changeTexture(textures[3]);
-	//						cube1->changeTexture(textures[1]);
-	//					}
-	//				}
+					//dynamic cast third object here//
+					Cone* cone = dynamic_cast<Cone*> (*it1);
+					if (cone != nullptr)
+					{
+						if (gjk->performDetection(*&cone->getHull(), *&cube1->getHull()))
+						{
+							//Collision response
+							//Sound::playSample(samples[0]);
+							cube1->changeTexture(textures[1]);
+							cone->changeTexture(textures[3]);
+						}
+					}
 
-	//				Cylinder* cylinder1 = dynamic_cast<Cylinder*>(*it1);
-	//				if (cylinder1 != nullptr)
-	//				{
-	//					if (gjk->performDetection(*&cylinder1->getHull(), *&cube1->getHull()))
-	//					{
-	//						//Collision response
-	//						//Sound::playSample(samples[0]);
-	//						cylinder1->changeTexture(textures[3]);
-	//						cube1->changeTexture(textures[1]);
-	//					}
-	//				}
-	//			}
-	//		}
-	//	}
-	//}
+					Sphere* sphere1 = dynamic_cast<Sphere*>(*it1);
+					if (sphere1 != nullptr)
+					{
+						if (gjk->performDetection(*&sphere1->getHull(), *&cube1->getHull()))
+						{
+							//Collision response
+							//Sound::playSample(samples[0]);
+							sphere1->changeTexture(textures[3]);
+							cube1->changeTexture(textures[1]);
+						}
+					}
 
-
-
-
-	//for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end() - 1; ++it)
-	//{
-	//	//dynamic cast first object here //
-	//	Cone* cone1 = dynamic_cast<Cone*> (*it);
-	//	if (cone1 != nullptr)
-	//	{
-	//		vector<Shape*> objs = grid->getNeighbours(cone1);//gameEntities;
-
-	//		for (auto it1 = objs.begin(); it1 != objs.end(); it1++)
-	//		{
-	//			if (*it != *it1)
-	//			{
-	//				////dynamic cast second object here //
-	//				//Cone* cone2 = dynamic_cast<Cone*> (*it1);
-	//				//if (cone2 != nullptr)
-	//				//{
-	//				//	if (gjk->performDetection(*&cone1->getHull(), *&cone2->getHull()))
-	//				//	{
-	//				//		//Collision response
-	//				//		//Sound::playSample(samples[0]);
-	//				//		cone1->changeTexture(textures[3]);
-	//				//		cone2->changeTexture(textures[3]);
-	//				//	}
-	//				//}
-	//				//Sphere* sphere1 = dynamic_cast<Sphere*>(*it1);
-	//				//if (sphere1 != nullptr)
-	//				//{
-	//				//	if (gjk->performDetection(*&sphere1->getHull(), *&cone1->getHull()))
-	//				//	{
-	//				//		//Collision response
-	//				//		//Sound::playSample(samples[0]);
-	//				//		sphere1->changeTexture(textures[3]);
-	//				//		cone1->changeTexture(textures[3]);
-	//				//	}
-	//				//}
-	//				//Cylinder* cylinder1 = dynamic_cast<Cylinder*>(*it1);
-	//				//if (cylinder1 != nullptr)
-	//				//{
-	//				//	if (gjk->performDetection(*&cylinder1->getHull(), *&cone1->getHull()))
-	//				//	{
-	//				//		//Collision response
-	//				//		//Sound::playSample(samples[0]);
-	//				//		cylinder1->changeTexture(textures[3]);
-	//				//		cone1->changeTexture(textures[3]);
-	//				//	}
-	//				//}
-	//			}
-	//		}
-	//	}
-	//}
+					Cylinder* cylinder1 = dynamic_cast<Cylinder*>(*it1);
+					if (cylinder1 != nullptr)
+					{
+						if (gjk->performDetection(*&cylinder1->getHull(), *&cube1->getHull()))
+						{
+							//Collision response
+							//Sound::playSample(samples[0]);
+							cylinder1->changeTexture(textures[3]);
+							cube1->changeTexture(textures[1]);
+						}
+					}
+				}
+			}
+		}
+	}
 
 
-	//for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end() - 1; ++it)
-	//{
-	//	//dynamic cast first object here //
-	//	Sphere* sphere = dynamic_cast<Sphere*> (*it);
-	//	if (sphere != nullptr)
-	//	{
-	//		vector<Shape*> objs = grid->getNeighbours(sphere);//gameEntities;
 
-	//		for (auto it1 = objs.begin(); it1 != objs.end(); it1++)
-	//		{
-	//			if (*it != *it1)
-	//			{
-	//				////dynamic cast second object here //
-	//				//Sphere* sphere2 = dynamic_cast<Sphere*> (*it1);
-	//				//if (sphere2 != nullptr)
-	//				//{
-	//				//	if (gjk->performDetection(*&sphere->getHull(), *&sphere2->getHull()))
-	//				//	{
-	//				//		//Collision response
-	//				//		//Sound::playSample(samples[0]);
-	//				//		sphere->changeTexture(textures[3]);
-	//				//		sphere2->changeTexture(textures[3]);
-	//				//	}
-	//				//}
 
-	//				//Cylinder* cylinder = dynamic_cast<Cylinder*> (*it1);
-	//				//if (cylinder != nullptr)
-	//				//{
-	//				//	if (gjk->performDetection(*&sphere->getHull(), *&cylinder->getHull()))
-	//				//	{
-	//				//		//Collision response
-	//				//		//Sound::playSample(samples[0]);
-	//				//		sphere->changeTexture(textures[3]);
-	//				//		cylinder->changeTexture(textures[3]);
-	//				//	}
-	//				//}
-	//			}
-	//		}
-	//	}
-	//}
+	for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end() - 1; ++it)
+	{
+		//dynamic cast first object here //
+		Cone* cone1 = dynamic_cast<Cone*> (*it);
+		if (cone1 != nullptr)
+		{
+			vector<Shape*> objs = grid->getNeighbours(cone1);//gameEntities;
+
+			for (auto it1 = objs.begin(); it1 != objs.end(); it1++)
+			{
+				if (*it != *it1)
+				{
+					//dynamic cast second object here //
+					Cone* cone2 = dynamic_cast<Cone*> (*it1);
+					if (cone2 != nullptr)
+					{
+						if (gjk->performDetection(*&cone1->getHull(), *&cone2->getHull()))
+						{
+							//Collision response
+							//Sound::playSample(samples[0]);
+							cone1->changeTexture(textures[3]);
+							cone2->changeTexture(textures[3]);
+						}
+					}
+					Sphere* sphere1 = dynamic_cast<Sphere*>(*it1);
+					if (sphere1 != nullptr)
+					{
+						if (gjk->performDetection(*&sphere1->getHull(), *&cone1->getHull()))
+						{
+							//Collision response
+							//Sound::playSample(samples[0]);
+							sphere1->changeTexture(textures[3]);
+							cone1->changeTexture(textures[3]);
+						}
+					}
+					Cylinder* cylinder1 = dynamic_cast<Cylinder*>(*it1);
+					if (cylinder1 != nullptr)
+					{
+						if (gjk->performDetection(*&cylinder1->getHull(), *&cone1->getHull()))
+						{
+							//Collision response
+							//Sound::playSample(samples[0]);
+							cylinder1->changeTexture(textures[3]);
+							cone1->changeTexture(textures[3]);
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+	for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end() - 1; ++it)
+	{
+		//dynamic cast first object here //
+		Sphere* sphere = dynamic_cast<Sphere*> (*it);
+		if (sphere != nullptr)
+		{
+			vector<Shape*> objs = grid->getNeighbours(sphere);//gameEntities;
+
+			for (auto it1 = objs.begin(); it1 != objs.end(); it1++)
+			{
+				if (*it != *it1)
+				{
+					//dynamic cast second object here //
+					Sphere* sphere2 = dynamic_cast<Sphere*> (*it1);
+					if (sphere2 != nullptr)
+					{
+						if (gjk->performDetection(*&sphere->getHull(), *&sphere2->getHull()))
+						{
+							//Collision response
+							//Sound::playSample(samples[0]);
+							sphere->changeTexture(textures[3]);
+							sphere2->changeTexture(textures[3]);
+						}
+					}
+
+					Cylinder* cylinder = dynamic_cast<Cylinder*> (*it1);
+					if (cylinder != nullptr)
+					{
+						if (gjk->performDetection(*&sphere->getHull(), *&cylinder->getHull()))
+						{
+							//Collision response
+							//Sound::playSample(samples[0]);
+							sphere->changeTexture(textures[3]);
+							cylinder->changeTexture(textures[3]);
+						}
+					}
+				}
+			}
+		}
+	}
 
 	for (vector<Shape*>::iterator it = gameEntities.begin(); it < gameEntities.end() - 1; ++it)
 	{
@@ -262,6 +264,10 @@ void Game::checkCollisions()
 			}
 		}
 	}
+
+	//t2 = chrono::high_resolution_clock::now();
+	//auto time = chrono::duration_cast<chrono::milliseconds>(t2 - t1).count();
+	//cout << time << " \n"; //<< ' ' << "milliseconds.\n"; // 
 }
 
 void Game::update(SDL_Event sdlEvent) {	

@@ -2,20 +2,10 @@
 #pragma once
 #include "collisionDetector.h"
 #include "SupportFunction.h"
-#include "Maths.h"
-#include <chrono>
-#include <iostream>
-
-using namespace::std;
-//using namespace std::chrono;
-using chronoTime = chrono::time_point<chrono::high_resolution_clock>;
 
 class GJK : public collisionDetector
 {
 private:
-	//for timing 
-	chronoTime t1, t2;
-
 	SupportFunction* support = new SupportFunction();
 
 	int steps;

@@ -12,19 +12,27 @@
 #include "Grid.h"
 #include "Mouse.h"
 #include <time.h>
+#include <chrono>
+#include <iostream>
+
+using namespace::std;
+using chronoTime = chrono::time_point<chrono::high_resolution_clock>;
 
 class Game
 {
 private:
+	//for timing 
+	chronoTime t1, t2;
+
 	//mouse
 	Mouse* mouse = new Mouse();
 
 	//shapes
-	Cube* boxes[1];
-	Cone* cone[1];
-	Sphere* ball[1];
-	Cylinder* cylinder[1];
-	const int MAX_SHAPES = 1;
+	static const int MAX_SHAPES = 4;
+	Cube* boxes[MAX_SHAPES];
+	Cone* cone[MAX_SHAPES];
+	Sphere* ball[MAX_SHAPES];
+	Cylinder* cylinder[MAX_SHAPES];
 
 	Player* player = new Player();
 	GJK* gjk = new GJK();
