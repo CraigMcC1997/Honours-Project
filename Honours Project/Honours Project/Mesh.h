@@ -1,3 +1,10 @@
+// ######################################################################################
+//
+// This class handles the mesh data, when called this class loads in and draws the 
+// 3D model used for each shape
+//
+// ######################################################################################
+
 #pragma once
 #include "rt3d.h"
 #include "rt3dObjLoader.h"

@@ -1,7 +1,15 @@
-//Get mouse data
-//THIS CODE WAS TAKEN FROM 
-//https://learnopengl.com/code_viewer_gh.php?code=src/1.getting_started/7.2.camera_keyboard_dt/camera_keyboard_dt.cpp
-//All camera code based around the https://learnopengl.com/Getting-started/Camera tutorial
+// ###################################################################################################################
+//
+// This class handles the mouse inputs for use by the camera class
+//
+// ###################################################################################################################
+//####################################################################################################################
+//
+// This code was taken from LearnOpenGL.com
+// https://learnopengl.com/code_viewer_gh.php?code=src/1.getting_started/7.2.camera_keyboard_dt/camera_keyboard_dt.cpp
+// All mouse code based around the https://learnopengl.com/Getting-started/Camera tutorial
+//
+//####################################################################################################################
 
 #pragma once
 #include "glm/glm.hpp"

@@ -1,3 +1,9 @@
+// ##########################################################
+//
+// This class handles the window data using the SDL2 library
+//
+// ##########################################################
+
 #pragma once
 #include "AbstractWindow.h"
 

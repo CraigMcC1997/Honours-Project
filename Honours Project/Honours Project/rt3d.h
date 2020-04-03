@@ -1,4 +1,13 @@
-//class written entirely by James Riordan and supplied to us for use via the RT3D module of 2nd year
+// ######################################################################################
+//
+// This class handles shaders, mesh data and lighting
+//
+// ######################################################################################
+// ######################################################################################
+//
+// This code was taken from the Real Time 3D Module, 2nd Year Games Technologies
+//
+// ######################################################################################
 
 #ifndef RT3D
 #define RT3D

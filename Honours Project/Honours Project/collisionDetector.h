@@ -1,3 +1,10 @@
+//###############################################################
+//
+// This class is designed as an interface for the implementation
+// of more than one collision detection system
+//
+//###############################################################
+
 #pragma once
 #include <vector>
 #include <glm/glm.hpp>

@@ -1,3 +1,9 @@
+// ######################################################################################
+//
+// This class handles all shape data and acts as a middle management class for all shapes
+//
+// ######################################################################################
+
 #pragma once
 #include "Entity.h"
 #include "Mesh.h"

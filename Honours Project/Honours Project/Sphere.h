@@ -1,5 +1,7 @@
 //################################################################
-// A sphere for testing purposes
+//
+// A sphere for collision testing purposes
+//
 //################################################################
 
 #pragma once

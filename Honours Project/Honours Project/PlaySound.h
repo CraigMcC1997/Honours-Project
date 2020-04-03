@@ -1,3 +1,9 @@
+// ########################################################
+//
+// This class handles loading audio files into the project
+//
+// ########################################################
+
 #ifndef SOUND
 #define SOUND
 #ifndef NOMINMAX

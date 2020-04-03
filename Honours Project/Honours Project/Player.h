@@ -1,3 +1,10 @@
+// ######################################################################################
+//
+// This class contains the player, with access to the camera to move and changing shapes
+// for collision testing purposes
+//
+// ######################################################################################
+
 #pragma once
 #include "Entity.h"
 #include "Camera.h"

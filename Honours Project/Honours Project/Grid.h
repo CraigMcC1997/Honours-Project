@@ -1,7 +1,14 @@
-//############################################
-//Code based on work from Dr Marco Gilardi's
-//Collision Detection Module
-//############################################
+// ######################################################################################
+//
+// This class contains the spatial data structure
+//
+// ######################################################################################
+//#######################################################################
+//
+// Code taken from Dr Marco Gilardi's Collision Detection Module
+// Computer Games Technologies, 2nd Year
+//
+//#######################################################################
 
 #pragma once
 #include <glm\glm.hpp>

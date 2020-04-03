@@ -1,3 +1,9 @@
+// ######################################################################################
+//
+// This class contains the convex hull created by the shape implementing it
+//
+// ######################################################################################
+
 #pragma once
 #include <glm/glm.hpp>
 #include <vector>

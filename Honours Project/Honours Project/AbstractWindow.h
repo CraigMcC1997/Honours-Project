@@ -1,3 +1,9 @@
+// ##########################################
+//
+// This is the abstract class for the window
+//
+// ##########################################
+
 #pragma once
 #include "SDL.h"
 #include <iostream>

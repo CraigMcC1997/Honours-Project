@@ -1,5 +1,13 @@
+// ######################################################################################
+//
+// This class is the highest level abstract class for all entities within the project
+//
+// ######################################################################################
 //################################################################
+//
 // An abstract entity class based on Marco Gilardi's entity class
+// Computer Games Technologies, 2nd Year
+//
 //################################################################
 
 #pragma once

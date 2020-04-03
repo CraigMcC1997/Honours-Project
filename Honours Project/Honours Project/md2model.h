@@ -37,6 +37,18 @@
  *
  * gcc -Wall -ansi -lGL -lGLU -lglut md2.c -o md2
  */
+
+ // ######################################################################################
+ //
+ // This class handles loading 3D obj model files into the project
+ //
+ // ######################################################################################
+ // ######################################################################################
+ //
+ // This code was taken from the Real Time 3D Module, 2nd Year Games Technologies
+ //
+ // ######################################################################################
+
 #define WIN32
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>

@@ -1,3 +1,9 @@
+// ##########################################################
+//
+// This class handles loading texture files into the project
+//
+// ##########################################################
+
 #pragma once
 
 #ifndef LOADTEXTURES

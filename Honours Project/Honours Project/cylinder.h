@@ -1,5 +1,7 @@
 //################################################################
-// A 3D cylinder for testing purposes
+//
+// A 3D cylinder for collision testing purposes
+//
 //################################################################
 
 #pragma once

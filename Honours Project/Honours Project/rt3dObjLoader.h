@@ -8,7 +8,19 @@
 // Does not support groups or multiple meshes per file
 // Does not support anything other than very straightforward OBJ models
 // Will not generate normals if the model is missing them - or any other missing data
-// class supplied to us by James Riordan for use via the RT3D module of 2nd year
+
+// ######################################################################################
+//
+// This class handles loading in 3D obj files
+//
+// ######################################################################################
+// ######################################################################################
+//
+// This code was taken from the Real Time 3D Module, 2nd Year Games Technologies
+//
+// ######################################################################################
+
+
 #ifndef RT3D_OBJ_LOADER
 #define RT3D_OBJ_LOADER
 

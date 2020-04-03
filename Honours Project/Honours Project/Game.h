@@ -1,3 +1,10 @@
+// ######################################################################################
+//
+// This class handles all game functionality and provides a working example
+// of the collision detection system implemented
+//
+// ######################################################################################
+
 #pragma once
 #include "Window.h"
 #include "loadTextures.h"
