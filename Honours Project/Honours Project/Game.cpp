@@ -9,9 +9,6 @@ void Game::init() {
 	textures[1] = loadTextures::loadTexture("../Resources/Textures/colliding.bmp");
 	textures[2] = loadTextures::loadTexture("../Resources/Textures/red.bmp");
 	textures[3] = loadTextures::loadTexture("../Resources/Textures/blue.bmp");
-	
-	//adding sound files to the array to be played later in code
-	samples[0] = Sound::loadSample("../Resources/SoundFiles/Click.wav", BASS_SAMPLE_OVER_POS);	
 
 	//adding a grid for optimisation
 	grid = new Grid(1200, 800, 50, 100);
@@ -105,7 +102,6 @@ void Game::checkCollisions()
 						if (gjk->performDetection(*&cone->getHull(), *&cube1->getHull()))
 						{
 							//Collision response
-							//Sound::playSample(samples[0]);
 							cube1->changeTexture(textures[1]);
 							cone->changeTexture(textures[3]);
 						}
@@ -117,7 +113,6 @@ void Game::checkCollisions()
 						if (gjk->performDetection(*&sphere1->getHull(), *&cube1->getHull()))
 						{
 							//Collision response
-							//Sound::playSample(samples[0]);
 							sphere1->changeTexture(textures[3]);
 							cube1->changeTexture(textures[1]);
 						}
@@ -129,7 +124,6 @@ void Game::checkCollisions()
 						if (gjk->performDetection(*&cylinder1->getHull(), *&cube1->getHull()))
 						{
 							//Collision response
-							//Sound::playSample(samples[0]);
 							cylinder1->changeTexture(textures[3]);
 							cube1->changeTexture(textures[1]);
 						}
@@ -161,7 +155,6 @@ void Game::checkCollisions()
 						if (gjk->performDetection(*&cone1->getHull(), *&cone2->getHull()))
 						{
 							//Collision response
-							//Sound::playSample(samples[0]);
 							cone1->changeTexture(textures[3]);
 							cone2->changeTexture(textures[3]);
 						}
@@ -172,7 +165,6 @@ void Game::checkCollisions()
 						if (gjk->performDetection(*&sphere1->getHull(), *&cone1->getHull()))
 						{
 							//Collision response
-							//Sound::playSample(samples[0]);
 							sphere1->changeTexture(textures[3]);
 							cone1->changeTexture(textures[3]);
 						}
@@ -183,7 +175,6 @@ void Game::checkCollisions()
 						if (gjk->performDetection(*&cylinder1->getHull(), *&cone1->getHull()))
 						{
 							//Collision response
-							//Sound::playSample(samples[0]);
 							cylinder1->changeTexture(textures[3]);
 							cone1->changeTexture(textures[3]);
 						}
@@ -213,7 +204,6 @@ void Game::checkCollisions()
 						if (gjk->performDetection(*&sphere->getHull(), *&sphere2->getHull()))
 						{
 							//Collision response
-							//Sound::playSample(samples[0]);
 							sphere->changeTexture(textures[3]);
 							sphere2->changeTexture(textures[3]);
 						}
@@ -225,7 +215,6 @@ void Game::checkCollisions()
 						if (gjk->performDetection(*&sphere->getHull(), *&cylinder->getHull()))
 						{
 							//Collision response
-							//Sound::playSample(samples[0]);
 							sphere->changeTexture(textures[3]);
 							cylinder->changeTexture(textures[3]);
 						}
@@ -254,8 +243,6 @@ void Game::checkCollisions()
 						if (gjk->performDetection(*&cylinder->getHull(), *&cylinder2->getHull()))
 						{
 							//Collision response
-							//Sound::playSample(samples[0]);
-							//cube1->changeTexture(textures[1]);
 							cylinder->changeTexture(textures[3]);
 							cylinder2->changeTexture(textures[3]);
 						}

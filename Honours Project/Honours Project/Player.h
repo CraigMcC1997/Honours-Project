@@ -2,6 +2,7 @@
 #include "Entity.h"
 #include "Camera.h"
 #include "loadTextures.h"
+#include "PlaySound.h"
 
 #include "Cube.h"
 #include "Cone.h"
@@ -27,6 +28,10 @@ private:
 	Cone* cone;
 	Cylinder* cylinder;
 
+	//Used by BASS library
+	HSAMPLE* samples = new HSAMPLE[1];
+	bool allowSound = true, playingSound = false;
+
 	void cameraUpdate(const Uint8*);
 
 public:
@@ -38,6 +43,7 @@ public:
 	void move(glm::vec3);
 	void changeShape(const Uint8*);
 	void storePosition();
+	void playClick();
 
 	Cube* getCube();
 	Sphere* getBall();

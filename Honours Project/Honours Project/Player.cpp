@@ -5,6 +5,9 @@ void Player::init()
 	//textures
 	texture = loadTextures::loadTexture("../Resources/Textures/player.bmp");
 
+	//audio
+	samples[0] = Sound::loadSample("../Resources/SoundFiles/Click.wav", BASS_SAMPLE_OVER_POS);
+
 	box = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 5.0f), texture);
 	box->init();
 
@@ -39,6 +42,15 @@ void Player::move(glm::vec3 dir)
 	}
 }
 
+void Player::playClick()
+{
+	if (allowSound)
+	{
+		allowSound = false;
+		Sound::playSample(samples[0]);
+	}
+}
+
 void Player::changeShape(const Uint8* keys)
 {
 	//changing player shape
@@ -49,6 +61,8 @@ void Player::changeShape(const Uint8* keys)
 		ball->setPosition(ballPosition);
 		cone->setPosition(conePosition);
 		cylinder->setPosition(cylinderPosition);
+
+		playClick();
 	}
 
 	if (keys[SDL_SCANCODE_2])
@@ -58,6 +72,7 @@ void Player::changeShape(const Uint8* keys)
 		box->setPosition(cubePosition);
 		cone->setPosition(conePosition);
 		cylinder->setPosition(cylinderPosition);
+		playClick();
 	}
 
 	if (keys[SDL_SCANCODE_3])
@@ -67,6 +82,7 @@ void Player::changeShape(const Uint8* keys)
 		ball->setPosition(ballPosition);
 		box->setPosition(cubePosition);
 		cylinder->setPosition(cylinderPosition);
+		playClick();
 	}
 
 	if (keys[SDL_SCANCODE_4])
@@ -76,7 +92,11 @@ void Player::changeShape(const Uint8* keys)
 		cone->setPosition(conePosition);
 		ball->setPosition(ballPosition);
 		box->setPosition(cubePosition);
+		playClick();
 	}
+
+	if(!keys[SDL_SCANCODE_1] && !keys[SDL_SCANCODE_2] && !keys[SDL_SCANCODE_3] && !keys[SDL_SCANCODE_4])
+		allowSound = true;
 }
 
 void Player::storePosition()

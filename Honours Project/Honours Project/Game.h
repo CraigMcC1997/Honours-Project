@@ -1,5 +1,4 @@
 #pragma once
-#include "PlaySound.h"
 #include "Window.h"
 #include "loadTextures.h"
 #include "Player.h"
@@ -45,9 +44,6 @@ private:
 	glm::vec4 lightPos = glm::vec4(1.0f, 2.0f, 2.0f, 1.0f); //global light position
 	GLuint shaderProgram;
 	std::stack<glm::mat4> mvStack;
-
-	//Used by BASS library
-	HSAMPLE* samples = new HSAMPLE[5];
 public:
 	void init();
 	void update(SDL_Event sdlEvent);

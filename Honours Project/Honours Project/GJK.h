@@ -1,4 +1,5 @@
 // This code was based on code from ->>> http://in2gpu.com/2014/05/18/gjk-algorithm-3d/
+
 #pragma once
 #include "collisionDetector.h"
 #include "SupportFunction.h"
