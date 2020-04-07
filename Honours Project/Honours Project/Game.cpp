@@ -16,7 +16,7 @@ void Game::init() {
 	//randomly placing the boxes
 	srand(time(NULL));
 	for (auto i = 0; i < MAX_SHAPES; i++) {
-		glm::vec3 position = glm::vec3(rand() % 60, rand() % 20, rand() % 30);
+		glm::vec3 position = glm::vec3(rand() % MAX_X, rand() % MAX_Y, rand() % MAX_Z);
 		boxes[i] = new Cube(glm::vec3(1.0f, 1.0f, 1.0f), 
 			position, textures[0]);
 		boxes[i]->init();
@@ -25,7 +25,7 @@ void Game::init() {
 	}
 
 	for (auto i = 0; i < MAX_SHAPES; i++) {
-		glm::vec3 position = glm::vec3(rand() % 60, rand() % 20, rand() % 30);
+		glm::vec3 position = glm::vec3(rand() % MAX_X, rand() % MAX_Y, rand() % MAX_Z);
 		cone[i] = new Cone(glm::vec3(1.0f, 1.0f, 1.0f),
 			position, textures[2]);
 		cone[i]->init();
@@ -34,7 +34,7 @@ void Game::init() {
 	}
 
 	for (auto i = 0; i < MAX_SHAPES; i++) {
-		glm::vec3 position = glm::vec3(rand() % 60, rand() % 20, rand() % 30);
+		glm::vec3 position = glm::vec3(rand() % MAX_X, rand() % MAX_Y, rand() % MAX_Z);
 		
 		ball[i] = new Sphere(glm::vec3(2.0f, 2.0f, 2.0f), 
 			position, textures[2]);
@@ -44,7 +44,7 @@ void Game::init() {
 	}
 
 	for (auto i = 0; i < MAX_SHAPES; i++) {
-		glm::vec3 position = glm::vec3(rand() % 60, rand() % 20, rand() % 30);
+		glm::vec3 position = glm::vec3(rand() % MAX_X, rand() % MAX_Y, rand() % MAX_Z);
 
 		cylinder[i] = new Cylinder(glm::vec3(2.5f, 2.5f, 2.5f),
 			position, textures[2]);
@@ -70,8 +70,6 @@ void Game::init() {
 
 void Game::checkCollisions()
 {
-	//t1 = chrono::high_resolution_clock::now();
-
 	for (vector<Shape*>::iterator it = gameEntities.begin(); 
 		it < gameEntities.end() - 1; ++it)
 	{
@@ -251,10 +249,6 @@ void Game::checkCollisions()
 			}
 		}
 	}
-
-	//t2 = chrono::high_resolution_clock::now();
-	//auto time = chrono::duration_cast<chrono::milliseconds>(t2 - t1).count();
-	//cout << time << " \n"; //<< ' ' << "milliseconds.\n"; // 
 }
 
 void Game::update(SDL_Event sdlEvent) {	

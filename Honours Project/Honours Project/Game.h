@@ -18,23 +18,18 @@
 #include "Grid.h"
 #include "Mouse.h"
 #include <time.h>
-#include <chrono>
-#include <iostream>
-
-using namespace::std;
-using chronoTime = chrono::time_point<chrono::high_resolution_clock>;
 
 class Game
 {
 private:
-	//for timing 
-	chronoTime t1, t2;
-
 	//mouse
 	Mouse* mouse = new Mouse();
 
+	//range for shape positions
+	const int MAX_X = 50, MAX_Y = 20, MAX_Z = 30;
+
 	//shapes
-	static const int MAX_SHAPES = 4;
+	static const int MAX_SHAPES = 5;
 	Cube* boxes[MAX_SHAPES];
 	Cone* cone[MAX_SHAPES];
 	Sphere* ball[MAX_SHAPES];
